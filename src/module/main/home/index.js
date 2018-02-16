@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, Button} from 'react-native';
+import {SafeAreaView as View, Text, Button} from 'react-native';
 
 import Inject from 'module';
 
@@ -13,12 +13,18 @@ class Home extends Component {
 
         return (
             <View style={Css.container}>
-                <Text style={Css.welcome} onClick={test}>{name}</Text>
-                <Button
-                    onPress={test}
-                    title="Press Me"
-                    accessibilityLabel="See an informative alert"
-                />
+                {/*<Text style={Css.welcome} onClick={test}>{name}</Text>*/}
+                {/*<Button*/}
+                {/*onPress={test}*/}
+                {/*title="Press Me"*/}
+                {/*accessibilityLabel="See an informative alert"*/}
+                {/*/>*/}
+                <Text style={Css.paragraph}>
+                    This is top text.
+                </Text>
+                <Text style={Css.paragraph}>
+                    This is bottom text.
+                </Text>
             </View>
         );
     }
