@@ -48,7 +48,7 @@ class Home extends Component {
                 <NavigationBar
                     leftComponent={(
                         <Button>
-                            <Icon name="ios-add" />
+                            <Icon name="ios-add-circle-outline" />
                         </Button>
                     )}
                     centerComponent={<Title>TITLE</Title>}
