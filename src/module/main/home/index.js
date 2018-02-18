@@ -1,6 +1,18 @@
 import React, {Component} from 'react';
-import Icon from 'react-native-vector-icons';
-import {Screen, View, Tile, Subtitle, ImageBackground, Title, ListView, NavigationBar, Divider} from '@shoutem/ui';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {
+    Screen,
+    View,
+    Tile,
+    Subtitle,
+    ImageBackground,
+    Title,
+    ListView,
+    NavigationBar,
+    Divider,
+    Button,
+    Text
+} from '@shoutem/ui';
 
 import Inject from 'module';
 
@@ -34,9 +46,20 @@ class Home extends Component {
         return (
             <Screen>
                 <NavigationBar
-                    title="Restaurants"
-                    styleName="inline"
+                    leftComponent={(
+                        <Button>
+                            <Icon name="ios-add" />
+                        </Button>
+                    )}
+                    centerComponent={<Title>TITLE</Title>}
+                    rightComponent={(
+                        <Button styleName="clear">
+                            <Text>Post</Text>
+                        </Button>
+                    )}
+                    styleName='inline'
                 />
+
                 <ListView
                     data={[
                         {
