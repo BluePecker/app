@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Icon from 'react-native-vector-icons/Ionicons';
 import {
     Screen,
     View,
@@ -7,12 +6,15 @@ import {
     Subtitle,
     ImageBackground,
     Title,
-    ListView,
     NavigationBar,
     Divider,
     Button,
-    Text
+    Text,
+    Spinner,
+    Row,
+    ListView
 } from '@shoutem/ui';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import Inject from 'module';
 
@@ -21,6 +23,8 @@ import Css from './css';
 import Model from 'model/main/home';
 
 class Home extends Component {
+
+    state = {header: true}
 
     renderRow(restaurant) {
         return (
@@ -40,6 +44,15 @@ class Home extends Component {
     }
 
 
+    renderHeader() {
+        return (
+            <View styleName='horizontal h-center' style={{paddingTop: 20, paddingBottom: 20}}>
+                <Spinner/><Text style={{fontSize: 12, paddingLeft: 10, lineHeight: 20}}>数据加载中...</Text>
+            </View>
+        );
+    }
+
+
     render() {
         const {test, state: {name}} = this.props;
 
@@ -48,10 +61,10 @@ class Home extends Component {
                 <NavigationBar
                     leftComponent={(
                         <Button>
-                            <Icon name="ios-add-circle-outline" />
+                            <Icon name="ios-add-circle-outline"/>
                         </Button>
                     )}
-                    centerComponent={<Title>TITLE</Title>}
+                    centerComponent={<Title>微忆</Title>}
                     rightComponent={(
                         <Button styleName="clear">
                             <Text>Post</Text>
@@ -61,6 +74,11 @@ class Home extends Component {
                 />
 
                 <ListView
+                    onRefresh={() => {
+                        console.log('刷新');
+                        return true;
+                    }}
+
                     data={[
                         {
                             "name"   : "Gaspar Brasserie",
@@ -93,6 +111,7 @@ class Home extends Component {
                             "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-6.jpg"},
                         }
                     ]}
+
                     renderRow={this.renderRow}
                 />
             </Screen>

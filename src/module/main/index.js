@@ -7,44 +7,45 @@ import Mark from 'module/main/mark';
 import Mine from 'module/main/mine';
 
 export default TabNavigator({
-    "main/home": {
+    "main/home"   : {
         screen           : Home,
         navigationOptions: {
             tabBarLabel: '首页',
-            tabBarIcon : ({tintColor}) => <Icon name="ios-disc" size={18} color={tintColor}/>,
+            tabBarIcon : ({tintColor}) => <Icon name="ios-disc" size={24} color={tintColor}/>,
         }
     },
-    "main/mark": {
+    "main/mark"   : {
         screen           : Mark,
         navigationOptions: {
             tabBarLabel: '快照',
-            tabBarIcon : ({tintColor}) => <Icon name="md-expand" size={18} color={tintColor}/>,
+            tabBarIcon : ({tintColor}) => <Icon name="md-expand" size={24} color={tintColor}/>,
         }
     },
-    "main/find": {
+    "main/dig"    : {
         screen           : Mark,
         navigationOptions: {
             tabBarLabel: '发现',
-            tabBarIcon : ({tintColor}) => <Icon name="md-wifi" size={18} color={tintColor}/>,
+            tabBarIcon : ({tintColor}) => <Icon name="md-wifi" size={24} color={tintColor}/>,
         }
     },
     "main/message": {
         screen           : Mark,
         navigationOptions: {
             tabBarLabel: '消息',
-            tabBarIcon : ({tintColor}) => <Icon name="md-notifications" size={18} color={tintColor}/>,
+            tabBarIcon : ({tintColor}) => <Icon name="md-notifications" size={24} color={tintColor}/>,
         }
     },
-    "main/mine": {
+    "main/mine"   : {
         screen           : Mine,
         navigationOptions: {
             tabBarLabel: '我的',
-            tabBarIcon : ({tintColor}) => <Icon name="ios-contact" size={18} color={tintColor}/>,
+            tabBarIcon : ({tintColor}) => <Icon name="ios-contact" size={24} color={tintColor}/>,
         }
     },
 }, {
+    // todo ...
     navigationOptions: ({navigation}) => ({
-        tabBarIcon: ({focused, tintColor}) => {
+        tabBarIcon   : ({focused, tintColor}) => {
             const {routeName} = navigation.state;
             let iconName;
             if (routeName === 'Home') {
@@ -57,13 +58,20 @@ export default TabNavigator({
             // icon component from react-native-vector-icons
             return <Icon name={iconName} size={25} color={tintColor}/>;
         },
+        tabBarOnPress: event => {
+            console.log(event.scene.route.key === 'main/dig', event.scene.route.key);
+            event.scene.route.key === 'main/dig' && navigation.navigate('main/dig');
+        },
     }),
     tabBarComponent  : TabBarBottom,
     tabBarPosition   : 'bottom',
     animationEnabled : false,
     swipeEnabled     : false,
     tabBarOptions    : {
-        activeTintColor  : 'tomato',
         inactiveTintColor: 'gray',
+        labelStyle       : {
+            fontSize: 12,
+        },
+        activeTintColor  : 'tomato',
     },
 });

@@ -8,6 +8,11 @@ import Css from './css';
 import Model from 'model/main/mark';
 
 class Mark extends Component {
+
+    componentDidMount() {
+        console.log('init');
+    }
+
     render() {
         const {test, state: {name}} = this.props;
 
