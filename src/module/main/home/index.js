@@ -24,8 +24,6 @@ import Model from 'model/main/home';
 
 class Home extends Component {
 
-    state = {header: true}
-
     renderRow(restaurant) {
         return (
             <View>
@@ -43,14 +41,13 @@ class Home extends Component {
         );
     }
 
-
-    renderHeader() {
-        return (
-            <View styleName='horizontal h-center' style={{paddingTop: 20, paddingBottom: 20}}>
-                <Spinner/><Text style={{fontSize: 12, paddingLeft: 10, lineHeight: 20}}>数据加载中...</Text>
-            </View>
-        );
-    }
+    // renderHeader() {
+    //     return (
+    //         <View styleName='horizontal h-center' style={{paddingTop: 20, paddingBottom: 20}}>
+    //             <Spinner/><Text style={{fontSize: 12, paddingLeft: 10, lineHeight: 20}}>数据加载中...</Text>
+    //         </View>
+    //     );
+    // }
 
 
     render() {
@@ -60,17 +57,18 @@ class Home extends Component {
             <Screen>
                 <NavigationBar
                     leftComponent={(
-                        <Button>
-                            <Icon name="ios-add-circle-outline"/>
+                        <Button styleName="clear">
+                            <Icon size={26} name="md-menu"/>
                         </Button>
                     )}
-                    centerComponent={<Title>微忆</Title>}
+                    centerComponent={<Title style={{fontSize: 24, height: 24, minWidth: 200, textAlign: 'center', lineHeight: 28}}>DIG-微忆</Title>}
                     rightComponent={(
                         <Button styleName="clear">
-                            <Text>Post</Text>
+                            <Icon size={26} name="md-add"/>
                         </Button>
                     )}
                     styleName='inline'
+                    style={{container: {paddingTop: 26, height: 68}}}
                 />
 
                 <ListView

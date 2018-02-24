@@ -17,8 +17,8 @@ export default TabNavigator({
     "main/mark"   : {
         screen           : Mark,
         navigationOptions: {
-            tabBarLabel: '快照',
-            tabBarIcon : ({tintColor}) => <Icon name="md-expand" size={24} color={tintColor}/>,
+            tabBarLabel: '一瞬',
+            tabBarIcon : ({tintColor}) => <Icon name="md-finger-print" size={24} color={tintColor}/>,
         }
     },
     "main/dig"    : {
@@ -45,7 +45,7 @@ export default TabNavigator({
 }, {
     // todo ...
     navigationOptions: ({navigation}) => ({
-        tabBarIcon   : ({focused, tintColor}) => {
+        tabBarIcon: ({focused, tintColor}) => {
             const {routeName} = navigation.state;
             let iconName;
             if (routeName === 'Home') {
@@ -58,10 +58,10 @@ export default TabNavigator({
             // icon component from react-native-vector-icons
             return <Icon name={iconName} size={25} color={tintColor}/>;
         },
-        tabBarOnPress: event => {
-            console.log(event.scene.route.key === 'main/dig', event.scene.route.key);
-            event.scene.route.key === 'main/dig' && navigation.navigate('main/dig');
-        },
+        // tabBarOnPress: event => {
+        //     console.log(event.scene.route.key === 'main/dig', event.scene.route.key);
+        //     event.scene.route.key === 'main/dig' && navigation.navigate('main/dig');
+        // },
     }),
     tabBarComponent  : TabBarBottom,
     tabBarPosition   : 'bottom',
