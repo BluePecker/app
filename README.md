@@ -8,7 +8,7 @@
 #### 效果展示
 
 <video id="video" controls="" preload="none">
-	<source id="mp4" src="./example.mp4" type="video/mp4"/>
+	<source id="mp4" src="https://github.com/BluePecker/app/blob/master/example.mp4" type="video/mp4">
 </video>
 	
 #### 项目结构
