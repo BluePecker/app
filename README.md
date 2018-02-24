@@ -7,9 +7,7 @@
 
 #### 效果展示
 
-<video id="video" controls="" preload="none">
-	<source id="mp4" src="https://github.com/BluePecker/app/blob/master/example.mp4" type="video/mp4">
-</video>
+![avatar](./example.gif)
 	
 #### 项目结构
 > a. UI层 src/module
