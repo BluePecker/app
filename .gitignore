@@ -54,3 +54,4 @@ buck-out/
 
 App.js
 test.js
+.test.js.swp
