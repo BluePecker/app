@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {View, Text, Button} from 'react-native';
+import {
+    Screen,
+    NavigationBar,
+    View,
+    Text,
+    Title,
+    ImageBackground
+} from '@shoutem/ui';
 
 import Inject from 'module';
 
@@ -12,14 +19,25 @@ class Mine extends Component {
         const {test, state: {name}} = this.props;
 
         return (
-            <View style={Css.container}>
-                <Text style={Css.welcome} onClick={test}>{name}</Text>
-                <Button
-                    onPress={test}
-                    title="Press Me"
-                    accessibilityLabel="See an informative alert"
-                />
-            </View>
+            <Screen>
+                <ImageBackground
+                    source={{uri: 'https://shoutem.github.io/img/ui-toolkit/examples/image-3.png'}}
+                    style={{width: 375, height: 70}}
+                >
+                    <NavigationBar
+                        styleName='inline no-border clear'
+                        centerComponent={
+                            <Title style={{
+                                fontSize: 24, height: 24, minWidth: 200, textAlign: 'center', lineHeight: 28
+                            }}>我的</Title>
+                        }
+                        style={{
+                            container: {paddingTop: 26, height: 140, backgroundColor: '#FEA02F'}
+                            // container: {paddingTop: 26, height: 140, backgroundColor: '#FF96C4'}
+                        }}
+                    />
+                </ImageBackground>
+            </Screen>
         );
     }
 }

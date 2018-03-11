@@ -68,7 +68,8 @@ export default TabNavigator({
     animationEnabled : false,
     swipeEnabled     : false,
     tabBarOptions    : {
-        inactiveTintColor: 'gray',
+        //inactiveTintColor: 'gray',
+        inactiveTintColor: '#BDC3C7',
         labelStyle       : {
             fontSize: 12,
         },
