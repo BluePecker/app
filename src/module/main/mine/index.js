@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {
-    Screen,
     NavigationBar,
     View,
     Text,
@@ -8,6 +7,7 @@ import {
     ImageBackground
 } from '@shoutem/ui';
 
+import Screen from 'component/Screen';
 import Inject from 'module';
 
 import Css from './css';
@@ -32,7 +32,7 @@ class Mine extends Component {
                             }}>我的</Title>
                         }
                         style={{
-                            container: {paddingTop: 26, height: 140, backgroundColor: '#FEA02F'}
+                            container: {paddingTop: 26, height: 140, backgroundColor: '#54C7FC'}
                             // container: {paddingTop: 26, height: 140, backgroundColor: '#FF96C4'}
                         }}
                     />

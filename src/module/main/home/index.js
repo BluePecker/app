@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {
-    Screen,
     View,
     Tile,
     Subtitle,
@@ -12,9 +11,12 @@ import {
     Text,
     Spinner,
     Row,
-    ListView
+    ListView,
 } from '@shoutem/ui';
+import Screen from 'component/Screen';
+
 import Icon from 'react-native-vector-icons/Ionicons';
+import {UltimateListView} from "react-native-ultimate-listview";
 
 import Inject from 'module';
 
@@ -41,14 +43,100 @@ class Home extends Component {
         );
     }
 
-    // renderHeader() {
-    //     return (
-    //         <View styleName='horizontal h-center' style={{paddingTop: 20, paddingBottom: 20}}>
-    //             <Spinner/><Text style={{fontSize: 12, paddingLeft: 10, lineHeight: 20}}>数据加载中...</Text>
-    //         </View>
-    //     );
-    // }
+    sleep = (time) => new Promise(resolve => setTimeout(() => resolve(), time));
 
+    onFetch = async (page = 1, startFetch, abortFetch) => {
+        try {
+            //This is required to determinate whether the first loading list is all loaded.
+            let pageLimit = 24;
+            // if (this.state.layout === 'grid') pageLimit = 60;
+            let skip = (page - 1) * pageLimit;
+
+            //Generate dummy data
+            let rowData = Array.from({length: pageLimit}, (value, index) => `item -> ${index + skip}`);
+
+            //Simulate the end of the list if there is no more data returned from the server
+            if (page === 10) {
+                rowData = [];
+            }
+
+            //Simulate the network loading in ES7 syntax (async/await)
+            await this.sleep(2000);
+            startFetch([
+                {
+                    "name"   : "Mastergrill",
+                    "address": "550 Upton Rue, San Francisco, CA 94109",
+                    "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-6.jpg"},
+                },
+                {
+                    "name"   : "Mastergrill",
+                    "address": "550 Upton Rue, San Francisco, CA 94109",
+                    "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-6.jpg"},
+                },
+                {
+                    "name"   : "Mastergrill",
+                    "address": "550 Upton Rue, San Francisco, CA 94109",
+                    "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-6.jpg"},
+                },
+                {
+                    "name"   : "Mastergrill",
+                    "address": "550 Upton Rue, San Francisco, CA 94109",
+                    "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-6.jpg"},
+                },
+                {
+                    "name"   : "Mastergrill",
+                    "address": "550 Upton Rue, San Francisco, CA 94109",
+                    "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-6.jpg"},
+                },
+                {
+                    "name"   : "Mastergrill",
+                    "address": "550 Upton Rue, San Francisco, CA 94109",
+                    "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-6.jpg"},
+                },
+                {
+                    "name"   : "Mastergrill",
+                    "address": "550 Upton Rue, San Francisco, CA 94109",
+                    "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-6.jpg"},
+                },
+                {
+                    "name"   : "Mastergrill",
+                    "address": "550 Upton Rue, San Francisco, CA 94109",
+                    "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-6.jpg"},
+                },
+                {
+                    "name"   : "Mastergrill",
+                    "address": "550 Upton Rue, San Francisco, CA 94109",
+                    "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-6.jpg"},
+                },
+                {
+                    "name"   : "Mastergrill",
+                    "address": "550 Upton Rue, San Francisco, CA 94109",
+                    "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-6.jpg"},
+                },
+            ], pageLimit);
+        } catch (err) {
+            abortFetch(); //manually stop the refresh or pagination if it encounters network error
+            console.log(err);
+        }
+    };
+
+    renderItem = (restaurant, index, separator) => {
+        console.log(index, '+', restaurant, separator)
+        return (
+            <View>
+                <ImageBackground
+                    styleName="large-banner"
+                    source={{uri: restaurant.image.url}}
+                >
+                    <Tile>
+                        <Title styleName="md-gutter-bottom">{restaurant.name}</Title>
+                        <Subtitle styleName="sm-gutter-horizontal">{restaurant.address}</Subtitle>
+                    </Tile>
+                </ImageBackground>
+                <Divider styleName="line"/>
+            </View>
+        );
+    };
 
     render() {
         const {test, state: {name}} = this.props;
@@ -61,56 +149,31 @@ class Home extends Component {
                             <Icon size={26} name="md-menu"/>
                         </Button>
                     )}
-                    centerComponent={<Title style={{fontSize: 24, height: 24, minWidth: 200, textAlign: 'center', lineHeight: 28}}>DIG-微忆</Title>}
+                    centerComponent={<Title style={{
+                        fontSize  : 24,
+                        height    : 24,
+                        minWidth  : 200,
+                        textAlign : 'center',
+                        lineHeight: 28,
+                    }}>DIG-微忆</Title>}
                     rightComponent={(
                         <Button styleName="clear">
                             <Icon size={26} name="md-add"/>
                         </Button>
                     )}
-                    styleName='inline'
-                    style={{container: {paddingTop: 26, height: 68}}}
+                    styleName='clear inline no-border'
+                    style={{container: {paddingTop: 26, height: 68, backgroundColor: '#FA729B'}}}
                 />
 
-                <ListView
-                    onRefresh={() => {
-                        console.log('刷新');
-                        return true;
-                    }}
-
-                    data={[
-                        // {
-                        //     "name"   : "Gaspar Brasserie",
-                        //     "address": "185 Sutter St, San Francisco, CA 94109",
-                        //     "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-1.jpg"},
-                        // },
-                        // {
-                        //     "name"   : "Chalk Point Kitchen",
-                        //     "address": "527 Broome St, New York, NY 10013",
-                        //     "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-2.jpg"},
-                        // },
-                        // {
-                        //     "name"   : "Kyoto Amber Upper East",
-                        //     "address": "225 Mulberry St, New York, NY 10012",
-                        //     "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-3.jpg"},
-                        // },
-                        // {
-                        //     "name"   : "Sushi Academy",
-                        //     "address": "1900 Warner Ave. Unit A Santa Ana, CA",
-                        //     "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-4.jpg"},
-                        // },
-                        // {
-                        //     "name"   : "Sushibo",
-                        //     "address": "35 Sipes Key, New York, NY 10012",
-                        //     "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-5.jpg"},
-                        // },
-                        {
-                            "name"   : "Mastergrill",
-                            "address": "550 Upton Rue, San Francisco, CA 94109",
-                            "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-6.jpg"},
-                        }
-                    ]}
-
-                    renderRow={this.renderRow}
+                <UltimateListView
+                    onFetch={this.onFetch}
+                    item={this.renderItem}
+                    refreshableMode="advanced"
+                    keyExtractor={(item, index) => `${item}`}
+                    displayDate
+                    // customRefreshView={(a, b, c) => {
+                    //     console.log(a, b, c);
+                    // }}
                 />
             </Screen>
         );

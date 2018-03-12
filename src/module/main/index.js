@@ -62,11 +62,14 @@ export default TabNavigator({
         //     console.log(event.scene.route.key === 'main/dig', event.scene.route.key);
         //     event.scene.route.key === 'main/dig' && navigation.navigate('main/dig');
         // },
+
     }),
     tabBarComponent  : TabBarBottom,
     tabBarPosition   : 'bottom',
     animationEnabled : false,
     swipeEnabled     : false,
+    // animationEnabled : true,
+    // swipeEnabled     : true,
     tabBarOptions    : {
         //inactiveTintColor: 'gray',
         inactiveTintColor: '#BDC3C7',
