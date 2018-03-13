@@ -74,8 +74,8 @@ export default TabNavigator({
         //inactiveTintColor: 'gray',
         inactiveTintColor: '#BDC3C7',
         labelStyle       : {
-            fontSize: 12,
+            fontSize: 14,
         },
-        activeTintColor  : 'tomato',
+        activeTintColor  : '#FA729B',
     },
 });
