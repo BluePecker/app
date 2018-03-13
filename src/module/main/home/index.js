@@ -29,25 +29,6 @@ import Css from './css';
 import Model from 'model/main/home';
 
 class Home extends Component {
-    //
-    // renderRow(restaurant) {
-    //
-    //     // return (
-    //     //     <View>
-    //     //         <ImageBackground
-    //     //             styleName="large-banner"
-    //     //             source={{uri: restaurant.image.url}}
-    //     //         >
-    //     //             <Tile>
-    //     //                 <Title styleName="md-gutter-bottom">{restaurant.name}</Title>
-    //     //                 <Subtitle styleName="sm-gutter-horizontal">{restaurant.address}</Subtitle>
-    //     //             </Tile>
-    //     //         </ImageBackground>
-    //     //         <Divider styleName="line"/>
-    //     //     </View>
-    //     // );
-    // }
-
     sleep = (time) => new Promise(resolve => setTimeout(() => resolve(), time));
 
     onFetch = async (page = 1, startFetch, abortFetch) => {
@@ -81,42 +62,27 @@ class Home extends Component {
                 {
                     "name"   : "Mastergrill",
                     "address": "550 Upton Rue, San Francisco, CA 94109",
-                    "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-6.jpg"},
+                    "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
                 },
                 {
                     "name"   : "Mastergrill",
                     "address": "550 Upton Rue, San Francisco, CA 94109",
-                    "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-6.jpg"},
+                    "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
                 },
                 {
                     "name"   : "Mastergrill",
                     "address": "550 Upton Rue, San Francisco, CA 94109",
-                    "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-6.jpg"},
+                    "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
                 },
                 {
                     "name"   : "Mastergrill",
                     "address": "550 Upton Rue, San Francisco, CA 94109",
-                    "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-6.jpg"},
+                    "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
                 },
                 {
                     "name"   : "Mastergrill",
                     "address": "550 Upton Rue, San Francisco, CA 94109",
-                    "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-6.jpg"},
-                },
-                {
-                    "name"   : "Mastergrill",
-                    "address": "550 Upton Rue, San Francisco, CA 94109",
-                    "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-6.jpg"},
-                },
-                {
-                    "name"   : "Mastergrill",
-                    "address": "550 Upton Rue, San Francisco, CA 94109",
-                    "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-6.jpg"},
-                },
-                {
-                    "name"   : "Mastergrill",
-                    "address": "550 Upton Rue, San Francisco, CA 94109",
-                    "image"  : {"url": "https://shoutem.github.io/static/getting-started/restaurant-6.jpg"},
+                    "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
                 },
             ], pageLimit);
         } catch (err) {
@@ -130,8 +96,13 @@ class Home extends Component {
         return (
             <Card style={{width: 'auto', margin: 8}}>
                 <View styleName="horizontal space-between">
-                    <Image styleName="small-avatar" source={{uri: restaurant.image.url}}/>
-                    <Caption>卖萌的小怪</Caption>
+                    <View styleName="horizontal h-start">
+                        <Image styleName="small-avatar" source={{uri: restaurant.image.url}}/>
+                        <Subtitle style={{paddingLeft: 8}}>卖萌的小怪</Subtitle>
+                    </View>
+                    <View styleName="horizontal h-end">
+                        <Image styleName="small-avatar" source={{uri: restaurant.image.url}}/>
+                    </View>
                 </View>
                 <View>
                     <Tile>
@@ -176,7 +147,7 @@ class Home extends Component {
                 <NavigationBar
                     leftComponent={(
                         <Button styleName="clear">
-                            <Icon size={26} name="md-menu"/>
+                            <Icon size={26} name="md-menu" color="#ffffff"/>
                         </Button>
                     )}
                     centerComponent={<Title style={{
@@ -188,7 +159,7 @@ class Home extends Component {
                     }}>DIG-微忆</Title>}
                     rightComponent={(
                         <Button styleName="clear">
-                            <Icon size={26} name="md-add"/>
+                            <Icon size={26} name="md-add" color="#ffffff"/>
                         </Button>
                     )}
                     styleName='clear inline no-border'
