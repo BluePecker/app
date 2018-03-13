@@ -121,7 +121,6 @@ class Home extends Component {
     };
 
     renderItem = (restaurant, index, separator) => {
-        console.log(index, '+', restaurant, separator)
         return (
             <View>
                 <ImageBackground
@@ -169,7 +168,7 @@ class Home extends Component {
                     onFetch={this.onFetch}
                     item={this.renderItem}
                     refreshableMode="advanced"
-                    keyExtractor={(item, index) => `${item}`}
+                    keyExtractor={(item, index) => `${index}`}
                     displayDate
                     // customRefreshView={(a, b, c) => {
                     //     console.log(a, b, c);

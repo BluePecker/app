@@ -21,10 +21,9 @@ class Mark extends Component {
 
     render() {
         const {test, state: {name}} = this.props;
-
         return (
             <Screen>
-                <StatusBar barStyle="light-content" backgroundColor='#000000'/>
+                <StatusBar barStyle="light-content" backgroundColor="#ffffff"/>
                 <NavigationBar
                     styleName="clear inline"
                     centerComponent={<Title>TITLE</Title>}

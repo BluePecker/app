@@ -13,6 +13,7 @@
         "fetch": "^1.1.0",
         "react": "^16.0.0",
         "react-native": "^0.51.0",
+        "react-native-extended-stylesheet": "^0.8.1",
         "react-native-ultimate-listview": "^3.3.0",
         "react-native-vector-icons": "^4.5.0",
         "react-navigation": "^1.0.3",
