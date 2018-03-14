@@ -5,11 +5,14 @@
  */
 import React, {Component} from 'react';
 import {Provider} from 'react-redux';
+import {Dimensions} from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 import Main from 'module/main';
 
-type Props = {};
-export default class App extends Component<Props> {
+EStyleSheet.build({$rem: Dimensions.get('window').width / 100});
+
+export default class App extends Component {
     render() {
         return (
             <Provider store={require('model').default}>

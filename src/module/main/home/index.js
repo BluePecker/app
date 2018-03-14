@@ -25,6 +25,25 @@ import {UltimateListView} from "react-native-ultimate-listview";
 import Inject from 'module';
 
 import Css from './css';
+// import EStyleSheet from 'react-native-extended-stylesheet';
+// const Css = EStyleSheet.create({
+//     jiugongge    : {
+//         // flexWrap       : 'wrap',
+//         flexDirection  : 'row',
+//         // justifyContent : 'space-between',
+//         backgroundColor: "darkgray",
+//         marginTop      : 20,
+//         height         : 40
+//     },
+//     jiugonggeItem: {
+//         width          : '20px',
+//         flex           : 1,
+//         height         : '20px',
+//         backgroundColor: "darkcyan",
+//         margin         : 5
+//     }
+// });
+
 
 import Model from 'model/main/home';
 
@@ -51,7 +70,7 @@ class Home extends Component {
             startFetch([
                 {
                     "name"   : "Mastergrill",
-                    "address": "550 Upton Rue, San Francisco, CA 94109",
+                    "address": "550 Upton Rue, San Francisco, CA 94109https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg",
                     "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
                 },
                 {
@@ -92,13 +111,12 @@ class Home extends Component {
     };
 
     renderItem = (restaurant, index, separator) => {
-        // separator.unhighlight();
         return (
-            <Card style={{width: 'auto', margin: 8}}>
+            <Card style={{width: "auto", margin: 8}}>
                 <View styleName="horizontal space-between">
                     <View styleName="horizontal h-start">
                         <Image styleName="small-avatar" source={{uri: restaurant.image.url}}/>
-                        <Subtitle style={{paddingLeft: 8}}>卖萌的小怪</Subtitle>
+                        <Subtitle style={{paddingLeft: 8, paddingBottom: 2}}>卖萌的小怪</Subtitle>
                     </View>
                     <View styleName="horizontal h-end">
                         <Image styleName="small-avatar" source={{uri: restaurant.image.url}}/>
@@ -107,14 +125,71 @@ class Home extends Component {
                 <View>
                     <Tile>
                         <Title styleName="md-gutter-bottom">{restaurant.name}</Title>
-                        <Subtitle styleName="sm-gutter-horizontal">{restaurant.address}</Subtitle>
+                        <Subtitle styleName="sm-gutter-horizontal" numberOfLines={4}>{restaurant.address}</Subtitle>
                     </Tile>
                 </View>
                 <View>
-                    <InlineGallery
+                    <Image
                         styleName="large-wide"
-                        data={[{"source": {uri: restaurant.image.url}}]}
+                        source={{uri: restaurant.image.url}}
+                        style={{width: "auto"}}
                     />
+                </View>
+                <View style={Css._jiugongge}>
+                    <View style={Css._jiugonggeItem}>
+                        <Image
+                            source={{uri: restaurant.image.url}}
+                            styleName="medium-square"
+                        />
+                    </View>
+                    <View style={Css._jiugonggeItem}>
+                        <Image
+                            source={{uri: restaurant.image.url}}
+                            styleName="medium-square"
+                        />
+                    </View>
+                    <View style={Css._jiugonggeItem}>
+                        <Image
+                            styleName="medium-square"
+                            source={{uri: restaurant.image.url}}
+                        />
+                    </View>
+                    <View style={Css._jiugonggeItem}>
+                        <Image
+                            styleName="medium-square"
+                            source={{uri: restaurant.image.url}}
+                        />
+                    </View>
+                    <View style={Css._jiugonggeItem}>
+                        <Image
+                            styleName="medium-square"
+                            source={{uri: restaurant.image.url}}
+                        />
+                    </View>
+                    <View style={Css._jiugonggeItem}>
+                        <Image
+                            styleName="medium-square"
+                            source={{uri: restaurant.image.url}}
+                        />
+                    </View>
+                    <View style={Css._jiugonggeItem}>
+                        <Image
+                            styleName="medium-square"
+                            source={{uri: restaurant.image.url}}
+                        />
+                    </View>
+                    <View style={Css._jiugonggeItem}>
+                        <Image
+                            styleName="medium-square"
+                            source={{uri: restaurant.image.url}}
+                        />
+                    </View>
+                    <View style={Css._jiugonggeItem}>
+                        <Image
+                            styleName="medium-square"
+                            source={{uri: restaurant.image.url}}
+                        />
+                    </View>
                 </View>
                 <Divider styleName="line"/>
                 <View styleName="horizontal space-between">
@@ -141,7 +216,6 @@ class Home extends Component {
 
     render() {
         const {test, state: {name}} = this.props;
-
         return (
             <Screen>
                 <NavigationBar
