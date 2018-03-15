@@ -17,6 +17,7 @@ import {
     Caption,
     InlineGallery,
 } from '@shoutem/ui';
+import Video from 'react-native-video';
 import Screen from 'component/Screen';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -25,25 +26,6 @@ import {UltimateListView} from "react-native-ultimate-listview";
 import Inject from 'module';
 
 import Css from './css';
-// import EStyleSheet from 'react-native-extended-stylesheet';
-// const Css = EStyleSheet.create({
-//     jiugongge    : {
-//         // flexWrap       : 'wrap',
-//         flexDirection  : 'row',
-//         // justifyContent : 'space-between',
-//         backgroundColor: "darkgray",
-//         marginTop      : 20,
-//         height         : 40
-//     },
-//     jiugonggeItem: {
-//         width          : '20px',
-//         flex           : 1,
-//         height         : '20px',
-//         backgroundColor: "darkcyan",
-//         margin         : 5
-//     }
-// });
-
 
 import Model from 'model/main/home';
 
@@ -66,11 +48,11 @@ class Home extends Component {
             }
 
             //Simulate the network loading in ES7 syntax (async/await)
-            await this.sleep(2000);
+            await this.sleep(1000);
             startFetch([
                 {
                     "name"   : "Mastergrill",
-                    "address": "550 Upton Rue, San Francisco, CA 94109https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg",
+                    "address": "550 Upton Rue, San Francisco, CA 94109",
                     "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
                 },
                 {
@@ -112,15 +94,15 @@ class Home extends Component {
 
     renderItem = (restaurant, index, separator) => {
         return (
-            <Card style={{width: "auto", margin: 8}}>
+            <Card style={Css._card}>
                 <View styleName="horizontal space-between">
                     <View styleName="horizontal h-start">
                         <Image styleName="small-avatar" source={{uri: restaurant.image.url}}/>
                         <Subtitle style={{paddingLeft: 8, paddingBottom: 2}}>卖萌的小怪</Subtitle>
                     </View>
-                    <View styleName="horizontal h-end">
-                        <Image styleName="small-avatar" source={{uri: restaurant.image.url}}/>
-                    </View>
+                    <Button styleName="clear">
+                        <Icon name="ios-aperture-outline" size={25} color='#FA729B'/>
+                    </Button>
                 </View>
                 <View>
                     <Tile>
@@ -128,68 +110,81 @@ class Home extends Component {
                         <Subtitle styleName="sm-gutter-horizontal" numberOfLines={4}>{restaurant.address}</Subtitle>
                     </Tile>
                 </View>
-                <View>
-                    <Image
-                        styleName="large-wide"
-                        source={{uri: restaurant.image.url}}
-                        style={{width: "auto"}}
-                    />
-                </View>
+                {/*<Video*/}
+                {/*ref={(ref: Video) => {*/}
+                {/*this.video = ref*/}
+                {/*}}*/}
+                {/*source={require('resource/test.mp4')}*/}
+                {/*rate={1}                          // 控制暂停/播放，0 代表暂停paused, 1代表播放normal.*/}
+                {/*paused={false}*/}
+                {/*volume={1}                   // 声音的放大倍数，0 代表没有声音，就是静音muted, 1 代表正常音量 normal，更大的数字表示放大的倍数*/}
+                {/*muted={true}                  // true代表静音，默认为false.*/}
+                {/*resizeMode='cover'       // 视频的自适应伸缩铺放行为，*/}
+                {/*onLoad={this.onLoad}                       // 当视频加载完毕时的回调函数*/}
+                {/*onLoadStart={this.loadStart}            // 当视频开始加载时的回调函数*/}
+                {/*onProgress={this.onProgress}   //  进度控制，每250ms调用一次，以获取视频播放的进度*/}
+                {/*onEnd={this.onEnd}             // 当视频播放完毕后的回调函数*/}
+                {/*onError={this.videoError}    // 当视频不能加载，或出错后的回调函数*/}
+                {/*onAudioBecomingNoisy={this.onAudioBecomingNoisy}*/}
+                {/*onAudioFocusChanged={this.onAudioFocusChanged}*/}
+                {/*repeat={false}                            // 是否重复播放*/}
+                {/*style={{height: 200, width: 200}}*/}
+                {/*/>*/}
                 <View style={Css._jiugongge}>
-                    <View style={Css._jiugonggeItem}>
+                    <Button style={Css._jiugonggeItem}>
                         <Image
                             source={{uri: restaurant.image.url}}
                             styleName="medium-square"
                         />
-                    </View>
-                    <View style={Css._jiugonggeItem}>
+                    </Button>
+                    <Button style={Css._jiugonggeItem}>
                         <Image
                             source={{uri: restaurant.image.url}}
                             styleName="medium-square"
                         />
-                    </View>
-                    <View style={Css._jiugonggeItem}>
+                    </Button>
+                    <Button style={Css._jiugonggeItem}>
                         <Image
                             styleName="medium-square"
                             source={{uri: restaurant.image.url}}
                         />
-                    </View>
-                    <View style={Css._jiugonggeItem}>
+                    </Button>
+                    <Button style={Css._jiugonggeItem}>
                         <Image
                             styleName="medium-square"
                             source={{uri: restaurant.image.url}}
                         />
-                    </View>
-                    <View style={Css._jiugonggeItem}>
+                    </Button>
+                    <Button style={Css._jiugonggeItem}>
                         <Image
                             styleName="medium-square"
                             source={{uri: restaurant.image.url}}
                         />
-                    </View>
-                    <View style={Css._jiugonggeItem}>
+                    </Button>
+                    <Button style={Css._jiugonggeItem}>
                         <Image
                             styleName="medium-square"
                             source={{uri: restaurant.image.url}}
                         />
-                    </View>
-                    <View style={Css._jiugonggeItem}>
+                    </Button>
+                    <Button style={Css._jiugonggeItem}>
                         <Image
                             styleName="medium-square"
                             source={{uri: restaurant.image.url}}
                         />
-                    </View>
-                    <View style={Css._jiugonggeItem}>
+                    </Button>
+                    <Button style={Css._jiugonggeItem}>
                         <Image
                             styleName="medium-square"
                             source={{uri: restaurant.image.url}}
                         />
-                    </View>
-                    <View style={Css._jiugonggeItem}>
+                    </Button>
+                    <Button style={Css._jiugonggeItem}>
                         <Image
                             styleName="medium-square"
                             source={{uri: restaurant.image.url}}
                         />
-                    </View>
+                    </Button>
                 </View>
                 <Divider styleName="line"/>
                 <View styleName="horizontal space-between">

@@ -43,7 +43,6 @@ export default TabNavigator({
         }
     },
 }, {
-    // todo ...
     navigationOptions: ({navigation}) => ({
         tabBarIcon: ({focused, tintColor}) => {
             const {routeName} = navigation.state;
