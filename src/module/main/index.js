@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import Home from 'module/main/home';
 import Mark from 'module/main/mark';
+import Notice from 'module/main/notice';
 import Mine from 'module/main/mine';
 
 export default TabNavigator({
@@ -14,13 +15,13 @@ export default TabNavigator({
             tabBarIcon : ({tintColor}) => <Icon name="ios-disc" size={24} color={tintColor}/>,
         }
     },
-    "main/mark"   : {
-        screen           : Mark,
-        navigationOptions: {
-            tabBarLabel: '一瞬',
-            tabBarIcon : ({tintColor}) => <Icon name="md-finger-print" size={24} color={tintColor}/>,
-        }
-    },
+    // "main/mark"   : {
+    //     screen           : Mark,
+    //     navigationOptions: {
+    //         tabBarLabel: '一瞬',
+    //         tabBarIcon : ({tintColor}) => <Icon name="md-finger-print" size={24} color={tintColor}/>,
+    //     }
+    // },
     "main/dig"    : {
         screen           : Mark,
         navigationOptions: {
@@ -29,7 +30,7 @@ export default TabNavigator({
         }
     },
     "main/message": {
-        screen           : Mark,
+        screen           : Notice,
         navigationOptions: {
             tabBarLabel: '消息',
             tabBarIcon : ({tintColor}) => <Icon name="md-notifications" size={24} color={tintColor}/>,

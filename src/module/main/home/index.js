@@ -20,6 +20,8 @@ import {
 import Video from 'react-native-video';
 import Screen from 'component/Screen';
 
+import {Modal, TouchableHighlight, StatusBar} from 'react-native';
+
 import Icon from 'react-native-vector-icons/Ionicons';
 import {UltimateListView} from "react-native-ultimate-listview";
 
@@ -209,6 +211,28 @@ class Home extends Component {
         );
     };
 
+    constructor(props) {
+        super(props);
+        this.state = {modalVisible: false};
+    }
+
+    setModalVisible(visible) {
+        this.setState({modalVisible: visible});
+    }
+
+    componentDidMount() {
+        this._navListener = this.props.navigation.addListener('didFocus', () => {
+            console.log('mount');
+
+            StatusBar.setBarStyle('light-content');
+            // isAndroid && StatusBar.setBackgroundColor('#6a51ae');
+        });
+    }
+
+    componentWillUnmount() {
+        this._navListener.remove();
+    }
+
     render() {
         const {test, state: {name}} = this.props;
         return (
@@ -234,6 +258,41 @@ class Home extends Component {
                     styleName='clear inline no-border'
                     style={{container: {paddingTop: 26, height: 68, backgroundColor: '#FA729B'}}}
                 />
+
+                <View style={{marginTop: 22}}>
+                    <Modal
+                        // animationType={"slide"}
+                        transparent={false}
+                        visible={this.state.modalVisible}
+                        onRequestClose={() => {
+                            console.error('close')
+                            alert("Modal has been closed.")
+                        }}
+                    >
+                        <View style={{marginTop: 22}}>
+                            <View>
+                                <Text>Hello World!</Text>
+                                <TouchableHighlight onPress={() => {
+                                    this.setModalVisible(!this.state.modalVisible)
+                                }}>
+                                    <Text>Hide Modal</Text>
+                                </TouchableHighlight>
+
+                            </View>
+                        </View>
+                    </Modal>
+
+                    <TouchableHighlight onPress={() => {
+                        this.setModalVisible(true)
+                    }}>
+                        <Text>Show Modal</Text>
+                    </TouchableHighlight>
+                    <TouchableHighlight onPress={() => {
+                        this.setModalVisible(true)
+                    }}>
+                        <Text>Show Modal</Text>
+                    </TouchableHighlight>
+                </View>
 
                 <UltimateListView
                     onFetch={this.onFetch}

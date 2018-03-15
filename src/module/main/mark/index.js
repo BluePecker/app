@@ -16,14 +16,20 @@ import Model from 'model/main/mark';
 class Mark extends Component {
 
     componentDidMount() {
-        console.log('init');
+        this._navListener = this.props.navigation.addListener('didFocus', () => {
+            StatusBar.setBarStyle('light-content');
+            // isAndroid && StatusBar.setBackgroundColor('#6a51ae');
+        });
+    }
+
+    componentWillUnmount() {
+        this._navListener.remove();
     }
 
     render() {
         const {test, state: {name}} = this.props;
         return (
             <Screen>
-                <StatusBar barStyle="light-content" backgroundColor="#ffffff"/>
                 <NavigationBar
                     styleName="clear inline"
                     centerComponent={<Title>TITLE</Title>}
