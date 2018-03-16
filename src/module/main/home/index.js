@@ -276,7 +276,16 @@ class Home extends Component {
                 {/*</Swiper>*/}
                 {/*</Modal>*/}
 
-                <Gallery visible={this.state.modalVisible} images={this.state.images}/>
+                <Gallery
+                    visible={this.state.modalVisible}
+                    images={this.state.images}
+                    close={() => {
+                        alert('close')
+                    }}
+                    share={() => {
+                        alert('share')
+                    }}
+                />
 
                 <UltimateListView
                     onFetch={this.onFetch}
