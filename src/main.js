@@ -13,6 +13,7 @@ import Main from 'module/main';
 EStyleSheet.build({
     $skin: '#FA729B',
     $rem : Dimensions.get('window').width / 100,
+    $dem : Dimensions.get('window').height / 100,
 });
 
 export default class App extends Component {

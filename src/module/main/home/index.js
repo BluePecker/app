@@ -16,15 +16,14 @@ import {
     Image,
     Caption,
     InlineGallery,
-    ImageGalleryOverlay,
 } from '@shoutem/ui';
+import Swiper from 'react-native-swiper';
 import Video from 'react-native-video';
 import Screen from 'component/Screen';
 
-import Gallery from 'component/Gallery';
-import ImageGallery from 'react-native-image-view';
+import {JiuGongGe, Gallery} from 'component/ImageGallery';
 
-import {Modal, TouchableHighlight, StatusBar} from 'react-native';
+import {Modal, TouchableHighlight, StatusBar, StyleSheet} from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import {UltimateListView} from "react-native-ultimate-listview";
@@ -34,6 +33,33 @@ import Inject from 'module';
 import Css from './css';
 
 import Model from 'model/main/home';
+
+const styles = StyleSheet.create({
+    wrapper: {},
+    slide1 : {
+        flex           : 1,
+        justifyContent : 'center',
+        alignItems     : 'center',
+        backgroundColor: '#9DD6EB',
+    },
+    slide2 : {
+        flex           : 1,
+        justifyContent : 'center',
+        alignItems     : 'center',
+        backgroundColor: '#97CAE5',
+    },
+    slide3 : {
+        flex           : 1,
+        justifyContent : 'center',
+        alignItems     : 'center',
+        backgroundColor: '#92BBD9',
+    },
+    text   : {
+        color     : '#fff',
+        fontSize  : 30,
+        fontWeight: 'bold',
+    }
+})
 
 class Home extends Component {
     sleep = (time) => new Promise(resolve => setTimeout(() => resolve(), time));
@@ -99,6 +125,11 @@ class Home extends Component {
     };
 
     renderItem = (restaurant, index, separator) => {
+        const images = [
+            {uri: 'https://cdn.pixabay.com/photo/2018/02/16/20/38/human-3158541__480.jpg'},
+            {uri: 'https://cdn.pixabay.com/photo/2018/03/10/20/26/flowers-3215188__480.jpg'},
+            {uri: 'https://cdn.pixabay.com/photo/2018/02/26/16/44/bird-3183441__480.jpg'},
+        ];
         return (
             <Card style={Css._card}>
                 <View styleName="horizontal space-between">
@@ -117,18 +148,12 @@ class Home extends Component {
                     </Tile>
                 </View>
 
-                <Gallery
-                    source={[
-                        {uri: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg'},
-                        {uri: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg'},
-                        {uri: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg'},
-                        {uri: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg'},
-                        {uri: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg'},
-                        {uri: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg'},
-                    ]}
+                <JiuGongGe
+                    source={images}
                     css={{wrapper: Css._jiugongge, small: Css._jiugonggeItem}}
                     onPress={(source, index) => {
                         this.setModalVisible(true);
+                        this.setState({images: images});
                     }}
                 />
                 {/*<Video*/}
@@ -176,7 +201,7 @@ class Home extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {modalVisible: false};
+        this.state = {modalVisible: false, images: []};
     }
 
     setModalVisible(visible) {
@@ -226,37 +251,32 @@ class Home extends Component {
                     style={{container: {paddingTop: 26, height: 68, backgroundColor: '#FA729B'}}}
                 />
 
-                <View>
-                        <ImageGallery
-                            isVisible={this.state.modalVisible}
-                            images={[
-                                {
-                                    "source"     : {
-                                        "uri": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"
-                                    },
-                                    "title"      : "Gaspar Brasserie",
-                                    "description": "Expect an intimate venue with the ambience of a private "
-                                    + "club. The mood is casual, the guests sublime."
-                                },
-                                {
-                                    "source"     : {
-                                        "uri": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"
-                                    },
-                                    "title"      : "Chalk Point Kitchen",
-                                    "description": "Stylish restaurant serving market-to-table American fare "
-                                    + "in modern farmhouse digs with cellar bar."
-                                },
-                                {
-                                    "source"     : {
-                                        "uri": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"
-                                    },
-                                    "title"      : "Kyoto Amber Upper East",
-                                    "description": "Amber Upper East is located on the corner of 80th and 3rd "
-                                    + "Avenue. We serve Japanese and Asian cuisines."
-                                }
-                            ]}
-                        />
-                </View>
+                {/*<Modal*/}
+                {/*visible={this.state.modalVisible}*/}
+                {/*>*/}
+                {/*<Text>1/3</Text>*/}
+                {/*<Swiper*/}
+                {/*style={styles.wrapper}*/}
+                {/*height={200} horizontal={false}*/}
+                {/*showsPagination={true}*/}
+                {/*dot={<View/>} activeDot={<View/>}*/}
+                {/*onIndexChanged={index => alert(index)}*/}
+                {/*>*/}
+
+
+                {/*<View style={styles.slide1}>*/}
+                {/*<Text style={styles.text}>Hello Swiper</Text>*/}
+                {/*</View>*/}
+                {/*<View style={styles.slide2}>*/}
+                {/*<Text style={styles.text}>Beautiful</Text>*/}
+                {/*</View>*/}
+                {/*<View style={styles.slide3}>*/}
+                {/*<Text style={styles.text}>And simple</Text>*/}
+                {/*</View>*/}
+                {/*</Swiper>*/}
+                {/*</Modal>*/}
+
+                <Gallery visible={this.state.modalVisible} images={this.state.images}/>
 
                 <UltimateListView
                     onFetch={this.onFetch}
