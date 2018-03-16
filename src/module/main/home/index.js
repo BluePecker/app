@@ -16,11 +16,13 @@ import {
     Image,
     Caption,
     InlineGallery,
+    ImageGalleryOverlay,
 } from '@shoutem/ui';
 import Video from 'react-native-video';
 import Screen from 'component/Screen';
 
 import Gallery from 'component/Gallery';
+import ImageGallery from 'react-native-image-view';
 
 import {Modal, TouchableHighlight, StatusBar} from 'react-native';
 
@@ -123,11 +125,10 @@ class Home extends Component {
                         {uri: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg'},
                         {uri: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg'},
                         {uri: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg'},
-                        {uri: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg'},
                     ]}
                     css={{wrapper: Css._jiugongge, small: Css._jiugonggeItem}}
                     onPress={(source, index) => {
-                        alert(index);
+                        this.setModalVisible(true);
                     }}
                 />
                 {/*<Video*/}
@@ -150,62 +151,6 @@ class Home extends Component {
                 {/*repeat={false}                            // 是否重复播放*/}
                 {/*style={{height: 200, width: 200}}*/}
                 {/*/>*/}
-                <View style={Css._jiugongge}>
-                    <Button style={Css._jiugonggeItem} onPress={this.click}>
-                        <Image
-                            source={{uri: restaurant.image.url}}
-                            styleName="medium-square"
-                        />
-                    </Button>
-                    <Button style={Css._jiugonggeItem}>
-                        <Image
-                            source={{uri: restaurant.image.url}}
-                            styleName="medium-square"
-                        />
-                    </Button>
-                    <Button style={Css._jiugonggeItem}>
-                        <Image
-                            styleName="medium-square"
-                            source={{uri: restaurant.image.url}}
-                        />
-                    </Button>
-                    <Button style={Css._jiugonggeItem}>
-                        <Image
-                            styleName="medium-square"
-                            source={{uri: restaurant.image.url}}
-                        />
-                    </Button>
-                    <Button style={Css._jiugonggeItem}>
-                        <Image
-                            styleName="medium-square"
-                            source={{uri: restaurant.image.url}}
-                        />
-                    </Button>
-                    <Button style={Css._jiugonggeItem}>
-                        <Image
-                            styleName="medium-square"
-                            source={{uri: restaurant.image.url}}
-                        />
-                    </Button>
-                    <Button style={Css._jiugonggeItem}>
-                        <Image
-                            styleName="medium-square"
-                            source={{uri: restaurant.image.url}}
-                        />
-                    </Button>
-                    <Button style={Css._jiugonggeItem}>
-                        <Image
-                            styleName="medium-square"
-                            source={{uri: restaurant.image.url}}
-                        />
-                    </Button>
-                    <Button style={Css._jiugonggeItem}>
-                        <Image
-                            styleName="medium-square"
-                            source={{uri: restaurant.image.url}}
-                        />
-                    </Button>
-                </View>
                 <Divider styleName="line"/>
                 <View styleName="horizontal space-between">
                     <Caption>1 hour ago</Caption>
@@ -281,39 +226,36 @@ class Home extends Component {
                     style={{container: {paddingTop: 26, height: 68, backgroundColor: '#FA729B'}}}
                 />
 
-                <View style={{marginTop: 22}}>
-                    <Modal
-                        // animationType={"slide"}
-                        transparent={false}
-                        visible={this.state.modalVisible}
-                        onRequestClose={() => {
-                            console.error('close')
-                            alert("Modal has been closed.")
-                        }}
-                    >
-                        <View style={{marginTop: 22}}>
-                            <View>
-                                <Text>Hello World!</Text>
-                                <TouchableHighlight onPress={() => {
-                                    this.setModalVisible(!this.state.modalVisible)
-                                }}>
-                                    <Text>Hide Modal</Text>
-                                </TouchableHighlight>
-
-                            </View>
-                        </View>
-                    </Modal>
-
-                    <TouchableHighlight onPress={() => {
-                        this.setModalVisible(true)
-                    }}>
-                        <Text>Show Modal</Text>
-                    </TouchableHighlight>
-                    <TouchableHighlight onPress={() => {
-                        this.setModalVisible(true)
-                    }}>
-                        <Text>Show Modal</Text>
-                    </TouchableHighlight>
+                <View>
+                        <ImageGallery
+                            isVisible={this.state.modalVisible}
+                            images={[
+                                {
+                                    "source"     : {
+                                        "uri": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"
+                                    },
+                                    "title"      : "Gaspar Brasserie",
+                                    "description": "Expect an intimate venue with the ambience of a private "
+                                    + "club. The mood is casual, the guests sublime."
+                                },
+                                {
+                                    "source"     : {
+                                        "uri": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"
+                                    },
+                                    "title"      : "Chalk Point Kitchen",
+                                    "description": "Stylish restaurant serving market-to-table American fare "
+                                    + "in modern farmhouse digs with cellar bar."
+                                },
+                                {
+                                    "source"     : {
+                                        "uri": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"
+                                    },
+                                    "title"      : "Kyoto Amber Upper East",
+                                    "description": "Amber Upper East is located on the corner of 80th and 3rd "
+                                    + "Avenue. We serve Japanese and Asian cuisines."
+                                }
+                            ]}
+                        />
                 </View>
 
                 <UltimateListView

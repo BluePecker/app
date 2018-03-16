@@ -12,11 +12,11 @@ export default EStyleSheet.create({
     jiugongge    : {
         flexWrap      : 'wrap',
         flexDirection : 'row',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
     },
     jiugonggeItem: {
-        width   : '31rem',
-        height  : '31rem',
+        width   : '31.1rem',
+        height  : '31.1rem',
         overflow: 'hidden',
         margin  : '.2rem'
     }

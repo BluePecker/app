@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import {NativeModules} from 'react-native';
-import {Button, Image, View} from '@shoutem/ui';
+import {NativeModules, Modal} from 'react-native';
+import {Button, Image, View, ImageGallery, ImageGalleryOverlay} from '@shoutem/ui';
 
 import Css from './css';
 
 export default class Gallery extends Component {
-
     render() {
         const {
             source,
@@ -20,15 +19,14 @@ export default class Gallery extends Component {
                 return (
                     <Button
                         style={source.length > 1 ? small : large}
+                        key={index}
                         onPress={(e) => {
                             NativeModules.UIManager.measure(e.target, (x, y, width, height, pageX, pageY) => {
-                                onPress(source, index, x, y, width, height);
+                                onPress && onPress(source, index, x, y, width, height);
                             });
-
                         }}
-                        key={index}
                     >
-                        <Image source={{uri: item.uri}} styleName="medium-square"/>
+                        <Image source={{uri: item.uri, cache: 'force-cache'}} styleName="medium-square"/>
                     </Button>
                 );
             })}</View>
