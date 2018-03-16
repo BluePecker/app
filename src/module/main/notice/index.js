@@ -26,7 +26,8 @@ class Notice extends Component {
 
     render() {
         return (
-            <View style={{marginTop: 22}}>
+
+            <View>
                 <NavigationBar
                     title={{
                         title: 'Hello, world',
@@ -36,6 +37,7 @@ class Notice extends Component {
                         handler: () => alert('hello!'),
                     }}
                     statusBar={{style: 'light-content'}}
+                    tintColor={'#FA729B'}
                 />
                 <Modal
                     // animationType={"slide"}

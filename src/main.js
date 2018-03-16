@@ -10,7 +10,10 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 import Main from 'module/main';
 
-EStyleSheet.build({$rem: Dimensions.get('window').width / 100});
+EStyleSheet.build({
+    $skin: '#FA729B',
+    $rem : Dimensions.get('window').width / 100,
+});
 
 export default class App extends Component {
     render() {

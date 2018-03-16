@@ -20,6 +20,8 @@ import {
 import Video from 'react-native-video';
 import Screen from 'component/Screen';
 
+import Gallery from 'component/Gallery';
+
 import {Modal, TouchableHighlight, StatusBar} from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -112,6 +114,22 @@ class Home extends Component {
                         <Subtitle styleName="sm-gutter-horizontal" numberOfLines={4}>{restaurant.address}</Subtitle>
                     </Tile>
                 </View>
+
+                <Gallery
+                    source={[
+                        {uri: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg'},
+                        {uri: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg'},
+                        {uri: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg'},
+                        {uri: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg'},
+                        {uri: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg'},
+                        {uri: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg'},
+                        {uri: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg'},
+                    ]}
+                    css={{wrapper: Css._jiugongge, small: Css._jiugonggeItem}}
+                    onPress={(source, index) => {
+                        alert(index);
+                    }}
+                />
                 {/*<Video*/}
                 {/*ref={(ref: Video) => {*/}
                 {/*this.video = ref*/}
@@ -133,7 +151,7 @@ class Home extends Component {
                 {/*style={{height: 200, width: 200}}*/}
                 {/*/>*/}
                 <View style={Css._jiugongge}>
-                    <Button style={Css._jiugonggeItem}>
+                    <Button style={Css._jiugonggeItem} onPress={this.click}>
                         <Image
                             source={{uri: restaurant.image.url}}
                             styleName="medium-square"
@@ -231,6 +249,10 @@ class Home extends Component {
 
     componentWillUnmount() {
         this._navListener.remove();
+    }
+
+    click(e) {
+        console.log(this, e)
     }
 
     render() {
