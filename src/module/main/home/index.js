@@ -281,7 +281,7 @@ class Home extends Component {
                     visible={this.state.modalVisible}
                     images={this.state.images}
                     close={() => {
-                        alert('close')
+                        this.setModalVisible(false);
                     }}
                     share={() => {
                         alert('share')
