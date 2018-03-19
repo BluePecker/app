@@ -126,9 +126,10 @@ class Home extends Component {
 
     renderItem = (restaurant, index, separator) => {
         const images = [
+            {uri: 'https://cdn.pixabay.com/photo/2018/02/26/16/44/bird-3183441__480.jpg'},
             {uri: 'https://cdn.pixabay.com/photo/2018/02/16/20/38/human-3158541__480.jpg'},
             {uri: 'https://cdn.pixabay.com/photo/2018/03/10/20/26/flowers-3215188__480.jpg'},
-            {uri: 'https://cdn.pixabay.com/photo/2018/02/26/16/44/bird-3183441__480.jpg'},
+            {uri: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1521432358923&di=d2f7c45c9ac36b6abac0d03b85c1e4b3&imgtype=0&src=http%3A%2F%2Fimg5.duitang.com%2Fuploads%2Fitem%2F201411%2F04%2F20141104171337_xaMXx.jpeg'},
         ];
         return (
             <Card style={Css._card}>

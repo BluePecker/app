@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {NativeModules, Modal, Text} from 'react-native';
+import {NativeModules, Modal, Text, TouchableHighlight} from 'react-native';
 import Swiper from 'react-native-swiper';
 import {Button, Image, View, ImageGallery, ImageGalleryOverlay, Screen} from '@shoutem/ui';
 import Icon from 'react-native-vector-icons/EvilIcons';
@@ -21,8 +21,7 @@ class JiuGongGe extends Component {
                     style={wrapper}
                 >{source.slice(0, 9).map((item, index) => {
                     return (
-                        <Button
-                            style={source.length > 1 ? small : large}
+                        <TouchableHighlight
                             key={index}
                             onPress={(e) => {
                                 NativeModules.UIManager.measure(e.target, (x, y, width, height, pageX, pageY) => {
@@ -30,8 +29,11 @@ class JiuGongGe extends Component {
                                 });
                             }}
                         >
-                            <Image source={{uri: item.uri, cache: 'force-cache'}} styleName="medium-square"/>
-                        </Button>
+                            <Image
+                                style={source.length > 1 ? small : large}
+                                source={{uri: item.uri, cache: 'force-cache'}} styleName="medium-square"
+                            />
+                        </TouchableHighlight>
                     );
                 })}</View>
             </View>
@@ -55,8 +57,8 @@ class Gallery extends Component {
                                     <View style={Css._left}>
                                         <Button styleName="clear" onPress={() => {
                                             close && close();
-                                        }}>
-                                            <Icon name="close" style={Css._close} size={25}/>
+                                        }} style={{margin: 0, padding: 0}}>
+                                            <Icon name="close" style={Css._close} size={20}/>
                                         </Button>
                                     </View>
                                     <View style={Css._middle}>
@@ -65,8 +67,8 @@ class Gallery extends Component {
                                     <View style={Css._right}>
                                         <Button styleName="clear" onPress={() => {
                                             share && share();
-                                        }}>
-                                            <Icon name="share-apple" style={Css._share} size={25}/>
+                                        }} style={{margin: 0, padding: 0}}>
+                                            <Icon name="share-apple" style={Css._share} size={20}/>
                                         </Button>
                                     </View>
                                 </View>

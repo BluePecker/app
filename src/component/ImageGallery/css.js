@@ -10,14 +10,15 @@ export default EStyleSheet.create({
         top          : '3.8 * $dem',
         flexDirection: 'row',
     },
-    left       : {flex: 1},
+    left       : {
+        flex: 1
+    },
     close      : {
-        textAlign : 'left',
         height    : '4 * $dem',
         lineHeight: '4 * $dem',
         color     : '#fff',
     },
-    middle     : {flex: 3},
+    middle     : {flex: 4},
     index      : {
         textAlign : 'center',
         color     : '#fff',
@@ -25,9 +26,10 @@ export default EStyleSheet.create({
         height    : '4 * $dem',
         lineHeight: '4 * $dem',
     },
-    right      : {flex: 1},
+    right      : {
+        flex: 1
+    },
     share      : {
-        textAlign : 'right',
         height    : '4 * $dem',
         lineHeight: '4 * $dem',
         color     : '#fff',
@@ -35,12 +37,10 @@ export default EStyleSheet.create({
     swiper     : {
         justifyContent: 'center',
         alignItems    : 'center',
-        height        : '85 * $dem',
-        marginTop     : '7.8 * $dem',
         overflow      : 'hidden',
     },
     swiperImage: {
         width : '100rem',
-        height: '92.2 * $dem',
+        height: '100 * $dem',
     },
 });

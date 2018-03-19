@@ -1,12 +1,12 @@
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 export default EStyleSheet.create({
-    card: {
+    card         : {
         width       : "100rem",
         marginBottom: "2rem",
     },
-    video: {
-        width: "94rem",
+    video        : {
+        width : "94rem",
         margin: "0.8rem"
     },
     jiugongge    : {
@@ -15,9 +15,10 @@ export default EStyleSheet.create({
         justifyContent: 'flex-start',
     },
     jiugonggeItem: {
-        width   : '31.1rem',
-        height  : '31.1rem',
-        overflow: 'hidden',
-        margin  : '.2rem'
+        width          : '31.1rem',
+        height         : '31.1rem',
+        overflow       : 'hidden',
+        margin         : '.2rem',
+        backgroundColor: '#eeeff1',
     }
 });
