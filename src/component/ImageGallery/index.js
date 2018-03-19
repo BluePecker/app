@@ -7,14 +7,12 @@ import Icon from 'react-native-vector-icons/EvilIcons';
 import Css from './css';
 
 class JiuGongGe extends Component {
-
     render() {
         const {
             source,
             css: {wrapper, large, small},
             onPress
         } = this.props;
-
         return (
             <View>
                 <View
@@ -44,6 +42,24 @@ class JiuGongGe extends Component {
 class Gallery extends Component {
     render() {
         const {visible, index, images, close, share} = this.props;
+        const gallery = images.map((item, index) => {
+            return (
+                <View
+                    style={Css._swiper}
+                    key={index}
+                >
+                    <Image
+                        source={{
+                            uri  : item.uri,
+                            cache: 'force-cache'
+                        }}
+                        resizeMode={"contain"}
+                        style={Css._swiperImage}
+                    />
+                </View>
+            );
+        });
+
         return (
             <Modal
                 visible={visible}
@@ -75,25 +91,9 @@ class Gallery extends Component {
                                 </View>
                             );
                         }}
-                    >{
-                        images.map((item, index) => {
-                            return (
-                                <View
-                                    style={Css._swiper}
-                                    key={index}
-                                >
-                                    <Image
-                                        source={{
-                                            uri  : item.uri,
-                                            cache: 'force-cache'
-                                        }}
-                                        resizeMode={"contain"}
-                                        style={Css._swiperImage}
-                                    />
-                                </View>
-                            );
-                        })
-                    }</Swiper>
+                        bounces
+                        automaticallyAdjustContentInsets
+                    >{gallery}</Swiper>
                 </Screen>
             </Modal>
         );

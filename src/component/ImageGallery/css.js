@@ -2,8 +2,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 export default EStyleSheet.create({
     mask       : {
-        width          : '100rem',
-        backgroundColor: '#000'
+        width: '100rem',
     },
     header     : {
         position     : 'absolute',
@@ -40,7 +39,8 @@ export default EStyleSheet.create({
         overflow      : 'hidden',
     },
     swiperImage: {
-        width : '100%',
-        height: '100%',
+        width          : '100%',
+        height         : '100%',
+        backgroundColor: '#000',
     },
 });
