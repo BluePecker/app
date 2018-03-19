@@ -50,6 +50,7 @@ class Gallery extends Component {
             >
                 <Screen style={Css._mask}>
                     <Swiper
+                        index={index || 0}
                         showsPagination
                         renderPagination={(index, total, ctx) => {
                             return (
@@ -86,8 +87,8 @@ class Gallery extends Component {
                                             uri  : item.uri,
                                             cache: 'force-cache'
                                         }}
-                                        style={Css._swiperImage}
                                         resizeMode={"contain"}
+                                        style={Css._swiperImage}
                                     />
                                 </View>
                             );

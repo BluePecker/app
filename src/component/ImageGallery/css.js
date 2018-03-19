@@ -40,7 +40,7 @@ export default EStyleSheet.create({
         overflow      : 'hidden',
     },
     swiperImage: {
-        width : '100rem',
-        height: '100 * $dem',
+        width : '100%',
+        height: '100%',
     },
 });
