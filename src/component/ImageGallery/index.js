@@ -29,7 +29,11 @@ class JiuGongGe extends Component {
                         >
                             <Image
                                 style={source.length > 1 ? small : large}
-                                source={{uri: item.uri, cache: 'force-cache'}} styleName="medium-square"
+                                source={{
+                                    uri  : item.uri,
+                                    cache: 'force-cache'
+                                }}
+                                styleName="medium-square"
                             />
                         </TouchableHighlight>
                     );
@@ -51,7 +55,7 @@ class Gallery extends Component {
                     <Image
                         source={{
                             uri  : item.uri,
-                            cache: 'force-cache'
+                            cache: 'force-cache',
                         }}
                         resizeMode={"contain"}
                         style={Css._swiperImage}

@@ -20,5 +20,6 @@ export default EStyleSheet.create({
         overflow       : 'hidden',
         margin         : '.2rem',
         backgroundColor: '#eeeff1',
+        borderRadius   : '0.5rem',
     }
 });

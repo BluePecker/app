@@ -15,7 +15,6 @@ import {
     Card,
     Image,
     Caption,
-    InlineGallery,
 } from '@shoutem/ui';
 import Swiper from 'react-native-swiper';
 import Video from 'react-native-video';
@@ -33,33 +32,6 @@ import Inject from 'module';
 import Css from './css';
 
 import Model from 'model/main/home';
-
-const styles = StyleSheet.create({
-    wrapper: {},
-    slide1 : {
-        flex           : 1,
-        justifyContent : 'center',
-        alignItems     : 'center',
-        backgroundColor: '#9DD6EB',
-    },
-    slide2 : {
-        flex           : 1,
-        justifyContent : 'center',
-        alignItems     : 'center',
-        backgroundColor: '#97CAE5',
-    },
-    slide3 : {
-        flex           : 1,
-        justifyContent : 'center',
-        alignItems     : 'center',
-        backgroundColor: '#92BBD9',
-    },
-    text   : {
-        color     : '#fff',
-        fontSize  : 30,
-        fontWeight: 'bold',
-    }
-})
 
 class Home extends Component {
     sleep = (time) => new Promise(resolve => setTimeout(() => resolve(), time));
@@ -80,7 +52,7 @@ class Home extends Component {
             }
 
             //Simulate the network loading in ES7 syntax (async/await)
-            await this.sleep(1000);
+            await this.sleep(100);
             startFetch([
                 {
                     "name"   : "Mastergrill",
@@ -147,35 +119,17 @@ class Home extends Component {
                         <Subtitle styleName="sm-gutter-horizontal" numberOfLines={4}>{restaurant.address}</Subtitle>
                     </Tile>
                 </View>
-
                 <JiuGongGe
                     source={images}
-                    css={{wrapper: Css._jiugongge, small: Css._jiugonggeItem}}
+                    css={{
+                        wrapper: Css._jiugongge,
+                        small  : Css._jiugonggeItem
+                    }}
                     onPress={(source, index) => {
                         this.setModalVisible(true);
                         this.setState({images, index});
                     }}
                 />
-                {/*<Video*/}
-                {/*ref={(ref: Video) => {*/}
-                {/*this.video = ref*/}
-                {/*}}*/}
-                {/*source={require('resource/test.mp4')}*/}
-                {/*rate={1}                          // 控制暂停/播放，0 代表暂停paused, 1代表播放normal.*/}
-                {/*paused={false}*/}
-                {/*volume={1}                   // 声音的放大倍数，0 代表没有声音，就是静音muted, 1 代表正常音量 normal，更大的数字表示放大的倍数*/}
-                {/*muted={true}                  // true代表静音，默认为false.*/}
-                {/*resizeMode='cover'       // 视频的自适应伸缩铺放行为，*/}
-                {/*onLoad={this.onLoad}                       // 当视频加载完毕时的回调函数*/}
-                {/*onLoadStart={this.loadStart}            // 当视频开始加载时的回调函数*/}
-                {/*onProgress={this.onProgress}   //  进度控制，每250ms调用一次，以获取视频播放的进度*/}
-                {/*onEnd={this.onEnd}             // 当视频播放完毕后的回调函数*/}
-                {/*onError={this.videoError}    // 当视频不能加载，或出错后的回调函数*/}
-                {/*onAudioBecomingNoisy={this.onAudioBecomingNoisy}*/}
-                {/*onAudioFocusChanged={this.onAudioFocusChanged}*/}
-                {/*repeat={false}                            // 是否重复播放*/}
-                {/*style={{height: 200, width: 200}}*/}
-                {/*/>*/}
                 <Divider styleName="line"/>
                 <View styleName="horizontal space-between">
                     <Caption>1 hour ago</Caption>
@@ -221,10 +175,6 @@ class Home extends Component {
         this._navListener.remove();
     }
 
-    click(e) {
-        console.log(this, e)
-    }
-
     render() {
         const {test, state: {name}} = this.props;
         return (
@@ -250,31 +200,6 @@ class Home extends Component {
                     styleName='clear inline no-border'
                     style={{container: {paddingTop: 26, height: 68, backgroundColor: '#FA729B'}}}
                 />
-
-                {/*<Modal*/}
-                {/*visible={this.state.modalVisible}*/}
-                {/*>*/}
-                {/*<Text>1/3</Text>*/}
-                {/*<Swiper*/}
-                {/*style={styles.wrapper}*/}
-                {/*height={200} horizontal={false}*/}
-                {/*showsPagination={true}*/}
-                {/*dot={<View/>} activeDot={<View/>}*/}
-                {/*onIndexChanged={index => alert(index)}*/}
-                {/*>*/}
-
-
-                {/*<View style={styles.slide1}>*/}
-                {/*<Text style={styles.text}>Hello Swiper</Text>*/}
-                {/*</View>*/}
-                {/*<View style={styles.slide2}>*/}
-                {/*<Text style={styles.text}>Beautiful</Text>*/}
-                {/*</View>*/}
-                {/*<View style={styles.slide3}>*/}
-                {/*<Text style={styles.text}>And simple</Text>*/}
-                {/*</View>*/}
-                {/*</Swiper>*/}
-                {/*</Modal>*/}
 
                 <Gallery
                     visible={this.state.modalVisible}
