@@ -46,16 +46,17 @@ class JiuGongGe extends Component {
 class Gallery extends Component {
     render() {
         const {visible, index, images, close, share} = this.props;
-        const gallery = images.map((item, index) => {
+        const gallery = images.map((item, i) => {
             return (
                 <View
                     style={Css._swiper}
-                    key={index}
+                    key={i}
                 >
                     <Image
                         source={{
                             uri  : item.uri,
-                            cache: 'force-cache',
+                            // 临时修复图片重叠问题
+                            cache: index == i ? 'force-cache' : 'reload',
                         }}
                         resizeMode={"contain"}
                         style={Css._swiperImage}

@@ -56,7 +56,17 @@ class Home extends Component {
             startFetch([
                 {
                     "name"   : "Mastergrill",
-                    "address": "550 Upton Rue, San Francisco, CA 94109",
+                    "address": "网易这次下血本了！！由梦幻西游核心团队匠心打造〜凝聚了回合制十年研发突破，游戏性和画面感无与伦比的网易次世代在作终于问世。首日登陆即获金武将赵云！连续登陆便可获得超强法师诸葛亮和三国第一战神吕布！戳链下载 >>>",
+                    "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
+                },
+                {
+                    "name"   : "Mastergrill",
+                    "address": "网易这次下血本了！！由梦幻西游核心团队匠心打造〜凝聚了回合制十年研发突破，游戏性和画面感无与伦比的网易次世代在作终于问世。首日登陆即获金武将赵云！连续登陆便可获得超强法师诸葛亮和三国第一战神吕布！戳链下载 >>>",
+                    "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
+                },
+                {
+                    "name"   : "Mastergrill",
+                    "address": "网易这次下血本了！！由梦幻西游核心团队匠心打造〜凝聚了回合制十年研发突破，游戏性和画面感无与伦比的网易次世代在作终于问世。首日登陆即获金武将赵云！连续登陆便可获得超强法师诸葛亮和三国第一战神吕布！戳链下载 >>>",
                     "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
                 },
                 {
@@ -76,17 +86,7 @@ class Home extends Component {
                 },
                 {
                     "name"   : "Mastergrill",
-                    "address": "550 Upton Rue, San Francisco, CA 94109",
-                    "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
-                },
-                {
-                    "name"   : "Mastergrill",
-                    "address": "550 Upton Rue, San Francisco, CA 94109",
-                    "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
-                },
-                {
-                    "name"   : "Mastergrill",
-                    "address": "550 Upton Rue, San Francisco, CA 94109",
+                    "address": "网易这次下血本了！！由梦幻西游核心团队匠心打造〜凝聚了回合制十年研发突破，游戏性和画面感无与伦比的网易次世代在作终于问世。首日登陆即获金武将赵云！连续登陆便可获得超强法师诸葛亮和三国第一战神吕布！戳链下载 >>>",
                     "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
                 },
             ], pageLimit);
@@ -115,7 +115,7 @@ class Home extends Component {
                 </View>
                 <View>
                     <Tile>
-                        <Title styleName="md-gutter-bottom">{restaurant.name}</Title>
+                        {/*<Title styleName="md-gutter-bottom">{restaurant.name}</Title>*/}
                         <Subtitle styleName="sm-gutter-horizontal" numberOfLines={4}>{restaurant.address}</Subtitle>
                     </Tile>
                 </View>
