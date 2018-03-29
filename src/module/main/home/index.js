@@ -104,32 +104,38 @@ class Home extends Component {
         ];
         return (
             <Card style={Css._card}>
-                <View styleName="horizontal space-between">
-                    <View styleName="horizontal h-start">
+                <View styleName="horizontal space-between" style={Css._cardHeader}>
+                    <View styleName="horizontal h-start" style={Css._cardHeaderLeft}>
                         <View>
-                            <Image styleName="small-avatar" source={{uri: restaurant.image.url}}/>
-                        </View>
-                        <View style={{paddingLeft: 8}}>
                             <View>
-                                <Subtitle>卖萌的小怪</Subtitle>
+                                <Image
+                                    style={Css._cardHeaderLeftAvatar}
+                                    source={{uri: restaurant.image.url}}
+                                />
+                            </View>
+                        </View>
+                        <View style={Css._cardHeaderLeftInfo}>
+                            <View>
+                                <Subtitle style={Css._cardHeaderLeftInfoName}>卖萌的小怪</Subtitle>
                             </View>
                             <View>
                                 <Caption>10分钟前 发自iphone 7plus</Caption>
                             </View>
                         </View>
                     </View>
-                    <View>
+                    <View style={Css._cardHeaderRight}>
                         <Button styleName="clear">
-                            <Icon name="ios-aperture-outline" size={25} color='#FA729B'/>
+                            <Icon name="ios-aperture-outline" size={28}/>
                         </Button>
                     </View>
                 </View>
-                <View style={{paddingTop: 0, paddingBottom: 0}}>
+                <View style={Css._cardContent}>
                     <Tile styleName="clear">
-                        <Subtitle styleName="sm-gutter-horizontal" style={{
-                            textAlign : 'justify',
-                            marginLeft: 0, marginRight: 0,
-                        }} numberOfLines={4}>{restaurant.address}</Subtitle>
+                        <Subtitle
+                            numberOfLines={4}
+                            style={Css._cardContentArticle}
+                            styleName="sm-gutter-horizontal"
+                        >{restaurant.address}</Subtitle>
                     </Tile>
                 </View>
                 <JiuGongGe
