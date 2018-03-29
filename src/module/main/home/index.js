@@ -106,17 +106,30 @@ class Home extends Component {
             <Card style={Css._card}>
                 <View styleName="horizontal space-between">
                     <View styleName="horizontal h-start">
-                        <Image styleName="small-avatar" source={{uri: restaurant.image.url}}/>
-                        <Subtitle style={{paddingLeft: 8, paddingBottom: 2}}>卖萌的小怪</Subtitle>
+                        <View>
+                            <Image styleName="small-avatar" source={{uri: restaurant.image.url}}/>
+                        </View>
+                        <View style={{paddingLeft: 8}}>
+                            <View>
+                                <Subtitle>卖萌的小怪</Subtitle>
+                            </View>
+                            <View>
+                                <Caption>10分钟前 发自iphone 7plus</Caption>
+                            </View>
+                        </View>
                     </View>
-                    <Button styleName="clear">
-                        <Icon name="ios-aperture-outline" size={25} color='#FA729B'/>
-                    </Button>
+                    <View>
+                        <Button styleName="clear">
+                            <Icon name="ios-aperture-outline" size={25} color='#FA729B'/>
+                        </Button>
+                    </View>
                 </View>
-                <View>
-                    <Tile>
-                        {/*<Title styleName="md-gutter-bottom">{restaurant.name}</Title>*/}
-                        <Subtitle styleName="sm-gutter-horizontal" numberOfLines={4}>{restaurant.address}</Subtitle>
+                <View style={{paddingTop: 0, paddingBottom: 0}}>
+                    <Tile styleName="clear">
+                        <Subtitle styleName="sm-gutter-horizontal" style={{
+                            textAlign : 'justify',
+                            marginLeft: 0, marginRight: 0,
+                        }} numberOfLines={4}>{restaurant.address}</Subtitle>
                     </Tile>
                 </View>
                 <JiuGongGe
@@ -165,7 +178,6 @@ class Home extends Component {
     componentDidMount() {
         this._navListener = this.props.navigation.addListener('didFocus', () => {
             console.log('mount');
-
             StatusBar.setBarStyle('light-content');
             // isAndroid && StatusBar.setBackgroundColor('#6a51ae');
         });
@@ -208,9 +220,7 @@ class Home extends Component {
                         this.setModalVisible(false);
                     }}
                     index={this.state.index}
-                    share={() => {
-                        alert('share')
-                    }}
+                    share={() => alert('share')}
                 />
 
                 <UltimateListView

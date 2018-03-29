@@ -10,9 +10,9 @@ export default EStyleSheet.create({
         margin: "0.8rem"
     },
     jiugongge    : {
-        flexWrap      : 'wrap',
-        flexDirection : 'row',
-        justifyContent: 'flex-start',
+        flexWrap       : 'wrap',
+        flexDirection  : 'row',
+        justifyContent : 'flex-start',
     },
     jiugonggeItem: {
         width          : '31.1rem',
