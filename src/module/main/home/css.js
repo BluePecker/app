@@ -68,5 +68,20 @@ export default EStyleSheet.create({
         margin         : '.2rem',
         backgroundColor: '#eeeff1',
         borderRadius   : '0.5rem',
-    }
+    },
+    cardFooter             : {
+        margin        : 0,
+        padding       : 0,
+        alignItems    : 'center',
+        justifyContent: 'center',
+    },
+    cardFooterButton       : {
+        height: '8rem',
+    },
+    cardFooterButtonIcon   : {
+        // color: ''
+    },
+    cardFooterButtonText   : {
+        marginLeft: '0.8rem'
+    },
 });

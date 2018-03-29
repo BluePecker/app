@@ -16,8 +16,8 @@ import {
     Image,
     Caption,
 } from '@shoutem/ui';
-import Swiper from 'react-native-swiper';
-import Video from 'react-native-video';
+// import Swiper from 'react-native-swiper';
+// import Video from 'react-native-video';
 import Screen from 'component/Screen';
 
 import {JiuGongGe, Gallery} from 'component/ImageGallery';
@@ -25,6 +25,7 @@ import {JiuGongGe, Gallery} from 'component/ImageGallery';
 import {Modal, TouchableHighlight, StatusBar, StyleSheet} from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
+import EvilIcon from 'react-native-vector-icons/EvilIcons';
 import {UltimateListView} from "react-native-ultimate-listview";
 
 import Inject from 'module';
@@ -125,7 +126,7 @@ class Home extends Component {
                     </View>
                     <View style={Css._cardHeaderRight}>
                         <Button styleName="clear">
-                            <Icon name="ios-aperture-outline" size={28}/>
+                            <EvilIcon name="sc-telegram" size={28}/>
                         </Button>
                     </View>
                 </View>
@@ -150,9 +151,19 @@ class Home extends Component {
                     }}
                 />
                 <Divider styleName="line"/>
-                <View styleName="horizontal space-between">
-                    <Caption>1 hour ago</Caption>
-                    <Caption>15:34</Caption>
+                <View styleName="horizontal flexible" style={Css._cardFooter}>
+                    <Button styleName="full-width muted" style={Css._cardFooterButton}>
+                        <EvilIcon name="eye" size={22}/>
+                        <Text style={Css._cardFooterButtonText}>4312</Text>
+                    </Button>
+                    <Button styleName="full-width muted" style={Css._cardFooterButton}>
+                        <EvilIcon name="envelope" size={22}/>
+                        <Text style={Css._cardFooterButtonText}>4102</Text>
+                    </Button>
+                    <Button styleName="full-width muted" style={Css._cardFooterButton}>
+                        <EvilIcon name="like" size={22}/>
+                        <Text style={Css._cardFooterButtonText}>9423</Text>
+                    </Button>
                 </View>
             </Card>
         );
