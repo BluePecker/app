@@ -3,10 +3,10 @@ import {
     Title,
     NavigationBar,
     ImageBackground,
+    Screen,
 } from '@shoutem/ui';
 
 import {StatusBar} from 'react-native';
-import Screen from 'component/Screen';
 import Inject from 'module';
 
 import Css from './css';

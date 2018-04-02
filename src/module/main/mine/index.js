@@ -4,10 +4,10 @@ import {
     View,
     Text,
     Title,
-    ImageBackground
+    ImageBackground,
+    Screen,
 } from '@shoutem/ui';
 
-import Screen from 'component/Screen';
 import Inject from 'module';
 
 import Css from './css';

@@ -15,10 +15,10 @@ import {
     Card,
     Image,
     Caption,
+    Screen,
 } from '@shoutem/ui';
 // import Swiper from 'react-native-swiper';
 // import Video from 'react-native-video';
-import Screen from 'component/Screen';
 
 import {JiuGongGe, Gallery} from 'component/ImageGallery';
 

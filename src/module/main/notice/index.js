@@ -3,11 +3,11 @@ import {Modal, Text, TouchableHighlight, View, StatusBar} from 'react-native';
 import {
     Button,
     Title,
+    Screen,
 } from '@shoutem/ui';
 
 import NavigationBar from 'react-native-navbar';
 
-import Screen from 'component/Screen';
 import Inject from 'module';
 import Icon from 'react-native-vector-icons/Ionicons';
 
