@@ -252,8 +252,8 @@ class Home extends Component {
     }
 }
 
-const Temp = StackNavigator({
-    Home: {screen: Home},
+export default StackNavigator({
+    Home: {screen: Inject({namespace: 'main/home', component: Home, model: Model})},
 }, {
     initialRouteName : 'Home',
     onTransitionStart: () => {
@@ -263,5 +263,3 @@ const Temp = StackNavigator({
         console.log('导航栏切换结束');
     },
 });
-
-export default Inject({namespace: 'main/home', component: Home, model: Model});
