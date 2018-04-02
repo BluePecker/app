@@ -46,7 +46,7 @@ class JiuGongGe extends Component {
 class Gallery extends Component {
     render() {
         const {visible, index, images, close, share} = this.props;
-        const gallery = images.map((item, i) => {
+        const gallery = (images || []).map((item, i) => {
             return (
                 <View
                     style={Css._swiper}
