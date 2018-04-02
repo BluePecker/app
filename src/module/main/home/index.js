@@ -207,27 +207,27 @@ class Home extends Component {
     render() {
         return (
             <Screen>
-                <NavigationBar
-                    leftComponent={(
-                        <Button styleName="clear">
-                            <Icon size={26} name="md-menu" color="#ffffff"/>
-                        </Button>
-                    )}
-                    centerComponent={<Title style={{
-                        fontSize  : 24,
-                        height    : 24,
-                        minWidth  : 200,
-                        textAlign : 'center',
-                        lineHeight: 28,
-                    }}>DIG-微忆</Title>}
-                    rightComponent={(
-                        <Button styleName="clear">
-                            <Icon size={26} name="md-add" color="#ffffff"/>
-                        </Button>
-                    )}
-                    styleName='clear inline no-border'
-                    style={{container: {paddingTop: 26, height: 68, backgroundColor: '#FA729B'}}}
-                />
+                {/*<NavigationBar*/}
+                {/*leftComponent={(*/}
+                {/*<Button styleName="clear">*/}
+                {/*<Icon size={26} name="md-menu" color="#ffffff"/>*/}
+                {/*</Button>*/}
+                {/*)}*/}
+                {/*centerComponent={<Title style={{*/}
+                {/*fontSize  : 24,*/}
+                {/*height    : 24,*/}
+                {/*minWidth  : 200,*/}
+                {/*textAlign : 'center',*/}
+                {/*lineHeight: 28,*/}
+                {/*}}>DIG-微忆</Title>}*/}
+                {/*rightComponent={(*/}
+                {/*<Button styleName="clear">*/}
+                {/*<Icon size={26} name="md-add" color="#ffffff"/>*/}
+                {/*</Button>*/}
+                {/*)}*/}
+                {/*styleName='clear inline no-border'*/}
+                {/*style={{container: {paddingTop: 26, height: 68, backgroundColor: '#FA729B'}}}*/}
+                {/*/>*/}
                 <Gallery
                     visible={this.state.modalVisible}
                     images={this.state.images}
@@ -262,4 +262,36 @@ export default StackNavigator({
     onTransitionEnd  : () => {
         console.log('导航栏切换结束');
     },
+    navigationOptions: {
+        headerLeft       : (
+            <Button styleName="clear">
+                <Icon size={26} name="md-menu" color="#ffffff"/>
+            </Button>
+        ),
+        headerTitle      :
+            <Button styleName="clear">
+                <Text style={{
+                    fontSize  : 24,
+                    height    : 35,
+                    lineHeight: 45,
+                    color     : '#ffffff'
+                }}>DIG-微忆</Text>
+            </Button>,
+        headerRight      : (
+            <Button styleName="clear">
+                <Icon size={26} name="md-add" color="#ffffff"/>
+            </Button>
+        ),
+        headerTintColor  : '#000',
+        headerStyle      : {
+            backgroundColor  : '#FA729B',
+            borderBottomColor: 'transparent',
+            height           : 35,
+        },
+        headerTransparent: true,
+        // header           : <View><Text>ljlkjljlj</Text></View>
+    },
+    // headerMode       : 'none',
+    // headerMode       : 'screen',
+    // mode             : 'modal',
 });
