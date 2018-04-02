@@ -5,7 +5,6 @@ import {
     Subtitle,
     ImageBackground,
     Title,
-    NavigationBar,
     Divider,
     Button,
     Text,
@@ -16,7 +15,9 @@ import {
     Image,
     Caption,
     Screen,
+    NavigationBar,
 } from '@shoutem/ui';
+import {StackNavigator} from 'react-navigation';
 // import Swiper from 'react-native-swiper';
 // import Video from 'react-native-video';
 
@@ -29,9 +30,7 @@ import EvilIcon from 'react-native-vector-icons/EvilIcons';
 import {UltimateListView} from 'react-native-ultimate-listview';
 
 import Inject from 'module';
-
 import Css from './css';
-
 import Model from 'model/main/home';
 
 class Home extends Component {
@@ -193,8 +192,9 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        this._navListener = this.props.navigation.addListener('didFocus', () => {
-            console.log('mount');
+        const {navigation: {addListener}} = this.props;
+        this._navListener = addListener('didFocus', () => {
+            console.log('focus');
             StatusBar.setBarStyle('light-content');
             // isAndroid && StatusBar.setBackgroundColor('#6a51ae');
         });
@@ -205,7 +205,6 @@ class Home extends Component {
     }
 
     render() {
-        const {test, state: {name}} = this.props;
         return (
             <Screen>
                 <NavigationBar
@@ -229,7 +228,6 @@ class Home extends Component {
                     styleName='clear inline no-border'
                     style={{container: {paddingTop: 26, height: 68, backgroundColor: '#FA729B'}}}
                 />
-
                 <Gallery
                     visible={this.state.modalVisible}
                     images={this.state.images}
@@ -239,7 +237,6 @@ class Home extends Component {
                     index={this.state.index}
                     share={() => alert('share')}
                 />
-
                 <UltimateListView
                     onFetch={this.onFetch}
                     item={this.renderItem}
@@ -254,5 +251,17 @@ class Home extends Component {
         );
     }
 }
+
+const Temp = StackNavigator({
+    Home: {screen: Home},
+}, {
+    initialRouteName : 'Home',
+    onTransitionStart: () => {
+        console.log('导航栏切换开始');
+    },
+    onTransitionEnd  : () => {
+        console.log('导航栏切换结束');
+    },
+});
 
 export default Inject({namespace: 'main/home', component: Home, model: Model});
