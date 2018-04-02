@@ -289,7 +289,6 @@ export default StackNavigator({
             height           : 35,
         },
         headerTransparent: true,
-        // header           : <View><Text>ljlkjljlj</Text></View>
     },
     // headerMode       : 'none',
     // headerMode       : 'screen',
