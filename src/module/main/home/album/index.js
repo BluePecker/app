@@ -3,9 +3,10 @@ import React, {Component} from 'react';
 import {
     Text,
     View,
+    Image,
 } from '@shoutem/ui';
 
-import {Modal, Animated,} from 'react-native';
+import {Modal, Animated, ScrollView,} from 'react-native';
 
 import Inject from 'module';
 import Css from './css';
@@ -45,14 +46,25 @@ class FadeInView extends Component {
 
 class Album extends Component {
     render() {
+        const {source, index, width, height, x, y} = this.props.navigation.state.params;
         return (
             <View>
                 <Modal>
-                    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-                        <FadeInView style={{width: 250, height: 50, backgroundColor: 'powderblue'}}>
-                            <Text style={{fontSize: 28, textAlign: 'center', margin: 10}}>Fading in</Text>
-                        </FadeInView>
-                    </View>
+                    <Image
+                        style={{
+                            width   : width,
+                            height  : height,
+                            top     : y,
+                            left    : x,
+                            position: 'absolute',
+                            opacity : 0.2,
+                        }}
+                        source={{uri: source[index].uri, cache: 'force-cache'}}
+                    />
+
+                    {/*<FadeInView style={{width: 250, height: 50, backgroundColor: 'powderblue'}}>*/}
+                    {/*<Text style={{fontSize: 28, textAlign: 'center', margin: 10}}>Fading in</Text>*/}
+                    {/*</FadeInView>*/}
                 </Modal>
             </View>
         );

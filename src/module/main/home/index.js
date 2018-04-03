@@ -20,9 +20,6 @@ export default StackNavigator({
     },
     Album: {
         screen: Album,
-        // navigationOptions: ({navigation}) => ({
-        //     header: <View></View>
-        // }),
     },
 }, {
     initialRouteName : 'Feed',
@@ -52,7 +49,6 @@ export default StackNavigator({
                 <IonIcon size={26} name="md-add" color="#ffffff"/>
             </Button>
         ),
-        headerTintColor  : '#000',
         headerStyle      : {
             backgroundColor  : '#FA729B',
             borderBottomColor: 'transparent',
@@ -61,29 +57,5 @@ export default StackNavigator({
         headerTransparent: true,
     },
     // headerMode       : 'none',
-    // headerMode       : 'screen',
     // mode             : 'modal',
-    transitionConfig : () => {
-        return {
-            transitionSpec    : {
-                duration       : 750,
-                easing         : Easing.out(Easing.poly(4)),
-                timing         : Animated.timing,
-                useNativeDriver: true,
-            },
-            screenInterpolator: sceneProps => {
-                const {layout, position, scene} = sceneProps
-
-                const thisSceneIndex = scene.index
-                const width = layout.initWidth
-
-                const translateX = position.interpolate({
-                    inputRange : [thisSceneIndex - 1, thisSceneIndex],
-                    outputRange: [width, 0],
-                })
-
-                return {transform: [{translateX}]}
-            },
-        }
-    },
 });

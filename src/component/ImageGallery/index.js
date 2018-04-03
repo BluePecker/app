@@ -23,7 +23,7 @@ class JiuGongGe extends Component {
                             key={index}
                             onPress={(e) => {
                                 NativeModules.UIManager.measure(e.target, (x, y, width, height, pageX, pageY) => {
-                                    onPress && onPress(source, index, x, y, width, height);
+                                    onPress && onPress(source, index, pageX, pageY, width, height);
                                 });
                             }}
                         >

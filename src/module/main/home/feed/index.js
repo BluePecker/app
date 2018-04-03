@@ -142,8 +142,10 @@ class Feed extends Component {
                         wrapper: Css._jiugongge,
                         small  : Css._jiugonggeItem
                     }}
-                    onPress={(source, index) => {
-                        this.props.navigation.navigate('Album');
+                    onPress={(source, index, x, y, width, height) => {
+                        this.props.navigation.navigate('Album', {
+                            source, index, x, y, width, height
+                        });
                         // this.setModalVisible(true);
                         // this.setState({images, index});
                     }}
