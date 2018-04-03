@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 
 import {
-    View,
     Text,
+    View,
 } from '@shoutem/ui';
+
+import {Modal as NModal} from 'react-native';
 
 import Inject from 'module';
 import Css from './css';
@@ -13,7 +15,9 @@ class Modal extends Component {
     render() {
         return (
             <View>
-                <Text>Modal -> hello word!!!</Text>
+                <NModal>
+                    <Text>Modal -> hello word!!!</Text>
+                </NModal>
             </View>
         );
     }

@@ -4,14 +4,31 @@ import {
     Button,
     Text,
 } from '@shoutem/ui';
+import {
+    Easing,
+    Animated,
+    View,
+} from 'react-native';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 
 import Feed from 'module/main/home/feed';
 import Modal from 'module/main/home/modal';
 
 export default StackNavigator({
-    Feed : {screen: Feed},
-    Modal: {screen: Modal},
+    Feed : {
+        screen           : Feed,
+        navigationOptions: ({navigation}) => ({
+            title     : `'s Profile'`,
+            headerMode: 'none',
+            mode      : 'modal',
+        }),
+    },
+    Modal: {
+        screen           : Modal,
+        navigationOptions: ({navigation}) => ({
+            header: <View></View>
+        }),
+    },
 }, {
     initialRouteName : 'Feed',
     onTransitionStart: () => {
@@ -51,4 +68,27 @@ export default StackNavigator({
     // headerMode       : 'none',
     // headerMode       : 'screen',
     // mode             : 'modal',
+    transitionConfig : () => {
+        return {
+            transitionSpec    : {
+                duration       : 750,
+                easing         : Easing.out(Easing.poly(4)),
+                timing         : Animated.timing,
+                useNativeDriver: true,
+            },
+            screenInterpolator: sceneProps => {
+                const {layout, position, scene} = sceneProps
+
+                const thisSceneIndex = scene.index
+                const width = layout.initWidth
+
+                const translateX = position.interpolate({
+                    inputRange : [thisSceneIndex - 1, thisSceneIndex],
+                    outputRange: [width, 0],
+                })
+
+                return {transform: [{translateX}]}
+            },
+        }
+    },
 });

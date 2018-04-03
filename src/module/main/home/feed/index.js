@@ -143,8 +143,9 @@ class Feed extends Component {
                         small  : Css._jiugonggeItem
                     }}
                     onPress={(source, index) => {
-                        this.setModalVisible(true);
-                        this.setState({images, index});
+                        this.props.navigation.navigate('Modal');
+                        // this.setModalVisible(true);
+                        // this.setState({images, index});
                     }}
                 />
                 <Divider styleName="line"/>
