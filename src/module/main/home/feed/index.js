@@ -229,4 +229,4 @@ class Feed extends Component {
     }
 }
 
-export default Inject({namespace: 'main/home/feed', component: Feed, model: Model})
+export default Inject({namespace: 'main/home/feed', component: Feed, model: Model});

@@ -5,10 +5,13 @@ import {
     Text,
 } from '@shoutem/ui';
 import IonIcon from 'react-native-vector-icons/Ionicons';
+
 import Feed from 'module/main/home/feed';
+import Modal from 'module/main/home/modal';
 
 export default StackNavigator({
-    Feed: {screen: Feed},
+    Feed : {screen: Feed},
+    Modal: {screen: Modal},
 }, {
     initialRouteName : 'Feed',
     onTransitionStart: () => {
