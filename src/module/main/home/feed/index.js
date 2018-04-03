@@ -143,7 +143,7 @@ class Feed extends Component {
                         small  : Css._jiugonggeItem
                     }}
                     onPress={(source, index) => {
-                        this.props.navigation.navigate('Modal');
+                        this.props.navigation.navigate('Album');
                         // this.setModalVisible(true);
                         // this.setState({images, index});
                     }}

@@ -12,22 +12,17 @@ import {
 import IonIcon from 'react-native-vector-icons/Ionicons';
 
 import Feed from 'module/main/home/feed';
-import Modal from 'module/main/home/modal';
+import Album from 'module/main/home/album';
 
 export default StackNavigator({
     Feed : {
-        screen           : Feed,
-        navigationOptions: ({navigation}) => ({
-            title     : `'s Profile'`,
-            headerMode: 'none',
-            mode      : 'modal',
-        }),
+        screen: Feed
     },
-    Modal: {
-        screen           : Modal,
-        navigationOptions: ({navigation}) => ({
-            header: <View></View>
-        }),
+    Album: {
+        screen: Album,
+        // navigationOptions: ({navigation}) => ({
+        //     header: <View></View>
+        // }),
     },
 }, {
     initialRouteName : 'Feed',
