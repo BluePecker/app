@@ -96,9 +96,21 @@ class Feed extends Component {
 
     renderItem = (restaurant, index, separator) => {
         const images = [
-            {uri: 'https://cdn.pixabay.com/photo/2018/02/26/16/44/bird-3183441__480.jpg'},
-            {uri: 'https://cdn.pixabay.com/photo/2018/02/16/20/38/human-3158541__480.jpg'},
-            {uri: 'https://cdn.pixabay.com/photo/2018/03/10/20/26/flowers-3215188__480.jpg'},
+            {
+                uri   : 'https://cdn.pixabay.com/photo/2018/02/26/16/44/bird-3183441__480.jpg',
+                height: 200,
+                width : 400,
+            },
+            {
+                uri   : 'https://cdn.pixabay.com/photo/2018/02/16/20/38/human-3158541__480.jpg',
+                height: 400,
+                width : 400,
+            },
+            {
+                uri   : 'https://cdn.pixabay.com/photo/2018/03/10/20/26/flowers-3215188__480.jpg',
+                height: 1600,
+                width : 400,
+            },
         ];
         return (
             <Card style={Css._card}>

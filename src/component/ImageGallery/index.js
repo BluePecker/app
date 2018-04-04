@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {NativeModules, Modal, Text, TouchableHighlight} from 'react-native';
+import {NativeModules, Modal, Text, TouchableHighlight, Image} from 'react-native';
 import Swiper from 'react-native-swiper';
-import {Button, Image, View, ImageGallery, ImageGalleryOverlay, Screen} from '@shoutem/ui';
+import {Button, View, ImageGallery, ImageGalleryOverlay, Screen} from '@shoutem/ui';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
 import Css from './css';
@@ -22,8 +22,8 @@ class JiuGongGe extends Component {
                         <TouchableHighlight
                             key={index}
                             onPress={(e) => {
-                                NativeModules.UIManager.measure(e.target, (x, y, width, height, pageX, pageY) => {
-                                    onPress && onPress(source, index, pageX, pageY, width, height);
+                                NativeModules.UIManager.measure(e.target, (t1, t2, width, height, x, y) => {
+                                    onPress && onPress(source, index, x, y, width, height);
                                 });
                             }}
                         >
