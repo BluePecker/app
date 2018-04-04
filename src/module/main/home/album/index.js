@@ -8,7 +8,7 @@ import {
     Screen,
 } from '@shoutem/ui';
 import Swiper from 'react-native-swiper';
-import {Modal, Animated, ScrollView,} from 'react-native';
+import {Modal, Animated, ScrollView, TouchableHighlight, TouchableWithoutFeedback} from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
 import Inject from 'module';
@@ -76,7 +76,7 @@ class Album extends Component {
             }),
             Animated.spring(this.state.translateY, {
                 toValue: h / 2 - (y + height / 2),
-            })
+            }),
         ]).start();
     }
 
@@ -116,59 +116,68 @@ class Album extends Component {
                     bounces
                     automaticallyAdjustContentInsets
                 >
-                    <ScrollView
-                        showsVerticalScrollIndicator={false}
-                        contentContainerStyle={{
-                            height         : w / width * (source[index].height / source[index].width) * width > h ? w / width * (source[index].height / source[index].width) * width : h,
-                            width          : w,
-                        }}
+                    <TouchableHighlight
+                        onPress={() => alert('press')}
                     >
-                        <Animated.Image
-                            style={{
-                                width          : width,
-                                height         : height,
-                                top            : y,
-                                left           : x,
-                                position       : 'absolute',
-
-                                transform: [
-                                    {
-                                        translateX: this.state.translateX,
-                                    },
-                                    {
-                                        translateY: this.state.translateY,
-                                    },
-                                    {
-                                        scaleX: this.state.scaleX,
-                                    },
-                                    {
-                                        scaleY: this.state.scaleY,
-                                    },
-                                ],
-
-                                // transform      : [{
-                                //     matrix: [
-                                //         w / width, 0, 0, 0,
-                                //         0, w / width * (source[index].height / source[index].width), 0, 0,
-                                //         0, 0, 1, 0,
-                                //         // 图片高度小于屏幕高度时
-                                //         // w / 2 - (x + width / 2), h / 2 - (y + height / 2), 0, 1,
-                                //         // 图片高度大于屏幕高度时
-                                //         w / 2 - (x + width / 2), (w / width * (source[index].height / source[index].width) * width) / 2 - (y + height / 2), 0, 1,
-                                //     ]
-                                // }],
+                        <ScrollView
+                            showsVerticalScrollIndicator={false}
+                            contentContainerStyle={{
+                                height         : w / width * (source[index].height / source[index].width) * width > h ? w / width * (source[index].height / source[index].width) * width : h,
+                                width          : w,
+                                backgroundColor: 'red',
                             }}
-                            source={{
-                                cache     : 'force-cache',
-                                resizeMode: 'contain',
-                                uri       : source[index].uri,
-                            }}
-                        />
-                    </ScrollView>
+                        >
+                            {/*<TouchableWithoutFeedback>*/}
+                                <Animated.Image
+                                    onPress={() => alert('press')}
+                                    style={{
+                                        width          : width,
+                                        height         : height,
+                                        top            : y,
+                                        left           : x,
+                                        position       : 'absolute',
+                                        backgroundColor: 'red',
+                                        transform      : [
+                                            {
+                                                translateX: this.state.translateX,
+                                            },
+                                            {
+                                                translateY: this.state.translateY,
+                                            },
+                                            {
+                                                scaleX: this.state.scaleX,
+                                            },
+                                            {
+                                                scaleY: this.state.scaleY,
+                                            },
+                                        ],
+
+                                        // transform      : [{
+                                        //     matrix: [
+                                        //         w / width, 0, 0, 0,
+                                        //         0, w / width * (source[index].height / source[index].width), 0, 0,
+                                        //         0, 0, 1, 0,
+                                        //         // 图片高度小于屏幕高度时
+                                        //         // w / 2 - (x + width / 2), h / 2 - (y + height / 2), 0, 1,
+                                        //         // 图片高度大于屏幕高度时
+                                        //         w / 2 - (x + width / 2), (w / width * (source[index].height / source[index].width) * width) / 2 - (y + height / 2), 0, 1,
+                                        //     ]
+                                        // }],
+                                    }}
+                                    source={{
+                                        cache     : 'force-cache',
+                                        resizeMode: 'contain',
+                                        uri       : source[index].uri,
+                                    }}
+                                />
+                            {/*</TouchableWithoutFeedback>*/}
+                        </ScrollView>
+                    </TouchableHighlight>
                     <ScrollView
                         style={{
                             height         : h,
                             width          : w,
+                            backgroundColor: 'red',
                         }}
                     >
                         <Animated.Image
