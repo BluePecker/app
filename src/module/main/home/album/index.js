@@ -50,13 +50,16 @@ class Album extends Component {
         var w = require('Dimensions').get('window').width;
         const {source, index, width, height, x, y} = this.props.navigation.state.params;
 
-        console.log(source[index].height / source[index].width);
+        console.log(y)
+
         return (
             <Modal style={{backgroundColor: '#000'}}>
                 <FadeInView>
                     <ScrollView
                         showsVerticalScrollIndicator={false}
-                        contentContainerStyle={{height: 1000}}
+                        contentContainerStyle={{
+                            height: w / width * (source[index].height / source[index].width) * width > h ? w / width * (source[index].height / source[index].width) * width : h,
+                        }}
                     >
                         <Animated.Image
                             style={{
@@ -65,17 +68,24 @@ class Album extends Component {
                                 top            : y,
                                 left           : x,
                                 position       : 'absolute',
-                                backgroundColor: '#000',
+                                backgroundColor: 'red',
                                 transform      : [{
                                     matrix: [
                                         w / width, 0, 0, 0,
                                         0, w / width * (source[index].height / source[index].width), 0, 0,
                                         0, 0, 1, 0,
-                                        w / 2 - (x + width / 2), h / 2 - (y + height / 2), 0, 1,
+                                        // 图片高度小于屏幕高度时
+                                        // w / 2 - (x + width / 2), h / 2 - (y + height / 2), 0, 1,
+                                        // 图片高度大于屏幕高度时
+                                        w / 2 - (x + width / 2), (w / width * (source[index].height / source[index].width) * width) / 2 - (y + height / 2), 0, 1,
                                     ]
                                 }],
                             }}
-                            source={{uri: source[index].uri, cache: 'force-cache'}}
+                            source={{
+                                cache     : 'force-cache',
+                                resizeMode: 'contain',
+                                uri       : source[index].uri,
+                            }}
                         />
                     </ScrollView>
                 </FadeInView>
