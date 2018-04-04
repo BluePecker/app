@@ -52,31 +52,13 @@ class Album extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            scaleX    : new Animated.Value(1),
-            scaleY    : new Animated.Value(1),
-            translateX: new Animated.Value(0),
-            translateY: new Animated.Value(0),
+            animated: new Animated.Value(0),
         };
     }
 
     componentDidMount() {
-        var h = require('Dimensions').get('window').height;
-        var w = require('Dimensions').get('window').width;
-        const {source, index, width, height, x, y} = this.props.navigation.state.params;
-
         Animated.parallel([
-            Animated.spring(this.state.scaleX, {
-                toValue: w / width,
-            }),
-            Animated.spring(this.state.scaleY, {
-                toValue: w / width * (source[index].height / source[index].width),
-            }),
-            Animated.spring(this.state.translateX, {
-                toValue: w / 2 - (x + width / 2),
-            }),
-            Animated.spring(this.state.translateY, {
-                toValue: h / 2 - (y + height / 2),
-            }),
+            Animated.spring(this.state.animated, {toValue: 1}),
         ]).start();
     }
 
@@ -117,7 +99,10 @@ class Album extends Component {
                     automaticallyAdjustContentInsets
                 >
                     <TouchableHighlight
-                        onPress={() => alert('press')}
+                        onPress={() => {
+
+                            this.props.navigation.goBack();
+                        }}
                     >
                         <ScrollView
                             showsVerticalScrollIndicator={false}
@@ -127,9 +112,8 @@ class Album extends Component {
                                 backgroundColor: 'red',
                             }}
                         >
-                            {/*<TouchableWithoutFeedback>*/}
+                            <TouchableWithoutFeedback>
                                 <Animated.Image
-                                    onPress={() => alert('press')}
                                     style={{
                                         width          : width,
                                         height         : height,
@@ -137,20 +121,27 @@ class Album extends Component {
                                         left           : x,
                                         position       : 'absolute',
                                         backgroundColor: 'red',
-                                        transform      : [
-                                            {
-                                                translateX: this.state.translateX,
-                                            },
-                                            {
-                                                translateY: this.state.translateY,
-                                            },
-                                            {
-                                                scaleX: this.state.scaleX,
-                                            },
-                                            {
-                                                scaleY: this.state.scaleY,
-                                            },
-                                        ],
+                                        transform      : [{
+                                            translateX: this.state.animated.interpolate({
+                                                inputRange : [0, 1],
+                                                outputRange: [0, w / 2 - (x + width / 2)],
+                                            }),
+                                        }, {
+                                            translateY: this.state.animated.interpolate({
+                                                inputRange : [0, 1],
+                                                outputRange: [0, h / 2 - (y + height / 2)],
+                                            }),
+                                        }, {
+                                            scaleX: this.state.animated.interpolate({
+                                                inputRange : [0, 1],
+                                                outputRange: [1, w / width],
+                                            }),
+                                        }, {
+                                            scaleY: this.state.animated.interpolate({
+                                                inputRange : [0, 1],
+                                                outputRange: [1, w / width * (source[index].height / source[index].width)],
+                                            }),
+                                        },],
 
                                         // transform      : [{
                                         //     matrix: [
@@ -170,7 +161,7 @@ class Album extends Component {
                                         uri       : source[index].uri,
                                     }}
                                 />
-                            {/*</TouchableWithoutFeedback>*/}
+                            </TouchableWithoutFeedback>
                         </ScrollView>
                     </TouchableHighlight>
                     <ScrollView
