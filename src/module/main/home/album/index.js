@@ -67,6 +67,8 @@ class Album extends Component {
         var w = require('Dimensions').get('window').width;
         const {source, index, width, height, x, y} = this.props.navigation.state.params;
 
+        console.log(width, height, x, y);
+
         return (
             <Modal>
                 <Swiper
@@ -109,6 +111,10 @@ class Album extends Component {
                                 <TouchableHighlight
                                     onPress={() => {
                                         this.props.navigation.goBack();
+                                        Animated.spring(this.state.animated, {
+                                            toValue : 0,
+                                            duration: 800,
+                                        }).start();
                                     }}
                                     activeOpacity={1}
                                     key={num}
