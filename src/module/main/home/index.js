@@ -42,7 +42,7 @@ export default StackNavigator({
                     height    : 35,
                     lineHeight: 45,
                     color     : '#ffffff'
-                }}>DIG-微忆</Text>
+                }}>微忆</Text>
             </Button>,
         headerRight      : (
             <Button styleName="clear">
@@ -57,6 +57,4 @@ export default StackNavigator({
         headerTransparent: true,
     },
     transitionConfig : () => ({transitionSpec: {duration: 200}})
-    // headerMode       : 'none',
-    // mode             : 'modal',
 });
