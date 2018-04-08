@@ -86,7 +86,9 @@ class Album extends Component {
                                                 {
                                                     translateY: this.state.animated.interpolate({
                                                         inputRange : [0, 1],
-                                                        outputRange: [0, (scaleY * width > h ? (scaleY * width) : h) / 2 - (position.y + height / 2)],
+                                                        outputRange: [0, (scaleY * width > h ?
+                                                            (scaleY * width) : h) / 2 - (position.y + height / 2)
+                                                        ],
                                                     }),
                                                 },
                                                 {
