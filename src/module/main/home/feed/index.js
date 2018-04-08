@@ -111,6 +111,31 @@ class Feed extends Component {
                 height: 1600,
                 width : 400,
             },
+            {
+                uri   : 'https://cdn.pixabay.com/photo/2018/02/16/20/38/human-3158541__480.jpg',
+                height: 400,
+                width : 400,
+            },
+            {
+                uri   : 'https://cdn.pixabay.com/photo/2018/02/16/20/38/human-3158541__480.jpg',
+                height: 400,
+                width : 400,
+            },
+            {
+                uri   : 'https://cdn.pixabay.com/photo/2018/02/16/20/38/human-3158541__480.jpg',
+                height: 400,
+                width : 400,
+            },
+            {
+                uri   : 'https://cdn.pixabay.com/photo/2018/02/16/20/38/human-3158541__480.jpg',
+                height: 400,
+                width : 400,
+            },
+            {
+                uri   : 'https://cdn.pixabay.com/photo/2018/02/16/20/38/human-3158541__480.jpg',
+                height: 400,
+                width : 400,
+            },
         ];
         return (
             <Card style={Css._card}>

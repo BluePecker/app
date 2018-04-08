@@ -105,16 +105,16 @@ class Album extends Component {
                                                 cache     : 'force-cache',
                                             }}
                                             style={{
-                                                width    : width,
-                                                height   : height,
-                                                top      : position.y,
-                                                left     : position.x,
-                                                position : 'absolute',
-                                                opacity  : this.state.animated.interpolate({
+                                                width          : width,
+                                                height         : height,
+                                                top            : position.y,
+                                                left           : position.x,
+                                                position       : 'absolute',
+                                                opacity        : this.state.animated.interpolate({
                                                     inputRange : [0, 1],
                                                     outputRange: [0.5, 1],
                                                 }),
-                                                transform: [
+                                                transform      : [
                                                     {
                                                         translateX: this.state.animated.interpolate({
                                                             inputRange : [0, 1],
@@ -140,6 +140,7 @@ class Album extends Component {
                                                         }),
                                                     },
                                                 ],
+                                                backgroundColor: 'red',
                                             }}
                                         />
                                     </TouchableWithoutFeedback>
