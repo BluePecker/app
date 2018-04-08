@@ -44,33 +44,8 @@ class Album extends Component {
                 <Swiper
                     index={index}
                     showsPagination
-                    renderPagination={(index, total, ctx) => {
-                        return (
-                            <View style={Css._header}>
-                                <View style={Css._left}>
-                                    <Button styleName="clear" onPress={() => {
-                                        this.props.navigation.goBack();
-                                        Animated.spring(this.state.animated, {
-                                            toValue : 0,
-                                            duration: 800,
-                                        }).start();
-                                    }} style={{margin: 0, padding: 0}}>
-                                        <EvilIcon name="close" style={Css._close} size={20}/>
-                                    </Button>
-                                </View>
-                                <View style={Css._middle}>
-                                    <Text style={Css._index}>{`${index + 1}/${total}`}</Text>
-                                </View>
-                                <View style={Css._right}>
-                                    <Button styleName="clear" onPress={() => {
-                                        share && share();
-                                    }} style={{margin: 0, padding: 0}}>
-                                        <EvilIcon name="share-apple" style={Css._share} size={20}/>
-                                    </Button>
-                                </View>
-                            </View>
-                        );
-                    }}
+                    dotStyle={{backgroundColor: '#8b8b8b', opacity: 0.6}}
+                    activeDotColor={'#fff'}
                     bounces
                     automaticallyAdjustContentInsets
                 >
@@ -88,6 +63,7 @@ class Album extends Component {
                                 }}
                                 activeOpacity={1}
                                 key={num}
+                                underlayColor={'rgba(0, 0, 0, 0.0)'}
                             >
                                 <ScrollView
                                     contentContainerStyle={{
@@ -108,15 +84,15 @@ class Album extends Component {
                                             height   : height,
                                             transform: [
                                                 {
-                                                    translateX: this.state.animated.interpolate({
+                                                    translateY: this.state.animated.interpolate({
                                                         inputRange : [0, 1],
-                                                        outputRange: [0, w / 2 - (position.x + width / 2)],
+                                                        outputRange: [0, (scaleY * width > h ? (scaleY * width) : h) / 2 - (position.y + height / 2)],
                                                     }),
                                                 },
                                                 {
-                                                    translateY: this.state.animated.interpolate({
+                                                    translateX: this.state.animated.interpolate({
                                                         inputRange : [0, 1],
-                                                        outputRange: [0, scaleY * width > h ? (scaleY * width) / 2 - (position.y + height / 2) : h / 2 - (position.y + height / 2)],
+                                                        outputRange: [0, w / 2 - (position.x + width / 2)],
                                                     }),
                                                 },
                                                 {

@@ -56,5 +56,5 @@ export default StackNavigator({
         },
         headerTransparent: true,
     },
-    transitionConfig : () => ({transitionSpec: {duration: 200}})
+    transitionConfig : () => ({transitionSpec: {duration: 250}})
 });
