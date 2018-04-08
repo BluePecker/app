@@ -68,16 +68,20 @@ class Album extends Component {
         const {source, index, width, height, x, y} = this.props.navigation.state.params;
 
         return (
-            <Modal style={{backgroundColor: '#000'}}>
+            <Modal>
                 <Swiper
-                    index={0}
+                    index={index}
                     showsPagination
                     renderPagination={(index, total, ctx) => {
                         return (
                             <View style={Css._header}>
                                 <View style={Css._left}>
                                     <Button styleName="clear" onPress={() => {
-                                        close && close();
+                                        this.props.navigation.goBack();
+                                        Animated.spring(this.state.animated, {
+                                            toValue : 0,
+                                            duration: 800,
+                                        }).start();
                                     }} style={{margin: 0, padding: 0}}>
                                         <Icon name="close" style={Css._close} size={20}/>
                                     </Button>
@@ -102,7 +106,7 @@ class Album extends Component {
                         source.map((item, num) => {
                             const scaleY = w / width * (item.height / item.width);
                             return (
-                                <TouchableWithoutFeedback
+                                <TouchableHighlight
                                     onPress={() => {
                                         this.props.navigation.goBack();
                                     }}
@@ -112,8 +116,9 @@ class Album extends Component {
                                     <ScrollView
                                         showsVerticalScrollIndicator={false}
                                         contentContainerStyle={{
-                                            height: scaleY * width > h ? scaleY * width : h,
-                                            width : w,
+                                            height         : scaleY * width > h ? scaleY * width : h,
+                                            width          : w,
+                                            backgroundColor: '#000',
                                         }}
                                     >
                                         <TouchableWithoutFeedback>
@@ -163,7 +168,7 @@ class Album extends Component {
                                             />
                                         </TouchableWithoutFeedback>
                                     </ScrollView>
-                                </TouchableWithoutFeedback>
+                                </TouchableHighlight>
                             );
                         })
                     }
