@@ -10,7 +10,6 @@ export default EStyleSheet.create({
         marginTop    : '2rem',
         paddingTop   : 0,
         paddingBottom: 0,
-        // backgroundColor: 'tomato'
     },
     cardHeaderLeft         : {
         height        : '12rem',
@@ -56,16 +55,18 @@ export default EStyleSheet.create({
         lineHeight : '5rem',
         paddingTop : '1rem',
     },
-    jiugongge              : {
+    gallery                : {
         flexWrap      : 'wrap',
         flexDirection : 'row',
         justifyContent: 'flex-start',
     },
-    jiugonggeItem          : {
-        width          : '31.1rem',
-        height         : '31.1rem',
-        overflow       : 'hidden',
-        margin         : '.2rem',
+    galleryItem            : {
+        overflow: 'hidden',
+
+        width : '31rem',
+        height: '31rem',
+        margin: '0.26rem',
+
         backgroundColor: '#eeeff1',
         borderRadius   : '0.5rem',
     },

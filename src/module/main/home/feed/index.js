@@ -151,8 +151,8 @@ class Feed extends Component {
                 <Gallery
                     source={images}
                     css={{
-                        wrapper: Css._jiugongge,
-                        small  : Css._jiugonggeItem
+                        wrapper: Css._gallery,
+                        small  : Css._galleryItem
                     }}
                     onPress={(source, index, x, y, width, height) => {
                         this.props.navigation.navigate('Album', {

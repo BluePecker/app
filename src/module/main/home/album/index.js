@@ -28,18 +28,16 @@ class Album extends Component {
         Animated.spring(this.state.animated, {toValue: 1}).start();
     }
 
-    convertPosition(n, i, x, y) {
-        y += (n / 3 - i / 3) * 100;
-        x += (n % 3 - i % 3) * 100;
+    convertPosition(n, i, x, y, w, h) {
+        y += (parseInt(n / 3) - parseInt(i / 3)) * 0.3152 * w;
+        x += (n % 3 - i % 3) * 0.3152 * w;
         return {x, y};
     }
 
     render() {
-        var h = require('Dimensions').get('window').height;
-        var w = require('Dimensions').get('window').width;
+        let h = require('Dimensions').get('window').height;
+        let w = require('Dimensions').get('window').width;
         const {source, index, width, height, x, y} = this.props.navigation.state.params;
-
-        console.log(width, height, x, y);
 
         return (
             <Modal>
@@ -78,6 +76,7 @@ class Album extends Component {
                 >
                     {source.map((item, num) => {
                         const scaleY = w / width * (item.height / item.width);
+                        const position = this.convertPosition(num, index, x, y, w, h);
                         return (
                             <TouchableHighlight
                                 onPress={() => {
@@ -108,8 +107,8 @@ class Album extends Component {
                                             style={{
                                                 width    : width,
                                                 height   : height,
-                                                top      : y,
-                                                left     : x,
+                                                top      : position.y,
+                                                left     : position.x,
                                                 position : 'absolute',
                                                 opacity  : this.state.animated.interpolate({
                                                     inputRange : [0, 1],
@@ -119,13 +118,13 @@ class Album extends Component {
                                                     {
                                                         translateX: this.state.animated.interpolate({
                                                             inputRange : [0, 1],
-                                                            outputRange: [0, w / 2 - (x + width / 2)],
+                                                            outputRange: [0, w / 2 - (position.x + width / 2)],
                                                         }),
                                                     },
                                                     {
                                                         translateY: this.state.animated.interpolate({
                                                             inputRange : [0, 1],
-                                                            outputRange: [0, scaleY * width > h ? (scaleY * width) / 2 - (y + height / 2) : h / 2 - (y + height / 2)],
+                                                            outputRange: [0, scaleY * width > h ? (scaleY * width) / 2 - (position.y + height / 2) : h / 2 - (position.y + height / 2)],
                                                         }),
                                                     },
                                                     {
