@@ -1,45 +1,36 @@
-import React, {Component} from 'react';
-import {
-    NavigationBar,
-    View,
-    Text,
-    Title,
-    ImageBackground,
-    Screen,
-} from '@shoutem/ui';
+import React from 'react';
+import {Button, Text} from '@shoutem/ui';
+import IonIcon from 'react-native-vector-icons/Ionicons';
+import {Animated, View,} from 'react-native';
+import {StackNavigator} from 'react-navigation';
 
-import Inject from 'module';
+import Snap from 'module/main/home/snap';
 
-import Css from './css';
-
-import Model from 'model/main/mine';
-
-class Mine extends Component {
-    render() {
-        const {test, state: {name}} = this.props;
-
-        return (
-            <Screen>
-                <ImageBackground
-                    source={{uri: 'https://shoutem.github.io/img/ui-toolkit/examples/image-3.png'}}
-                    style={{width: 375, height: 70}}
-                >
-                    <NavigationBar
-                        styleName='inline no-border clear'
-                        centerComponent={
-                            <Title style={{
-                                fontSize: 24, height: 24, minWidth: 200, textAlign: 'center', lineHeight: 28
-                            }}>我的</Title>
-                        }
-                        style={{
-                            container: {paddingTop: 26, height: 140, backgroundColor: '#54C7FC'}
-                            // container: {paddingTop: 26, height: 140, backgroundColor: '#FF96C4'}
-                        }}
-                    />
-                </ImageBackground>
-            </Screen>
-        );
-    }
-}
-
-export default Inject({namespace: 'main/mine', component: Mine, model: Model});
+export default StackNavigator({
+    Snap : {
+        screen: Snap
+    },
+}, {
+    transitionConfig : () => ({
+        transitionSpec: {duration: 250}
+    }),
+    navigationOptions: {
+        headerTransparent: true,
+        headerTitle      : (
+            <Button styleName="clear">
+                <Text style={{
+                    fontSize  : 24,
+                    height    : 35,
+                    lineHeight: 45,
+                    color     : '#ffffff'
+                }}>我的</Text>
+            </Button>
+        ),
+        headerStyle      : {
+            backgroundColor  : '#FA729B',
+            borderBottomColor: 'transparent',
+            height           : 35,
+        },
+    },
+    initialRouteName : 'Snap',
+});
