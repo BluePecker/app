@@ -8,7 +8,7 @@ import {
     Screen,
 } from '@shoutem/ui';
 import Swiper from 'react-native-swiper';
-import {Modal, Animated, ScrollView, TouchableHighlight, TouchableWithoutFeedback} from 'react-native';
+import {Modal, Animated, ScrollView, TouchableHighlight} from 'react-native';
 import EvilIcon from 'react-native-vector-icons/EvilIcons';
 
 import Inject from 'module';
@@ -90,55 +90,53 @@ class Album extends Component {
                                 key={num}
                             >
                                 <ScrollView
-                                    showsVerticalScrollIndicator={false}
                                     contentContainerStyle={{
                                         height         : scaleY * width > h ? scaleY * width : h,
                                         width          : w,
                                         backgroundColor: '#000',
                                     }}
+                                    showsVerticalScrollIndicator={false}
                                 >
-                                    <TouchableWithoutFeedback>
-                                        <Animated.Image
-                                            source={{
-                                                resizeMode: 'contain',
-                                                uri       : item.uri,
-                                                cache     : 'force-cache',
-                                            }}
-                                            style={{
-                                                width    : width,
-                                                height   : height,
-                                                transform: [
-                                                    {
-                                                        translateX: this.state.animated.interpolate({
-                                                            inputRange : [0, 1],
-                                                            outputRange: [0, w / 2 - (position.x + width / 2)],
-                                                        }),
-                                                    },
-                                                    {
-                                                        translateY: this.state.animated.interpolate({
-                                                            inputRange : [0, 1],
-                                                            outputRange: [0, scaleY * width > h ? (scaleY * width) / 2 - (position.y + height / 2) : h / 2 - (position.y + height / 2)],
-                                                        }),
-                                                    },
-                                                    {
-                                                        scaleX: this.state.animated.interpolate({
-                                                            inputRange : [0, 1],
-                                                            outputRange: [1, w / width],
-                                                        }),
-                                                    },
-                                                    {
-                                                        scaleY: this.state.animated.interpolate({
-                                                            inputRange : [0, 1],
-                                                            outputRange: [1, scaleY],
-                                                        }),
-                                                    },
-                                                ],
-                                                top      : position.y,
-                                                left     : position.x,
-                                                position : 'absolute',
-                                            }}
-                                        />
-                                    </TouchableWithoutFeedback>
+                                    <Animated.Image
+                                        source={{
+                                            resizeMode: 'contain',
+                                            uri       : item.uri,
+                                            cache     : 'force-cache',
+                                        }}
+                                        style={{
+                                            width    : width,
+                                            height   : height,
+                                            transform: [
+                                                {
+                                                    translateX: this.state.animated.interpolate({
+                                                        inputRange : [0, 1],
+                                                        outputRange: [0, w / 2 - (position.x + width / 2)],
+                                                    }),
+                                                },
+                                                {
+                                                    translateY: this.state.animated.interpolate({
+                                                        inputRange : [0, 1],
+                                                        outputRange: [0, scaleY * width > h ? (scaleY * width) / 2 - (position.y + height / 2) : h / 2 - (position.y + height / 2)],
+                                                    }),
+                                                },
+                                                {
+                                                    scaleX: this.state.animated.interpolate({
+                                                        inputRange : [0, 1],
+                                                        outputRange: [1, w / width],
+                                                    }),
+                                                },
+                                                {
+                                                    scaleY: this.state.animated.interpolate({
+                                                        inputRange : [0, 1],
+                                                        outputRange: [1, scaleY],
+                                                    }),
+                                                },
+                                            ],
+                                            top      : position.y,
+                                            left     : position.x,
+                                            position : 'absolute',
+                                        }}
+                                    />
                                 </ScrollView>
                             </TouchableHighlight>
                         );
