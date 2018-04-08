@@ -1,8 +1,8 @@
 import React from 'react';
-import {StackNavigator} from 'react-navigation';
 import {Button, Text} from '@shoutem/ui';
-import {Animated, View,} from 'react-native';
 import IonIcon from 'react-native-vector-icons/Ionicons';
+import {Animated, View,} from 'react-native';
+import {StackNavigator} from 'react-navigation';
 
 import Snap from 'module/main/home/snap';
 import Album from 'module/main/home/album';
@@ -15,20 +15,12 @@ export default StackNavigator({
         screen: Album,
     },
 }, {
-    initialRouteName : 'Snap',
-    onTransitionStart: () => {
-        console.log('导航栏切换开始');
-    },
-    onTransitionEnd  : () => {
-        console.log('导航栏切换结束');
-    },
+    transitionConfig : () => ({
+        transitionSpec: {duration: 250}
+    }),
     navigationOptions: {
-        headerLeft       : (
-            <Button styleName="clear">
-                <IonIcon size={26} name="md-menu" color="#ffffff"/>
-            </Button>
-        ),
-        headerTitle      :
+        headerTransparent: true,
+        headerTitle      : (
             <Button styleName="clear">
                 <Text style={{
                     fontSize  : 24,
@@ -36,7 +28,13 @@ export default StackNavigator({
                     lineHeight: 45,
                     color     : '#ffffff'
                 }}>微忆</Text>
-            </Button>,
+            </Button>
+        ),
+        headerLeft       : (
+            <Button styleName="clear">
+                <IonIcon size={26} name="md-menu" color="#ffffff"/>
+            </Button>
+        ),
         headerRight      : (
             <Button styleName="clear">
                 <IonIcon size={26} name="md-add" color="#ffffff"/>
@@ -47,7 +45,6 @@ export default StackNavigator({
             borderBottomColor: 'transparent',
             height           : 35,
         },
-        headerTransparent: true,
     },
-    transitionConfig : () => ({transitionSpec: {duration: 250}})
+    initialRouteName : 'Snap',
 });
