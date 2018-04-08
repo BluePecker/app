@@ -1,28 +1,21 @@
 import React from 'react';
 import {StackNavigator} from 'react-navigation';
-import {
-    Button,
-    Text,
-} from '@shoutem/ui';
-import {
-    Easing,
-    Animated,
-    View,
-} from 'react-native';
+import {Button, Text} from '@shoutem/ui';
+import {Animated, View,} from 'react-native';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 
-import Feed from 'module/main/home/feed';
+import Snap from 'module/main/home/snap';
 import Album from 'module/main/home/album';
 
 export default StackNavigator({
-    Feed : {
-        screen: Feed
+    Snap : {
+        screen: Snap
     },
     Album: {
         screen: Album,
     },
 }, {
-    initialRouteName : 'Feed',
+    initialRouteName : 'Snap',
     onTransitionStart: () => {
         console.log('导航栏切换开始');
     },
