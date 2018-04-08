@@ -20,7 +20,7 @@ import {
 // import Swiper from 'react-native-swiper';
 // import Video from 'react-native-video';
 
-import {JiuGongGe, Gallery} from 'component/ImageGallery';
+import Gallery from 'component/Gallery';
 
 import {Modal, TouchableHighlight, StatusBar, StyleSheet} from 'react-native';
 
@@ -148,7 +148,7 @@ class Feed extends Component {
                         >{restaurant.address}</Subtitle>
                     </Tile>
                 </View>
-                <JiuGongGe
+                <Gallery
                     source={images}
                     css={{
                         wrapper: Css._jiugongge,
@@ -158,8 +158,6 @@ class Feed extends Component {
                         this.props.navigation.navigate('Album', {
                             source, index, x, y, width, height
                         });
-                        // this.setModalVisible(true);
-                        // this.setState({images, index});
                     }}
                 />
                 <Divider styleName="line"/>
@@ -220,15 +218,6 @@ class Feed extends Component {
     render() {
         return (
             <Screen>
-                <Gallery
-                    visible={this.state.modalVisible}
-                    images={this.state.images}
-                    close={() => {
-                        this.setModalVisible(false);
-                    }}
-                    index={this.state.index}
-                    share={() => alert('share')}
-                />
                 <UltimateListView
                     onFetch={this.onFetch}
                     item={this.renderItem}
