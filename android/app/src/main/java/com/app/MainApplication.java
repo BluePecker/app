@@ -15,6 +15,12 @@ import com.airbnb.android.react.maps.MapsPackage;
 import com.reactnative.photoview.PhotoViewPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
+import com.brentvatne.react.ReactVideoPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.airbnb.android.react.maps.MapsPackage;
+import com.reactnative.photoview.PhotoViewPackage;
+import com.BV.LinearGradient.LinearGradientPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.brentvatne.react.ReactVideoPackage;
 import com.reactnative.photoview.PhotoViewPackage;
@@ -40,6 +46,12 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactVideoPackage(),
+            new VectorIconsPackage(),
+            new MapsPackage(),
+            new PhotoViewPackage(),
+            new LinearGradientPackage(),
+            new VectorIconsPackage(),
             new ReactVideoPackage(),
             new VectorIconsPackage(),
             new MapsPackage(),

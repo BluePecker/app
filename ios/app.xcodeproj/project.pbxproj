@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -13,7 +14,6 @@
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* appTests.m */; };
 		0EB8A72AF6174658ACAAA533 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13CBCA39193A4726A850C5DD /* libRCTVideo.a */; };
-		12141FF07AE6E72B8D26E641 /* libPods-app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 290AE4A5B4CA2CA10C97D877 /* libPods-app.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
@@ -74,6 +74,7 @@
 		D3549AD8F40345FDABCDA980 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 968D920D7170455AA8589DC7 /* libRNVectorIcons.a */; };
 		DA978CA4632649578277B0E9 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37D50ECAEA004EF78FB5F8BA /* Rubik-MediumItalic.ttf */; };
 		F85280F864B248219668FEE6 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 861851455F88401B95FD095D /* Feather.ttf */; };
+		FF8BAA0624B4106D1CD87E1A /* libPods-app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 290AE4A5B4CA2CA10C97D877 /* libPods-app.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -477,7 +478,7 @@
 				4BF42A1FB89C4FA1857C1C98 /* libBVLinearGradient.a in Frameworks */,
 				B923E9AF793C495B81FCD4B0 /* libRNPhotoView.a in Frameworks */,
 				0EB8A72AF6174658ACAAA533 /* libRCTVideo.a in Frameworks */,
-				12141FF07AE6E72B8D26E641 /* libPods-app.a in Frameworks */,
+				FF8BAA0624B4106D1CD87E1A /* libPods-app.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1585,6 +1586,7 @@
 					"\"${PODS_ROOT}/Headers/Public/react-native-google-maps\"",
 					"\"${PODS_ROOT}/Headers/Public/react-native-maps\"",
 					"\"${PODS_ROOT}/Headers/Public/yoga\"",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/AirMaps/**",
 				);
 				INFOPLIST_FILE = app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1630,6 +1632,7 @@
 					"\"${PODS_ROOT}/Headers/Public/react-native-google-maps\"",
 					"\"${PODS_ROOT}/Headers/Public/react-native-maps\"",
 					"\"${PODS_ROOT}/Headers/Public/yoga\"",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/AirMaps/**",
 				);
 				INFOPLIST_FILE = app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
