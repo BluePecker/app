@@ -4,9 +4,10 @@ import {
     Button,
     Title,
     Screen,
+    NavigationBar,
 } from '@shoutem/ui';
 
-import NavigationBar from 'react-native-navbar';
+// import NavigationBar from 'react-native-navbar';
 
 import Inject from 'module';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -28,17 +29,17 @@ class Notice extends Component {
         return (
 
             <View>
-                <NavigationBar
-                    title={{
-                        title: 'Hello, world',
-                    }}
-                    rightButton={{
-                        title: 'Next',
-                        handler: () => alert('hello!'),
-                    }}
-                    statusBar={{style: 'light-content'}}
-                    tintColor={'#FA729B'}
-                />
+                {/*<NavigationBar*/}
+                    {/*title={{*/}
+                        {/*title: 'Hello, world',*/}
+                    {/*}}*/}
+                    {/*rightButton={{*/}
+                        {/*title: 'Next',*/}
+                        {/*handler: () => alert('hello!'),*/}
+                    {/*}}*/}
+                    {/*statusBar={{style: 'light-content'}}*/}
+                    {/*tintColor={'#FA729B'}*/}
+                {/*/>*/}
                 <Modal
                     // animationType={"slide"}
                     transparent={false}

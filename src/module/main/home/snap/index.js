@@ -31,7 +31,7 @@ import Inject from 'module';
 import Css from './css';
 import Model from 'model/main/home';
 
-class Feed extends Component {
+class Snap extends Component {
     sleep = (time) => new Promise(resolve => setTimeout(() => resolve(), time));
 
     onFetch = async (page = 1, startFetch, abortFetch) => {
@@ -113,69 +113,75 @@ class Feed extends Component {
             },
         ];
         return (
-            <Card style={Css._card}>
-                <View styleName="horizontal space-between" style={Css._cardHeader}>
-                    <View styleName="horizontal h-start" style={Css._cardHeaderLeft}>
-                        <View>
+            <TouchableHighlight
+                underlayColor={'#ffffff'}
+                activeOpacity={1}
+                onPress={() => this.props.navigation.navigate('Detail')}
+            >
+                <Card style={Css._card}>
+                    <View styleName="horizontal space-between" style={Css._cardHeader}>
+                        <View styleName="horizontal h-start" style={Css._cardHeaderLeft}>
                             <View>
-                                <Image
-                                    style={Css._cardHeaderLeftAvatar}
-                                    source={{uri: restaurant.image.url}}
-                                />
+                                <View>
+                                    <Image
+                                        style={Css._cardHeaderLeftAvatar}
+                                        source={{uri: restaurant.image.url}}
+                                    />
+                                </View>
+                            </View>
+                            <View style={Css._cardHeaderLeftInfo}>
+                                <View>
+                                    <Subtitle style={Css._cardHeaderLeftInfoName}>卖萌的小怪</Subtitle>
+                                </View>
+                                <View>
+                                    <Caption>10分钟前 发自iphone 7plus</Caption>
+                                </View>
                             </View>
                         </View>
-                        <View style={Css._cardHeaderLeftInfo}>
-                            <View>
-                                <Subtitle style={Css._cardHeaderLeftInfoName}>卖萌的小怪</Subtitle>
-                            </View>
-                            <View>
-                                <Caption>10分钟前 发自iphone 7plus</Caption>
-                            </View>
+                        <View style={Css._cardHeaderRight}>
+                            <Button styleName="clear">
+                                <EvilIcon name="sc-telegram" size={28}/>
+                            </Button>
                         </View>
                     </View>
-                    <View style={Css._cardHeaderRight}>
-                        <Button styleName="clear">
-                            <EvilIcon name="sc-telegram" size={28}/>
+                    <View style={Css._cardContent}>
+                        <Tile styleName="clear">
+                            <Subtitle
+                                numberOfLines={4}
+                                style={Css._cardContentArticle}
+                                styleName="sm-gutter-horizontal"
+                            >{restaurant.address}</Subtitle>
+                        </Tile>
+                    </View>
+                    <Gallery
+                        source={images}
+                        css={{
+                            wrapper: Css._gallery,
+                            small  : Css._galleryItem
+                        }}
+                        onPress={(source, index, x, y, width, height) => {
+                            this.props.navigation.navigate('Album', {
+                                source, index, x, y, width, height
+                            });
+                        }}
+                    />
+                    <Divider styleName="line"/>
+                    <View styleName="horizontal flexible" style={Css._cardFooter}>
+                        <Button styleName="full-width muted" style={Css._cardFooterButton}>
+                            <EvilIcon name="eye" size={22}/>
+                            <Text style={Css._cardFooterButtonText}>4312</Text>
+                        </Button>
+                        <Button styleName="full-width muted" style={Css._cardFooterButton}>
+                            <EvilIcon name="envelope" size={22}/>
+                            <Text style={Css._cardFooterButtonText}>4102</Text>
+                        </Button>
+                        <Button styleName="full-width muted" style={Css._cardFooterButton}>
+                            <EvilIcon name="like" size={22}/>
+                            <Text style={Css._cardFooterButtonText}>9423</Text>
                         </Button>
                     </View>
-                </View>
-                <View style={Css._cardContent}>
-                    <Tile styleName="clear">
-                        <Subtitle
-                            numberOfLines={4}
-                            style={Css._cardContentArticle}
-                            styleName="sm-gutter-horizontal"
-                        >{restaurant.address}</Subtitle>
-                    </Tile>
-                </View>
-                <Gallery
-                    source={images}
-                    css={{
-                        wrapper: Css._gallery,
-                        small  : Css._galleryItem
-                    }}
-                    onPress={(source, index, x, y, width, height) => {
-                        this.props.navigation.navigate('Album', {
-                            source, index, x, y, width, height
-                        });
-                    }}
-                />
-                <Divider styleName="line"/>
-                <View styleName="horizontal flexible" style={Css._cardFooter}>
-                    <Button styleName="full-width muted" style={Css._cardFooterButton}>
-                        <EvilIcon name="eye" size={22}/>
-                        <Text style={Css._cardFooterButtonText}>4312</Text>
-                    </Button>
-                    <Button styleName="full-width muted" style={Css._cardFooterButton}>
-                        <EvilIcon name="envelope" size={22}/>
-                        <Text style={Css._cardFooterButtonText}>4102</Text>
-                    </Button>
-                    <Button styleName="full-width muted" style={Css._cardFooterButton}>
-                        <EvilIcon name="like" size={22}/>
-                        <Text style={Css._cardFooterButtonText}>9423</Text>
-                    </Button>
-                </View>
-            </Card>
+                </Card>
+            </TouchableHighlight>
         );
         return (
             <View>
@@ -233,4 +239,4 @@ class Feed extends Component {
     }
 }
 
-export default Inject({namespace: 'main/home/feed', component: Feed, model: Model});
+export default Inject({namespace: 'main/home/snap', component: Snap, model: Model});
