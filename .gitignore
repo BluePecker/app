@@ -55,4 +55,5 @@ buck-out/
 App.js
 test.js
 .*.swp
+ios/build/
 
