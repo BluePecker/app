@@ -4,6 +4,7 @@ import {
     Screen,
     Text,
 } from '@shoutem/ui';
+import MapView from 'react-native-maps';
 
 import Inject from 'module';
 import Css from './css';
@@ -14,7 +15,6 @@ class Detail extends Component {
     render() {
         return (
             <Screen>
-                <Text>Detail</Text>
             </Screen>
         );
     }

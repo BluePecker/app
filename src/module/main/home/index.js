@@ -46,51 +46,55 @@ export default StackNavigator({
     Detail: {
         screen           : Detail,
         navigationOptions: ({navigation}) => ({
-            headerTitle: (
-                <MapView
-                    style={{width: 400, height: 125}}
+            header    : <MapView
+                style={{width: 500, height: 100}}
 
-                    initialRegion={{
-                        latitude      : 37.78825,
-                        longitude     : -122.4324,
-                        latitudeDelta : 0.0922,
-                        longitudeDelta: 0.0421,
-                    }}
-                />
+                initialRegion={{
+                    latitude      : 37.78825,
+                    longitude     : -122.4324,
+                    latitudeDelta : 0.0922,
+                    longitudeDelta: 0.0421,
+                }}
+            />,
+            headerLeft: (
+                <Button styleName="clear" onPress={() => alert('GoBack')}>
+                    <IonIcon size={26} name="ios-arrow-back" color="#ffffff"/>
+                </Button>
             ),
         }),
     },
 }, {
-    transitionConfig: () => ({
+    transitionConfig : () => ({
         transitionSpec: {duration: 250}
     }),
-    // navigationOptions: {
-    //     headerTransparent: true,
-    //     headerTitle      : (
-    //         <Button styleName="clear">
-    //             <Text style={{
-    //                 fontSize  : 24,
-    //                 height    : 35,
-    //                 lineHeight: 45,
-    //                 color     : '#ffffff'
-    //             }}>微忆</Text>
-    //         </Button>
-    //     ),
-    //     headerLeft       : (
-    //         <Button styleName="clear">
-    //             <IonIcon size={26} name="md-menu" color="#ffffff"/>
-    //         </Button>
-    //     ),
-    //     headerRight      : (
-    //         <Button styleName="clear">
-    //             <IonIcon size={26} name="md-add" color="#ffffff"/>
-    //         </Button>
-    //     ),
-    //     headerStyle: {
-    //         backgroundColor  : '#FA729B',
-    //         borderBottomColor: 'transparent',
-    //         height           : 35,
-    //     },
-    // },
-    initialRouteName: 'Snap',
+    headerMode       : 'screen',
+    navigationOptions: {
+        //     headerTransparent: true,
+        //     headerTitle      : (
+        //         <Button styleName="clear">
+        //             <Text style={{
+        //                 fontSize  : 24,
+        //                 height    : 35,
+        //                 lineHeight: 45,
+        //                 color     : '#ffffff'
+        //             }}>微忆</Text>
+        //         </Button>
+        //     ),
+        //     headerLeft       : (
+        //         <Button styleName="clear">
+        //             <IonIcon size={26} name="md-menu" color="#ffffff"/>
+        //         </Button>
+        //     ),
+        //     headerRight      : (
+        //         <Button styleName="clear">
+        //             <IonIcon size={26} name="md-add" color="#ffffff"/>
+        //         </Button>
+        //     ),
+        //     headerStyle: {
+        //         backgroundColor  : '#FA729B',
+        //         borderBottomColor: 'transparent',
+        //         height           : 35,
+        //     },
+    },
+    initialRouteName : 'Snap',
 });
