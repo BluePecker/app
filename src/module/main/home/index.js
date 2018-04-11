@@ -46,18 +46,7 @@ export default StackNavigator({
     Detail: {
         screen           : Detail,
         navigationOptions: ({navigation}) => ({
-            header: <MapView
-                style={{width: 425, height: 150, borderBottomColor: 'transparent',}}
-
-                initialRegion={{
-                    latitude      : 30.537686,
-                    longitude     : 104.068578,
-                    latitudeDelta : 0.0005,
-                    longitudeDelta: 0.0002,
-                }}
-
-                showsScale={true}
-            />,
+            header: <View/>,
             // headerLeft: (
             //     <Button styleName="clear" onPress={() => alert('GoBack')}>
             //         <IonIcon size={26} name="ios-arrow-back" color="#ffffff"/>
