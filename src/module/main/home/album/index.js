@@ -88,9 +88,9 @@ class Album extends Component {
                                             cache     : 'force-cache',
                                         }}
                                         style={{
-                                            width    : width,
-                                            height   : height,
-                                            transform: [
+                                            width          : width,
+                                            height         : height,
+                                            transform      : [
                                                 {
                                                     translateY: this.state.animated.interpolate({
                                                         inputRange : [0, 1],
@@ -118,9 +118,10 @@ class Album extends Component {
                                                     }),
                                                 },
                                             ],
-                                            top      : position.y,
-                                            left     : position.x,
-                                            position : 'absolute',
+                                            top            : position.y,
+                                            left           : position.x,
+                                            position       : 'absolute',
+                                            backgroundColor: '#eeeff1',
                                         }}
                                     />
                                 </TouchableHighlight>
