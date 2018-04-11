@@ -46,21 +46,23 @@ export default StackNavigator({
     Detail: {
         screen           : Detail,
         navigationOptions: ({navigation}) => ({
-            header    : <MapView
-                style={{width: 500, height: 100}}
+            header: <MapView
+                style={{width: 425, height: 150, borderBottomColor: 'transparent',}}
 
                 initialRegion={{
-                    latitude      : 37.78825,
-                    longitude     : -122.4324,
-                    latitudeDelta : 0.0922,
-                    longitudeDelta: 0.0421,
+                    latitude      : 30.537686,
+                    longitude     : 104.068578,
+                    latitudeDelta : 0.0005,
+                    longitudeDelta: 0.0002,
                 }}
+
+                showsScale={true}
             />,
-            headerLeft: (
-                <Button styleName="clear" onPress={() => alert('GoBack')}>
-                    <IonIcon size={26} name="ios-arrow-back" color="#ffffff"/>
-                </Button>
-            ),
+            // headerLeft: (
+            //     <Button styleName="clear" onPress={() => alert('GoBack')}>
+            //         <IonIcon size={26} name="ios-arrow-back" color="#ffffff"/>
+            //     </Button>
+            // ),
         }),
     },
 }, {

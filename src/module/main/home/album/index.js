@@ -21,6 +21,7 @@ class Album extends Component {
         super(props);
         this.state = {
             animated: new Animated.Value(0),
+            offsetY : 0,
         };
     }
 
@@ -53,25 +54,32 @@ class Album extends Component {
                         const scaleY = w / width * (item.height / item.width);
                         const position = this.convertPosition(num, index, x, y, w, h);
                         return (
-                            <TouchableHighlight
-                                onPress={() => {
-                                    this.props.navigation.goBack();
-                                    Animated.spring(this.state.animated, {
-                                        toValue : 0,
-                                        duration: 800,
-                                    }).start();
+                            <ScrollView
+                                contentContainerStyle={{
+                                    height         : scaleY * width > h ? scaleY * width : h,
+                                    width          : w,
+                                    backgroundColor: '#000',
                                 }}
-                                activeOpacity={1}
                                 key={num}
-                                underlayColor={'rgba(0, 0, 0, 0.0)'}
+                                showsVerticalScrollIndicator={false}
+                                onScroll={event => {
+                                    this.setState({offsetY: event.nativeEvent.contentOffset.y})
+                                }}
                             >
-                                <ScrollView
-                                    contentContainerStyle={{
-                                        height         : scaleY * width > h ? scaleY * width : h,
-                                        width          : w,
-                                        backgroundColor: '#000',
+                                <TouchableHighlight
+                                    onPress={() => {
+                                        this.props.navigation.goBack();
+                                        Animated.spring(this.state.animated, {
+                                            toValue : 0,
+                                            duration: 800,
+                                        }).start();
                                     }}
-                                    showsVerticalScrollIndicator={false}
+                                    activeOpacity={1}
+                                    underlayColor={'rgba(0, 0, 0, 0)'}
+                                    style={{
+                                        height: scaleY * width > h ? scaleY * width : h,
+                                        width : w,
+                                    }}
                                 >
                                     <Animated.Image
                                         source={{
@@ -86,7 +94,7 @@ class Album extends Component {
                                                 {
                                                     translateY: this.state.animated.interpolate({
                                                         inputRange : [0, 1],
-                                                        outputRange: [0, (scaleY * width > h ?
+                                                        outputRange: [this.state.offsetY, (scaleY * width > h ?
                                                             (scaleY * width) : h) / 2 - (position.y + height / 2)
                                                         ],
                                                     }),
@@ -115,8 +123,8 @@ class Album extends Component {
                                             position : 'absolute',
                                         }}
                                     />
-                                </ScrollView>
-                            </TouchableHighlight>
+                                </TouchableHighlight>
+                            </ScrollView>
                         );
                     })}
                 </Swiper>

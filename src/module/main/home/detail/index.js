@@ -14,8 +14,7 @@ class Detail extends Component {
 
     render() {
         return (
-            <Screen>
-            </Screen>
+            <Screen></Screen>
         );
     }
 }
