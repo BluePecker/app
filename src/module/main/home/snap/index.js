@@ -211,7 +211,6 @@ class Snap extends Component {
     componentDidMount() {
         const {navigation: {addListener}} = this.props;
         this._navListener = addListener('didFocus', () => {
-            console.log('focus');
             StatusBar.setBarStyle('light-content');
             // isAndroid && StatusBar.setBackgroundColor('#6a51ae');
         });
