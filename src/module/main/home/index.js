@@ -20,7 +20,7 @@ export default StackNavigator({
                         height    : 35,
                         lineHeight: 45,
                         color     : '#ffffff'
-                    }}>微忆</Text>
+                    }}>Vaiee</Text>
                 </Button>
             ),
             headerLeft : (
