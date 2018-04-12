@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Modal from 'react-native-modal';
 import {Screen, Button, Image, View, Text} from '@shoutem/ui';
-import Swiper from 'react-native-swiper';
+import Carousel from 'react-native-looped-carousel';
 import Css from 'module/main/home/snap/album/css';
 import {Animated, ScrollView, TouchableHighlight} from 'react-native';
 
@@ -22,13 +22,13 @@ export default class Album extends Component {
                 backdropOpacity={1}
                 style={{width, height, padding: 0, margin: 0}}
             >
-                <Swiper
-                    index={index}
-                    showsPagination
-                    dotStyle={{backgroundColor: '#8b8b8b', opacity: 0.6}}
-                    activeDotColor={'#fff'}
-                    bounces
-                    // automaticallyAdjustContentInsets
+                <Carousel
+                    style={{flex: 1}}
+                    autoplay={false}
+                    pageInfo
+                    currentPage={index}
+                    pageInfoBackgroundColor={'rgba(255, 255, 255, 0.25)'}
+                    pageInfoTextStyle={{color: '#ffffff'}}
                 >
                     {source.map((item, num) => {
                         const scaleY = width / w * (item.height / item.width);
@@ -40,7 +40,10 @@ export default class Album extends Component {
                                 }}
                                 key={num}
                                 showsVerticalScrollIndicator={false}
-                                onScroll={event => this.setState({offsetY: event.nativeEvent.contentOffset.y})}
+                                onScroll={event => {
+                                    this.state.offset[num] = event.nativeEvent.contentOffset.y;
+                                    this.setState({offset: this.state.offset})
+                                }}
                             >
                                 <TouchableHighlight
                                     onPress={() => {
@@ -68,7 +71,7 @@ export default class Album extends Component {
                                                 {
                                                     translateY: this.state.animated.interpolate({
                                                         inputRange : [0, 1],
-                                                        outputRange: [this.state.offsetY, (scaleY * w > height ?
+                                                        outputRange: [this.state.offset[`${num}`] || 0, (scaleY * w > height ?
                                                             (scaleY * w) : height) / 2 - (position.y + h / 2)
                                                         ],
                                                     }),
@@ -102,7 +105,7 @@ export default class Album extends Component {
                             </ScrollView>
                         );
                     })}
-                </Swiper>
+                </Carousel>
             </Modal>
         );
     }
@@ -111,7 +114,7 @@ export default class Album extends Component {
         super(props);
         this.state = {
             animated: new Animated.Value(0),
-            offsetY : 0,
+            offset  : {},
             visible : false,
             params  : {source: [], index: 0, x: 0, y: 0, w: 0, h: 0},
         };
@@ -127,6 +130,6 @@ export default class Album extends Component {
         Animated.timing(this.state.animated, {
             toValue: 1, duration: 250
         }).start();
-        this.setState({visible: true, offsetY: 0, params});
+        this.setState({visible: true, offset: {}, params});
     }
 };
