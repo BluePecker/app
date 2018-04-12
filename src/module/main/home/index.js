@@ -1,11 +1,9 @@
 import React from 'react';
 import {Button, Text} from '@shoutem/ui';
 import IonIcon from 'react-native-vector-icons/Ionicons';
-import {Animated, View,} from 'react-native';
+import {View,} from 'react-native';
 import {StackNavigator} from 'react-navigation';
-import MapView from 'react-native-maps';
 
-import Album from 'module/main/home/album';
 import Detail from 'module/main/home/detail';
 import Snap from 'module/main/home/snap';
 
@@ -39,9 +37,6 @@ export default StackNavigator({
                 height           : 35,
             },
         }),
-    },
-    Album : {
-        screen: Album,
     },
     Detail: {
         screen           : Detail,
