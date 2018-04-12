@@ -73,7 +73,10 @@ class Detail extends Component {
                                 </Button>
                             </View>
                         </View>
-                        <View>
+                        <View
+                            style={Css._content}
+                        >
+                            <View></View>
                             <Tile styleName="clear">
                                 <Subtitle
                                     styleName="sm-gutter-horizontal"

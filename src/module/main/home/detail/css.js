@@ -47,4 +47,8 @@ export default EStyleSheet.create({
         borderRadius   : '1.5rem',
         padding        : 0,
     },
+    content          : {
+        paddingLeft : '1rem',
+        paddingRight: '1rem',
+    }
 });
