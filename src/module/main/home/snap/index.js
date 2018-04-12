@@ -19,10 +19,11 @@ import {
 } from '@shoutem/ui';
 // import Swiper from 'react-native-swiper';
 // import Video from 'react-native-video';
+import Album from './album';
 
 import Gallery from 'component/Gallery';
 
-import {Modal, TouchableHighlight, StatusBar, StyleSheet} from 'react-native';
+import {TouchableHighlight, StatusBar, StyleSheet} from 'react-native';
 
 import EvilIcon from 'react-native-vector-icons/EvilIcons';
 import {UltimateListView} from 'react-native-ultimate-listview';
@@ -159,11 +160,9 @@ class Snap extends Component {
                             wrapper: Css._gallery,
                             small  : Css._galleryItem
                         }}
-                        onPress={(source, index, x, y, width, height) => {
-                            this.props.navigation.navigate('Album', {
-                                source, index, x, y, width, height
-                            });
-                        }}
+                        onPress={(source, index, x, y, w, h) => this.refs.album.toModalShow({
+                            source, index, x, y, w, h,
+                        })}
                     />
                     <Divider styleName="line"/>
                     <View styleName="horizontal flexible" style={Css._cardFooter}>
@@ -201,11 +200,10 @@ class Snap extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {modalVisible: false, images: [], index: 0};
-    }
-
-    setModalVisible(visible) {
-        this.setState({modalVisible: visible});
+        this.state = {
+            albumVisible: false,
+            albumParams : {source: [], index: 0, x: 0, y: 0, w: 0, h: 0}
+        };
     }
 
     componentDidMount() {
@@ -233,9 +231,11 @@ class Snap extends Component {
                     //     console.log(a, b, c);
                     // }}
                 />
+                <Album ref='album'/>
             </Screen>
         );
     }
 }
+
 
 export default Inject({namespace: 'main/home/snap', component: Snap, model: Model});
