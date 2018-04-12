@@ -33,7 +33,6 @@ export default class Gallery extends Component {
                                     uri  : item.uri,
                                     cache: 'force-cache'
                                 }}
-                                styleName="medium-square"
                             />
                         </TouchableHighlight>
                     );
