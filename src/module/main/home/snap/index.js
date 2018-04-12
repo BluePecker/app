@@ -117,7 +117,7 @@ class Snap extends Component {
             <TouchableHighlight
                 underlayColor={'#ffffff'}
                 activeOpacity={1}
-                onPress={() => this.props.navigation.navigate('Detail')}
+                onPress={() => this.props.navigation.navigate('main/home/detail')}
             >
                 <Card style={Css._card}>
                     <View styleName="horizontal space-between" style={Css._cardHeader}>

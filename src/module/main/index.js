@@ -11,8 +11,8 @@ export default TabNavigator({
     "main/home"   : {
         screen           : Home,
         navigationOptions: {
-            tabBarLabel: '首页',
-            tabBarIcon : ({tintColor}) => <Icon name="ios-disc" size={24} color={tintColor}/>,
+            tabBarLabel  : '首页',
+            tabBarIcon   : ({tintColor}) => <Icon name="ios-disc" size={24} color={tintColor}/>,
         }
     },
     // "main/mark"   : {
@@ -45,7 +45,7 @@ export default TabNavigator({
     },
 }, {
     navigationOptions: ({navigation}) => ({
-        tabBarIcon: ({focused, tintColor}) => {
+        tabBarIcon   : ({focused, tintColor}) => {
             const {routeName} = navigation.state;
             let iconName;
             if (routeName === 'Home') {
@@ -59,8 +59,10 @@ export default TabNavigator({
             return <Icon name={iconName} size={25} color={tintColor}/>;
         },
         // tabBarOnPress: event => {
-        //     console.log(event.scene.route.key === 'main/dig', event.scene.route.key);
-        //     event.scene.route.key === 'main/dig' && navigation.navigate('main/dig');
+        //     console.log(event.scene.route.key);
+        //
+        //         console.log(event.scene.route.key === 'main/dig', event.scene.route.key);
+        //         event.scene.route.key === 'main/dig' && navigation.navigate('main/dig');
         // },
 
     }),

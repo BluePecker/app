@@ -8,7 +8,7 @@ import Detail from 'module/main/home/detail';
 import Snap from 'module/main/home/snap';
 
 export default StackNavigator({
-    Snap  : {
+    'main/home/snap'  : {
         screen           : Snap,
         navigationOptions: ({navigation}) => ({
             headerTitle: (
@@ -38,13 +38,13 @@ export default StackNavigator({
             },
         }),
     },
-    Detail: {
+    'main/home/detail': {
         screen           : Detail,
         navigationOptions: ({navigation}) => ({header: <View/>,}),
     },
 }, {
     transitionConfig : () => ({
-        transitionSpec: {duration: 250}
+        transitionSpec: {duration: 250},
     }),
     headerMode       : 'screen',
     navigationOptions: {
@@ -75,5 +75,5 @@ export default StackNavigator({
         //         height           : 35,
         //     },
     },
-    initialRouteName : 'Snap',
+    initialRouteName : 'main/home/snap',
 });
