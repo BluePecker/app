@@ -45,14 +45,7 @@ export default StackNavigator({
     },
     Detail: {
         screen           : Detail,
-        navigationOptions: ({navigation}) => ({
-            header: <View/>,
-            // headerLeft: (
-            //     <Button styleName="clear" onPress={() => alert('GoBack')}>
-            //         <IonIcon size={26} name="ios-arrow-back" color="#ffffff"/>
-            //     </Button>
-            // ),
-        }),
+        navigationOptions: ({navigation}) => ({header: <View/>,}),
     },
 }, {
     transitionConfig : () => ({
