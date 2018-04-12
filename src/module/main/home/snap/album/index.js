@@ -5,6 +5,53 @@ import Carousel from 'react-native-looped-carousel';
 import Css from 'module/main/home/snap/album/css';
 import {Animated, ScrollView, TouchableHighlight} from 'react-native';
 
+class Swiper extends Carousel {
+    _renderPageInfo = (total) => {
+        if (total <= 1) return null;
+        let dots = [];
+        for (let i = 0; i < total; i++) {
+            dots.push(React.cloneElement(i === this.state.currentPage ? <View
+                style={{
+                    backgroundColor: this.props.activeDotColor || 'rgba(255,255,255,1)',
+                    width          : 8,
+                    height         : 8,
+                    borderRadius   : 4,
+                    marginLeft     : 3,
+                    marginRight    : 3,
+                    marginTop      : 3,
+                    marginBottom   : 3
+                }}
+            /> : <View
+                style={{
+                    backgroundColor: this.props.dotColor || 'rgba(255,255,255,0.2)',
+                    width          : 8,
+                    height         : 8,
+                    borderRadius   : 4,
+                    marginLeft     : 3,
+                    marginRight    : 3,
+                    marginTop      : 3,
+                    marginBottom   : 3
+                }}
+            />, {key: i}));
+        }
+        return (
+            <View style={{
+                position       : 'absolute',
+                bottom         : 25,
+                left           : 0,
+                right          : 0,
+                flexDirection  : 'row',
+                flex           : 1,
+                justifyContent : 'center',
+                alignItems     : 'center',
+                backgroundColor: 'transparent'
+            }}>
+                {dots}
+            </View>
+        );
+    }
+}
+
 export default class Album extends Component {
 
     render() {
@@ -22,7 +69,7 @@ export default class Album extends Component {
                 backdropOpacity={1}
                 style={{width, height, padding: 0, margin: 0}}
             >
-                <Carousel
+                <Swiper
                     style={{flex: 1}}
                     autoplay={false}
                     pageInfo
@@ -105,7 +152,7 @@ export default class Album extends Component {
                             </ScrollView>
                         );
                     })}
-                </Carousel>
+                </Swiper>
             </Modal>
         );
     }
