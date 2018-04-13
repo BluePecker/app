@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import {NativeModules, TouchableHighlight, ART} from 'react-native';
+import {NativeModules, TouchableHighlight} from 'react-native';
 import {Button, View} from '@shoutem/ui';
 
-
-import Progress from 'react-native-progress/CircleSnail';
 import Image from 'react-native-image-progress';
 
 import Css from './css';
@@ -35,7 +33,7 @@ export default class Gallery extends Component {
                                 style={source.length > 1 ? small : large}
                                 source={{
                                     uri  : item.uri,
-                                    // cache: 'force-cache',
+                                    cache: 'force-cache',
                                 }}
                                 // indicator={Progress}
                                 // indicatorProps={{
@@ -45,7 +43,6 @@ export default class Gallery extends Component {
                                 //     unfilledColor: 'rgba(200, 200, 200, 0.2)'
                                 // }}
                             />
-                            {/*<ART.Surface/>*/}
                         </TouchableHighlight>
                     );
                 })}</View>

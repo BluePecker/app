@@ -42,62 +42,62 @@ PODS:
   - GoogleMaps/Base (2.5.0)
   - GoogleMaps/Maps (2.5.0):
     - GoogleMaps/Base
-  - React (0.54.4):
-    - React/Core (= 0.54.4)
+  - React (0.55.2):
+    - React/Core (= 0.55.2)
   - react-native-google-maps (0.21.0):
     - Google-Maps-iOS-Utils (= 2.1.0)
     - GoogleMaps (= 2.5.0)
     - React
   - react-native-maps (0.21.0):
     - React
-  - React/ART (0.54.4):
+  - React/ART (0.55.2):
     - React/Core
-  - React/Core (0.54.4):
-    - yoga (= 0.54.4.React)
-  - React/CxxBridge (0.54.4):
+  - React/Core (0.55.2):
+    - yoga (= 0.55.2.React)
+  - React/CxxBridge (0.55.2):
     - Folly (= 2016.09.26.00)
     - React/Core
     - React/cxxreact
-  - React/cxxreact (0.54.4):
+  - React/cxxreact (0.55.2):
     - boost-for-react-native (= 1.63.0)
     - Folly (= 2016.09.26.00)
     - React/jschelpers
     - React/jsinspector
-  - React/DevSupport (0.54.4):
+  - React/DevSupport (0.55.2):
     - React/Core
     - React/RCTWebSocket
-  - React/fishhook (0.54.4)
-  - React/jschelpers (0.54.4):
+  - React/fishhook (0.55.2)
+  - React/jschelpers (0.55.2):
     - Folly (= 2016.09.26.00)
     - React/PrivateDatabase
-  - React/jsinspector (0.54.4)
-  - React/PrivateDatabase (0.54.4)
-  - React/RCTActionSheet (0.54.4):
+  - React/jsinspector (0.55.2)
+  - React/PrivateDatabase (0.55.2)
+  - React/RCTActionSheet (0.55.2):
     - React/Core
-  - React/RCTAnimation (0.54.4):
+  - React/RCTAnimation (0.55.2):
     - React/Core
-  - React/RCTBlob (0.54.4):
+  - React/RCTBlob (0.55.2):
     - React/Core
-  - React/RCTGeolocation (0.54.4):
+  - React/RCTGeolocation (0.55.2):
     - React/Core
-  - React/RCTImage (0.54.4):
+  - React/RCTImage (0.55.2):
     - React/Core
     - React/RCTNetwork
-  - React/RCTLinkingIOS (0.54.4):
+  - React/RCTLinkingIOS (0.55.2):
     - React/Core
-  - React/RCTNetwork (0.54.4):
+  - React/RCTNetwork (0.55.2):
     - React/Core
-  - React/RCTSettings (0.54.4):
+  - React/RCTSettings (0.55.2):
     - React/Core
-  - React/RCTText (0.54.4):
+  - React/RCTText (0.55.2):
     - React/Core
-  - React/RCTVibration (0.54.4):
+  - React/RCTVibration (0.55.2):
     - React/Core
-  - React/RCTWebSocket (0.54.4):
+  - React/RCTWebSocket (0.55.2):
     - React/Core
     - React/fishhook
     - React/RCTBlob
-  - yoga (0.54.4.React)
+  - yoga (0.55.2.React)
 
 DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
@@ -154,10 +154,10 @@ SPEC CHECKSUMS:
   GLog: 3e4e4ae9746ce6bf6e9420c7fc1e08ad59c8ba1a
   Google-Maps-iOS-Utils: c32891ff472eaaa1fca032beedafa1a013af7875
   GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
-  React: c237e42de9c70e5cac6eeb52b4cfd3a0910c1f00
+  React: 35618ff86985ccc5a8a17d3ca0dd76fd47e0c690
   react-native-google-maps: 2cfe3b01f8422c7dae51d8764139fd70f888cfce
   react-native-maps: 066c2afcc89e18726377bcc685315f989ca22449
-  yoga: 55da126afc384965b96bff46652464373b330add
+  yoga: a23273df0088bf7f2bb7e5d7b00044ea57a2a54a
 
 PODFILE CHECKSUM: 020d762901289f6373f15f99753ca1539b34ffca
 

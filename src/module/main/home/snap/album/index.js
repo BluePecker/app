@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Modal from 'react-native-modal';
-import {Screen, Button, Image, View, Text} from '@shoutem/ui';
+import {Screen, Button, View, Text} from '@shoutem/ui';
 import Carousel from 'react-native-looped-carousel';
 import Css from 'module/main/home/snap/album/css';
 import {Animated, ScrollView, TouchableHighlight} from 'react-native';
