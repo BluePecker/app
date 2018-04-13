@@ -44,6 +44,7 @@ export default class Gallery extends Component {
                                 //     unfilledColor: 'rgba(200, 200, 200, 0.2)'
                                 // }}
                             />
+                            {/*<ART.Surface/>*/}
                         </TouchableHighlight>
                     );
                 })}</View>
