@@ -424,6 +424,7 @@
 		861851455F88401B95FD095D /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		968D920D7170455AA8589DC7 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		9D12DABF17EC4379A9F1AF55 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		A3DDF65620809D9300290234 /* React.podspec.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = React.podspec.json; path = "Pods/Local Podspecs/React.podspec.json"; sourceTree = "<group>"; };
 		A3E8468B2039B7B600FB7459 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		A3E8468C2039B7B600FB7459 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
 		A3E8468D2039B7B600FB7459 /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
@@ -624,6 +625,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3DDF65620809D9300290234 /* React.podspec.json */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 				290AE4A5B4CA2CA10C97D877 /* libPods-app.a */,
 			);

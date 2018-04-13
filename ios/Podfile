@@ -9,6 +9,7 @@ target 'app' do
   pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"
   pod 'React', path: rn_path, subspecs: [
     'Core',
+    'ART',
     'CxxBridge',
     'DevSupport',
     'RCTActionSheet',
@@ -52,8 +53,8 @@ post_install do |installer|
         config.build_settings['GCC_WARN_64_TO_32_BIT_CONVERSION'] = 'NO'
       end
     end
-    if target.name == "React"
-      target.remove_from_project
-    end
+#if target.name == "React"
+#  target.remove_from_project
+#end
   end
 end
