@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {NativeModules, TouchableHighlight} from 'react-native';
+import {NativeModules, TouchableHighlight, ART} from 'react-native';
 import {Button, View} from '@shoutem/ui';
 
 import Image from 'react-native-image-progress';
+// import Progress from 'react-native-progress';
 
 import Css from './css';
 
