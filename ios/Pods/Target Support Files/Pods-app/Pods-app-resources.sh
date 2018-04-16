@@ -93,9 +93,31 @@ EOM
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/Entypo.ttf"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/EvilIcons.ttf"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/Feather.ttf"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/FontAwesome.ttf"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/Foundation.ttf"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/Ionicons.ttf"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/MaterialCommunityIcons.ttf"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/MaterialIcons.ttf"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/Octicons.ttf"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/SimpleLineIcons.ttf"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/Zocial.ttf"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/Entypo.ttf"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/EvilIcons.ttf"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/Feather.ttf"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/FontAwesome.ttf"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/Foundation.ttf"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/Ionicons.ttf"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/MaterialCommunityIcons.ttf"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/MaterialIcons.ttf"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/Octicons.ttf"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/SimpleLineIcons.ttf"
+  install_resource "${PODS_ROOT}/RNVectorIcons/Fonts/Zocial.ttf"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
