@@ -3,7 +3,7 @@ import {NativeModules, TouchableHighlight, ART} from 'react-native';
 import {Button, View} from '@shoutem/ui';
 
 import Image from 'react-native-image-progress';
-// import Progress from 'react-native-progress';
+import Progress from 'react-native-progress/Circle';
 
 import Css from './css';
 
@@ -34,7 +34,7 @@ export default class Gallery extends Component {
                                 style={source.length > 1 ? small : large}
                                 source={{
                                     uri  : item.uri,
-                                    cache: 'force-cache',
+                                    // cache: 'force-cache',
                                 }}
                                 // indicator={Progress}
                                 // indicatorProps={{

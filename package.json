@@ -7,6 +7,7 @@
         "test": "jest"
     },
     "dependencies": {
+        "art": "BluePecker/art",
         "@babel/core": "^7.0.0-beta.44",
         "@shoutem/animation": "^0.12.2",
         "@shoutem/ui": "^0.23.4",
