@@ -6,11 +6,9 @@ import Css from 'module/main/home/snap/album/css';
 import {ScrollView, TouchableHighlight, Animated, StyleSheet} from 'react-native';
 
 import * as Progress from 'react-native-progress';
-import * as Animatable from 'react-native-animatable';
-import FastImage from 'react-native-fast-image';
+import CachedImage from 'component/CacheImage';
 
-// const Image = Animatable.createAnimatableComponent(FastImage);
-const Image = Animated.createAnimatedComponent(FastImage);
+const AnimatedImage = Animated.createAnimatedComponent(CachedImage);
 
 class Swiper extends Carousel {
     _renderPageInfo = (total) => {
@@ -86,9 +84,8 @@ export default class Album extends Component {
                                 key={num}
                                 showsVerticalScrollIndicator={false}
                                 onScroll={event => {
-                                    // console.log(event.nativeEvent.contentOffset.y);
-                                    // this.state.offset[num] = event.nativeEvent.contentOffset.y;
-                                    // this.setState({offset: this.state.offset})
+                                    this.state.offset[num] = event.nativeEvent.contentOffset.y;
+                                    this.setState({offset: this.state.offset})
                                 }}
                                 scrollEventThrottle={32}
                             >
@@ -181,117 +178,112 @@ export default class Album extends Component {
                                         height: scaleY * w > height ? scaleY * w : height, width: width,
                                     }}
                                 >
-                                    {/*<View*/}
-                                    {/*style={{*/}
-                                    {/*height        : scaleY * w > height ? scaleY * w : height, width: width,*/}
-                                    {/*...StyleSheet.absoluteFillObject,*/}
-                                    {/*alignItems    : 'center',*/}
-                                    {/*justifyContent: 'center',*/}
-                                    {/*}}*/}
-                                    {/*>*/}
-                                    {/*<Image*/}
-                                    {/*resizeMode={FastImage.resizeMode.stretch}*/}
-                                    {/*source={{*/}
-                                    {/*uri: item.uri,*/}
-                                    {/*}}*/}
-                                    {/*style={{*/}
-                                    {/*width, height  : h * scaleY,*/}
-                                    {/*backgroundColor: 'red',*/}
-                                    {/*}}*/}
-                                    {/*/>*/}
-
-                                    {/*<Animated.Image*/}
-                                    {/*resizeMode={FastImage.resizeMode.stretch}*/}
-                                    {/*source={{*/}
-                                    {/*uri: item.uri,*/}
-                                    {/*}}*/}
-                                    {/*style={{*/}
-                                    {/*position : 'absolute',*/}
-                                    {/*top      : position.y,*/}
-                                    {/*left     : position.x,*/}
-                                    {/*zIndex   : 10,*/}
-                                    {/*width    : w,*/}
-                                    {/*height   : h,*/}
-                                    {/*transform: [*/}
-                                    {/*{*/}
-                                    {/*translateY: this.state.animated.interpolate({*/}
-                                    {/*inputRange : [0, 1],*/}
-                                    {/*outputRange: [this.state.offset[`${num}`] || 0, (scaleY * w > height ?*/}
-                                    {/*(scaleY * w) : height) / 2 - (position.y + h / 2)*/}
-                                    {/*],*/}
-                                    {/*}),*/}
-                                    {/*},*/}
-                                    {/*{*/}
-                                    {/*translateX: this.state.animated.interpolate({*/}
-                                    {/*inputRange : [0, 1],*/}
-                                    {/*outputRange: [0, width / 2 - (position.x + w / 2)],*/}
-                                    {/*}),*/}
-                                    {/*},*/}
-                                    {/*{*/}
-                                    {/*scaleX: this.state.animated.interpolate({*/}
-                                    {/*inputRange : [0, 1],*/}
-                                    {/*outputRange: [1, width / w],*/}
-                                    {/*}),*/}
-                                    {/*},*/}
-                                    {/*{*/}
-                                    {/*scaleY: this.state.animated.interpolate({*/}
-                                    {/*inputRange : [0, 1],*/}
-                                    {/*outputRange: [1, scaleY],*/}
-                                    {/*}),*/}
-                                    {/*},*/}
-                                    {/*],*/}
-                                    {/*}}*/}
-                                    {/*onLoad={this.onOriginalLoad}*/}
-                                    {/*/>*/}
-                                    <Image
-                                        resizeMode={FastImage.resizeMode.stretch}
-                                        source={{
-                                            uri  : item.uri,
-                                            cache: 'force-cache',
-                                        }}
+                                    <View
                                         style={{
-                                            position : 'absolute',
-                                            top      : position.y,
-                                            left     : position.x,
-                                            zIndex   : 10,
-                                            width    : w,
-                                            height   : h,
-                                            transform: [
-                                                {
-                                                    translateY: this.state.animated.interpolate({
-                                                        inputRange : [0, 1],
-                                                        outputRange: [this.state.offset[`${num}`] || 0,
-                                                            ((scaleY * w > height ? scaleY * w : height) - h) / 2 - position.y
-                                                        ],
-                                                    }),
-                                                },
-                                                {
-                                                    translateX: this.state.animated.interpolate({
-                                                        inputRange : [0, 1],
-                                                        outputRange: [0, (width - w) / 2 - position.x],
-                                                    }),
-                                                },
-                                                {
-                                                    scaleX: this.state.animated.interpolate({
-                                                        inputRange : [0, 1],
-                                                        outputRange: [1, width / w],
-                                                    }),
-                                                },
-                                                {
-                                                    scaleY: this.state.animated.interpolate({
-                                                        inputRange : [0, 1],
-                                                        outputRange: [1, scaleY],
-                                                    }),
-                                                },
-                                            ],
-                                            // opacity  : this.state.thumbnailOpcity.interpolate({
-                                            //     inputRange : [0, 1],
-                                            //     outputRange: [0, 1],
-                                            // }),
+                                            height        : scaleY * w > height ? scaleY * w : height, width: width,
+                                            ...StyleSheet.absoluteFillObject,
+                                            alignItems    : 'center',
+                                            justifyContent: 'center',
                                         }}
-                                        // onLoad={this.onThumbnailLoad}
-                                    />
-                                    {/*</View>*/}
+                                    >
+                                        {/*<Image*/}
+                                        {/*resizeMode={FastImage.resizeMode.stretch}*/}
+                                        {/*source={{*/}
+                                        {/*uri: item.uri,*/}
+                                        {/*}}*/}
+                                        {/*style={{*/}
+                                        {/*width, height  : h * scaleY,*/}
+                                        {/*backgroundColor: 'red',*/}
+                                        {/*}}*/}
+                                        {/*/>*/}
+
+                                        <AnimatedImage
+                                            resizeMode={'stretch'}
+                                            source={{uri: item.uri,}}
+                                            style={{
+                                                position : 'absolute',
+                                                top      : position.y,
+                                                left     : position.x,
+                                                zIndex   : 5,
+                                                width    : w,
+                                                height   : h,
+                                                transform: [
+                                                    {
+                                                        translateX: this.state.animated.interpolate({
+                                                            inputRange : [0, 1],
+                                                            outputRange: [0, (width - w) / 2 - position.x],
+                                                        }),
+                                                    },
+                                                    {
+                                                        translateY: this.state.animated.interpolate({
+                                                            inputRange : [0, 1],
+                                                            outputRange: [this.state.offset[`${num}`] || 0,
+                                                                ((scaleY * w > height ? scaleY * w : height) - h) / 2 - position.y
+                                                            ],
+                                                        }),
+                                                    },
+                                                    {
+                                                        scaleX: this.state.animated.interpolate({
+                                                            inputRange : [0, 1],
+                                                            outputRange: [1, width / w],
+                                                        }),
+                                                    },
+                                                    {
+                                                        scaleY: this.state.animated.interpolate({
+                                                            inputRange : [0, 1],
+                                                            outputRange: [1, scaleY],
+                                                        }),
+                                                    },
+                                                ],
+                                            }}
+                                            onLoad={this.onOriginalLoad}
+                                        />
+                                        <AnimatedImage
+                                            resizeMode={'stretch'}
+                                            source={{uri: item.thumbnail,}}
+                                            style={{
+                                                position : 'absolute',
+                                                top      : position.y,
+                                                left     : position.x,
+                                                zIndex   : 10,
+                                                width    : w,
+                                                height   : h,
+                                                transform: [
+                                                    {
+                                                        translateX: this.state.animated.interpolate({
+                                                            inputRange : [0, 1],
+                                                            outputRange: [0, (width - w) / 2 - position.x],
+                                                        }),
+                                                    },
+                                                    {
+                                                        translateY: this.state.animated.interpolate({
+                                                            inputRange : [0, 1],
+                                                            outputRange: [this.state.offset[`${num}`] || 0,
+                                                                ((scaleY * w > height ? scaleY * w : height) - h) / 2 - position.y
+                                                            ],
+                                                        }),
+                                                    },
+                                                    {
+                                                        scaleX: this.state.animated.interpolate({
+                                                            inputRange : [0, 1],
+                                                            outputRange: [1, width / w],
+                                                        }),
+                                                    },
+                                                    {
+                                                        scaleY: this.state.animated.interpolate({
+                                                            inputRange : [0, 1],
+                                                            outputRange: [1, scaleY],
+                                                        }),
+                                                    },
+                                                ],
+                                                opacity  : this.state.thumbnailOpcity.interpolate({
+                                                    inputRange : [0, 1],
+                                                    outputRange: [0, 1],
+                                                }),
+                                            }}
+                                            onLoad={this.onThumbnailLoad}
+                                        />
+                                    </View>
                                 </TouchableHighlight>
                             </ScrollView>
                         );
