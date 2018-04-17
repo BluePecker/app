@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
-import {NativeModules, TouchableHighlight, ART} from 'react-native';
+import {NativeModules, TouchableHighlight} from 'react-native';
 import {Button, View} from '@shoutem/ui';
 
-import Image from 'react-native-image-progress';
-import Progress from 'react-native-progress/Circle';
+import FastImage from 'react-native-fast-image';
+import {createImageProgress} from 'react-native-image-progress';
+import * as Progress from 'react-native-progress';
+
+const Image = createImageProgress(FastImage);
 
 import Css from './css';
 
@@ -34,17 +37,17 @@ export default class Gallery extends Component {
                                 style={source.length > 1 ? small : large}
                                 source={{
                                     uri  : item.uri,
-                                    // cache: 'force-cache',
+                                    cache: 'force-cache',
                                 }}
-                                // indicator={Progress}
-                                // indicatorProps={{
-                                //     size: 80,
-                                //     borderWidth: 0,
-                                //     color: 'rgba(150, 150, 150, 1)',
-                                //     unfilledColor: 'rgba(200, 200, 200, 0.2)'
-                                // }}
+                                indicator={Progress.CircleSnail}
+                                indicatorProps={{
+                                    size: 40,
+                                    //     borderWidth  : 2,
+                                    //     color        : 'rgba(255, 255, 255, 0.5)',
+                                    //     unfilledColor: 'rgba(155, 155, 155, 0.5)',
+                                }}
+                                indeterminate={true}
                             />
-                            {/*<ART.Surface/>*/}
                         </TouchableHighlight>
                     );
                 })}</View>
