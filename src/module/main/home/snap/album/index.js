@@ -89,82 +89,23 @@ export default class Album extends Component {
                                 }}
                                 scrollEventThrottle={32}
                             >
-                                {/*<Progress.Pie*/}
-                                {/*animated={false}*/}
-                                {/* indeterminate={true}*/}
-                                {/*showsText={true}*/}
-                                {/*unfilledColor={'rgba(200, 200, 200, 0.1)'}*/}
-                                {/*size={40}*/}
-                                {/*color={'rgba(250, 250, 250, 0.5)'}*/}
-                                {/*progress={.2}*/}
-                                {/*formatText={progress => {*/}
-                                {/*return `${Math.round(progress * 100)}%`;*/}
-                                {/*}}*/}
-                                {/*style={{*/}
-                                {/*position      : 'absolute',*/}
-                                {/*top           : 0,*/}
-                                {/*left          : 0,*/}
-                                {/*right         : 0,*/}
-                                {/*bottom        : 0,*/}
-                                {/*zIndex        : 10,*/}
-                                {/*height,*/}
-                                {/*width,*/}
-                                {/*justifyContent: 'center',*/}
-                                {/*alignItems    : 'center',*/}
-                                {/*}}*/}
-                                {/*/>*/}
-                                {/*<Progress.Circle*/}
-                                {/*animated={false}*/}
-                                {/*indeterminate={true}*/}
-                                {/*// showsText={true}*/}
-                                {/*unfilledColor={'rgba(200, 200, 200, 0.2)'}*/}
-                                {/*size={40}*/}
-                                {/*color={'rgba(250, 250, 250, 1)'}*/}
-                                {/*progress={.4}*/}
-                                {/*formatText={progress => {*/}
-                                {/*return `${Math.round(progress * 100)}%`;*/}
-                                {/*}}*/}
-                                {/*style={{*/}
-                                {/*position      : 'absolute',*/}
-                                {/*top           : 0,*/}
-                                {/*left          : 0,*/}
-                                {/*right         : 0,*/}
-                                {/*bottom        : 0,*/}
-                                {/*zIndex        : 10,*/}
-                                {/*height,*/}
-                                {/*width,*/}
-                                {/*justifyContent: 'center',*/}
-                                {/*alignItems    : 'center',*/}
-                                {/*}}*/}
-                                {/*textStyle={{*/}
-                                {/*position      : 'relative',*/}
-                                {/*}}*/}
-                                {/*>*/}
-                                {/*<View*/}
-                                {/*style={{*/}
-                                {/*position      : 'absolute',*/}
-                                {/*top           : 0,*/}
-                                {/*left          : 0,*/}
-                                {/*right         : 0,*/}
-                                {/*bottom        : 0,*/}
-                                {/*zIndex        : 10,*/}
-                                {/*height,*/}
-                                {/*width,*/}
-                                {/*justifyContent: 'center',*/}
-                                {/*alignItems    : 'center',*/}
-                                {/*}}*/}
-                                {/*>*/}
-                                {/*<Text*/}
-                                {/*style={{*/}
-                                {/*color: 'red',*/}
-                                {/*// fontSize: textSize / 4.5,*/}
-                                {/*fontWeight: '300',*/}
-                                {/*}}*/}
-                                {/*>*/}
-                                {/*{'40%'}*/}
-                                {/*</Text>*/}
-                                {/*</View>*/}
-                                {/*</Progress.Circle>*/}
+                                <Progress.Circle
+                                    color={'rgba(250,250,250,1)'}
+                                    // indeterminate={true}
+                                    animated={false}
+                                    size={40}
+                                    progress={0.4}
+                                    style={{
+                                        justifyContent: 'center',
+                                        alignItems    : 'center',
+
+                                        height,
+                                        width,
+                                        zIndex: 3,
+                                        ...StyleSheet.absoluteFillObject,
+                                    }}
+                                    unfilledColor={'rgba(200,200,200,0.2)'}
+                                />
                                 <TouchableHighlight
                                     onPress={() => {
                                         Animated.timing(this.state.animated, {
@@ -193,7 +134,7 @@ export default class Album extends Component {
                                                 position : 'absolute',
                                                 top      : position.y,
                                                 left     : position.x,
-                                                zIndex   : 5,
+                                                zIndex   : 1,
                                                 width    : w,
                                                 height   : h,
                                                 transform: [
@@ -234,7 +175,7 @@ export default class Album extends Component {
                                                 position : 'absolute',
                                                 top      : position.y,
                                                 left     : position.x,
-                                                zIndex   : 10,
+                                                zIndex   : 2,
                                                 width    : w,
                                                 height   : h,
                                                 transform: [
