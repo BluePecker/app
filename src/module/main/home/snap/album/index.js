@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import Modal from 'react-native-modal';
 import {Screen, Button, View, Text} from '@shoutem/ui';
 import Carousel from 'react-native-looped-carousel';
-import Css from 'module/main/home/snap/album/css';
 import {ScrollView, TouchableHighlight, Animated, StyleSheet} from 'react-native';
-
 import * as Progress from 'react-native-progress';
 import CachedImage from 'component/CacheImage';
+
+import Css from './css';
 
 const AnimatedImage = Animated.createAnimatedComponent(CachedImage);
 
