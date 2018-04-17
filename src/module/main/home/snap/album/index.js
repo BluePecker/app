@@ -186,17 +186,6 @@ export default class Album extends Component {
                                             justifyContent: 'center',
                                         }}
                                     >
-                                        {/*<Image*/}
-                                        {/*resizeMode={FastImage.resizeMode.stretch}*/}
-                                        {/*source={{*/}
-                                        {/*uri: item.uri,*/}
-                                        {/*}}*/}
-                                        {/*style={{*/}
-                                        {/*width, height  : h * scaleY,*/}
-                                        {/*backgroundColor: 'red',*/}
-                                        {/*}}*/}
-                                        {/*/>*/}
-
                                         <AnimatedImage
                                             resizeMode={'stretch'}
                                             source={{uri: item.uri,}}
