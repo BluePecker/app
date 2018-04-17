@@ -39,6 +39,9 @@ target 'app' do
   # react-native-fast-image dependencies
   pod 'react-native-fast-image', :podspec => "../node_modules/react-native-fast-image/react-native-fast-image.podspec"
 
+ # react-native-fetch-blob dependencies
+  pod 'react-native-fetch-blob', :podspec => "../node_modules/react-native-fetch-blob/react-native-fetch-blob.podspec"
+
   # react-native-maps dependencies
   pod 'react-native-maps', path: rn_maps_path
   pod 'react-native-google-maps', path: rn_maps_path  # Remove this line if you don't want to support GoogleMaps on iOS

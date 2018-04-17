@@ -37,6 +37,7 @@
 		A3BCBB9C208448EE00F341E0 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BCBB99208448DF00F341E0 /* libRCTAnimation.a */; };
 		A3BCBBA62084494100F341E0 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BCBBA32084492900F341E0 /* libART.a */; };
 		A3D21E5B2085F0EA002CCB60 /* libreact-native-fast-image.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D21E5A2085F0EA002CCB60 /* libreact-native-fast-image.a */; };
+		A3D21E8320862B10002CCB60 /* libreact-native-fetch-blob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D21E8220862B10002CCB60 /* libreact-native-fetch-blob.a */; };
 		A3E846962039B7B600FB7459 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3E8468B2039B7B600FB7459 /* Octicons.ttf */; };
 		A3E846972039B7B600FB7459 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3E8468C2039B7B600FB7459 /* Feather.ttf */; };
 		A3E846982039B7B600FB7459 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3E8468D2039B7B600FB7459 /* Entypo.ttf */; };
@@ -329,6 +330,7 @@
 		A3BCBB93208448DF00F341E0 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		A3BCBB9D2084492900F341E0 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
 		A3D21E5A2085F0EA002CCB60 /* libreact-native-fast-image.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-fast-image.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3D21E8220862B10002CCB60 /* libreact-native-fetch-blob.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-fetch-blob.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3DDF65620809D9300290234 /* React.podspec.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = React.podspec.json; path = "Pods/Local Podspecs/React.podspec.json"; sourceTree = "<group>"; };
 		A3E8468B2039B7B600FB7459 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		A3E8468C2039B7B600FB7459 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 				A3BCBB63208447C800F341E0 /* libRCTWebSocket.a in Frameworks */,
 				A3D21E5B2085F0EA002CCB60 /* libreact-native-fast-image.a in Frameworks */,
 				E90B72EF1E1D0EA5B906ECCB /* libPods-app.a in Frameworks */,
+				A3D21E8320862B10002CCB60 /* libreact-native-fetch-blob.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +431,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3D21E8220862B10002CCB60 /* libreact-native-fetch-blob.a */,
 				A3D21E5A2085F0EA002CCB60 /* libreact-native-fast-image.a */,
 				A3BCBB862084484400F341E0 /* libReact.a */,
 				A3DDF65620809D9300290234 /* React.podspec.json */,
