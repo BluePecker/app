@@ -163,7 +163,7 @@ class Snap extends Component {
                             wrapper: Css._gallery,
                             small  : Css._galleryItem
                         }}
-                        onPress={(source, index, x, y, w, h) => this.refs.album.toModalShow({
+                        onPress={(source, index, x, y, w, h) => this.refs.album.onModalShow({
                             source, index, x, y, w, h,
                         })}
                     />

@@ -89,30 +89,44 @@ export default class Album extends Component {
                                 }}
                                 scrollEventThrottle={32}
                             >
-                                <Progress.Circle
-                                    color={'rgba(250,250,250,1)'}
-                                    // indeterminate={true}
-                                    animated={false}
-                                    size={40}
-                                    progress={0.4}
+                                <TouchableHighlight
+                                    onPress={this.onModalPress}
+                                    activeOpacity={1}
+                                    underlayColor={'rgba(0, 0, 0, 0)'}
                                     style={{
-                                        justifyContent: 'center',
-                                        alignItems    : 'center',
-
-                                        height,
-                                        width,
-                                        zIndex: 3,
+                                        height, width,
+                                        backgroundColor: 'transparent',
+                                        zIndex         : 3,
                                         ...StyleSheet.absoluteFillObject,
                                     }}
-                                    unfilledColor={'rgba(200,200,200,0.2)'}
-                                />
+                                >
+                                    <View
+                                        style={{
+                                            height, width,
+                                            backgroundColor: 'transparent'
+                                        }}
+                                    >
+                                        <Progress.Circle
+                                            color={'rgba(250,250,250,1)'}
+                                            indeterminate={true}
+                                            animated={false}
+                                            size={40}
+                                            progress={0.4}
+                                            style={{
+                                                justifyContent: 'center',
+                                                alignItems    : 'center',
+
+                                                height,
+                                                width,
+                                                zIndex: 1,
+                                                ...StyleSheet.absoluteFillObject,
+                                            }}
+                                            unfilledColor={'rgba(200,200,200,0.2)'}
+                                        />
+                                    </View>
+                                </TouchableHighlight>
                                 <TouchableHighlight
-                                    onPress={() => {
-                                        Animated.timing(this.state.animated, {
-                                            toValue : 0,
-                                            duration: 250,
-                                        }).start(() => this.setState({visible: false}));
-                                    }}
+                                    onPress={this.onModalPress}
                                     activeOpacity={1}
                                     underlayColor={'rgba(0, 0, 0, 0)'}
                                     style={{
@@ -240,12 +254,17 @@ export default class Album extends Component {
         return {x, y};
     }
 
-    toModalShow(params) {
+    onModalShow(params) {
         Animated.timing(this.state.animated, {
             toValue: 1, duration: 250
         }).start();
         this.setState({visible: true, offset: {}, params});
     }
+
+    onModalPress = () => Animated.timing(this.state.animated, {
+        toValue : 0,
+        duration: 250
+    }).start(() => this.setState({visible: false}));
 
     onOriginalLoad = () => Animated.timing(this.state.thumbnailOpcity, {toValue: 0, duration: 250}).start();
 
