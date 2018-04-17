@@ -17,9 +17,9 @@ class Swiper extends Carousel {
         for (let i = 0; i < total; i++) {
             dots.push(React.cloneElement(<View
                 style={{
-                    backgroundColor: i === this.state.currentPage ?
-                        (this.props.activeDotColor || 'rgba(255, 255, 255, 1)') :
-                        (this.props.dotColor || 'rgba(255, 255, 255, 0.2)'),
+                    backgroundColor: i !== this.state.currentPage ?
+                        (this.props.dotColor || 'rgba(255,255,255,0.2)') :
+                        (this.props.activeDotColor || 'rgba(255,255,255,1)'),
                     width          : 8,
                     height         : 8,
                     borderRadius   : 4,
