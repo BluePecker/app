@@ -35,6 +35,7 @@ export default class Gallery extends Component {
                         >
                             <Image
                                 style={source.length > 1 ? small : large}
+                                resizeMode={'stretch'}
                                 source={{
                                     uri  : item.thumbnail,
                                     cache: 'force-cache',

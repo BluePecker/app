@@ -104,20 +104,20 @@ class Snap extends Component {
                 uri      : 'https://wx4.sinaimg.cn/mw690/0069kQGBgy1fqgw5ma8q3j32c03404qr.jpg',
                 height   : 780,
                 width    : 585,
-                thumbnail: 'https://wx4.sinaimg.cn/thumb150/0069kQGBgy1fqgw5ma8q3j32c03404qr.jpg',
+                thumbnail: 'https://wx4.sinaimg.cn/mw690/0069kQGBgy1fqgw5ma8q3j32c03404qr.jpg',
             },
             {
                 uri      : 'https://wx1.sinaimg.cn/mw690/0069kQGBgy1fqgw5vrgmij32c03407wj.jpg',
                 height   : 780,
                 width    : 585,
-                thumbnail: 'https://wx1.sinaimg.cn/thumb150/0069kQGBgy1fqgw5vrgmij32c03407wj.jpg',
+                thumbnail: 'https://wx1.sinaimg.cn/mw690/0069kQGBgy1fqgw5vrgmij32c03407wj.jpg',
             },
 
             {
                 uri      : 'https://wx3.sinaimg.cn/mw690/0069kQGBgy1fqgw63nnrfj33402c0x6q.jpg',
                 height   : 690,
                 width    : 518,
-                thumbnail: 'https://wx3.sinaimg.cn/thumb150/0069kQGBgy1fqgw63nnrfj33402c0x6q.jpg',
+                thumbnail: 'https://wx3.sinaimg.cn/mw690/0069kQGBgy1fqgw63nnrfj33402c0x6q.jpg',
             },
             {
                 uri      : 'https://wx4.sinaimg.cn/mw690/7529eb5fgy1fqgz5l6332j22c02c0npe.jpg',
