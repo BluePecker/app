@@ -4,11 +4,13 @@ import {Screen, Button, View, Text} from '@shoutem/ui';
 import Carousel from 'react-native-looped-carousel';
 import {ScrollView, TouchableHighlight, Animated, StyleSheet} from 'react-native';
 import * as Progress from 'react-native-progress';
-import CachedImage from 'component/CacheImage';
+
+import FastImage from 'react-native-fast-image';
+import {createImageProgress} from 'react-native-image-progress';
 
 import Css from './css';
 
-const AnimatedImage = Animated.createAnimatedComponent(CachedImage);
+const Image = Animated.createAnimatedComponent(createImageProgress(FastImage));
 
 class Swiper extends Carousel {
     _renderPageInfo = (total) => {
@@ -98,6 +100,7 @@ export default class Album extends Component {
                                         backgroundColor: 'transparent',
                                         zIndex         : 3,
                                         ...StyleSheet.absoluteFillObject,
+                                        opacity        : this.state.loading,
                                     }}
                                 >
                                     <View
@@ -141,50 +144,25 @@ export default class Album extends Component {
                                             justifyContent: 'center',
                                         }}
                                     >
-                                        <AnimatedImage
+                                        {/*<Image*/}
+                                            {/*resizeMode={'stretch'}*/}
+                                            {/*source={{uri: item.uri,}}*/}
+                                            {/*style={{*/}
+                                                {/*position  : 'absolute',*/}
+                                                {/*zIndex    : 1,*/}
+                                                {/*width     : width,*/}
+                                                {/*height    : h * scaleY,*/}
+                                                {/*opacity   : this.state.thumbnail.interpolate({*/}
+                                                    {/*inputRange : [0, 1],*/}
+                                                    {/*outputRange: [1, 0],*/}
+                                                {/*}),*/}
+                                                {/*alignItems: 'stretch',*/}
+                                            {/*}}*/}
+                                            {/*onLoad={this.onOriginalLoad}*/}
+                                        {/*/>*/}
+                                        <Image
                                             resizeMode={'stretch'}
-                                            source={{uri: item.uri,}}
-                                            style={{
-                                                position : 'absolute',
-                                                top      : position.y,
-                                                left     : position.x,
-                                                zIndex   : 1,
-                                                width    : w,
-                                                height   : h,
-                                                transform: [
-                                                    {
-                                                        translateX: this.state.animated.interpolate({
-                                                            inputRange : [0, 1],
-                                                            outputRange: [0, (width - w) / 2 - position.x],
-                                                        }),
-                                                    },
-                                                    {
-                                                        translateY: this.state.animated.interpolate({
-                                                            inputRange : [0, 1],
-                                                            outputRange: [this.state.offset[`${num}`] || 0,
-                                                                ((scaleY * w > height ? scaleY * w : height) - h) / 2 - position.y
-                                                            ],
-                                                        }),
-                                                    },
-                                                    {
-                                                        scaleX: this.state.animated.interpolate({
-                                                            inputRange : [0, 1],
-                                                            outputRange: [1, width / w],
-                                                        }),
-                                                    },
-                                                    {
-                                                        scaleY: this.state.animated.interpolate({
-                                                            inputRange : [0, 1],
-                                                            outputRange: [1, scaleY],
-                                                        }),
-                                                    },
-                                                ],
-                                            }}
-                                            onLoad={this.onOriginalLoad}
-                                        />
-                                        <AnimatedImage
-                                            resizeMode={'stretch'}
-                                            source={{uri: item.thumbnail,}}
+                                            source={{uri: item.uri}}
                                             style={{
                                                 position : 'absolute',
                                                 top      : position.y,
@@ -192,6 +170,7 @@ export default class Album extends Component {
                                                 zIndex   : 2,
                                                 width    : w,
                                                 height   : h,
+                                                backgroundColor: 'red',
                                                 transform: [
                                                     {
                                                         translateX: this.state.animated.interpolate({
@@ -220,12 +199,12 @@ export default class Album extends Component {
                                                         }),
                                                     },
                                                 ],
-                                                opacity  : this.state.thumbnailOpcity.interpolate({
-                                                    inputRange : [0, 1],
-                                                    outputRange: [0, 1],
-                                                }),
+                                                // opacity  : this.state.thumbnail.interpolate({
+                                                //     inputRange : [0, 1],
+                                                //     outputRange: [0, 1],
+                                                // }),
                                             }}
-                                            onLoad={this.onThumbnailLoad}
+                                            // onLoad={this.onThumbnailLoad}
                                         />
                                     </View>
                                 </TouchableHighlight>
@@ -240,11 +219,12 @@ export default class Album extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            animated       : new Animated.Value(0),
-            offset         : {},
-            visible        : false,
-            params         : {source: [], index: 0, x: 0, y: 0, w: 0, h: 0},
-            thumbnailOpcity: new Animated.Value(0),
+            animated : new Animated.Value(0),
+            offset   : {},
+            visible  : false,
+            params   : {source: [], index: 0, x: 0, y: 0, w: 0, h: 0},
+            thumbnail: new Animated.Value(1),
+            loading  : 0,
         };
     }
 
@@ -255,18 +235,24 @@ export default class Album extends Component {
     }
 
     onModalShow(params) {
-        Animated.timing(this.state.animated, {
-            toValue: 1, duration: 250
-        }).start();
         this.setState({visible: true, offset: {}, params});
+        Animated.sequence([
+            Animated.timing(this.state.animated, {toValue: 1, duration: 250}),
+            Animated.timing(this.state.thumbnail, {toValue: 0, duration: 250}),
+        ]).start();
     }
 
-    onModalPress = () => Animated.timing(this.state.animated, {
-        toValue : 0,
-        duration: 250
-    }).start(() => this.setState({visible: false}));
+    onModalPress = () => {
+        Animated.sequence([
+            Animated.timing(this.state.thumbnail, {toValue: 1, duration: 250}),
+            Animated.timing(this.state.animated, {toValue: 0, duration: 250}),
+        ]).start(() => this.setState({visible: false}));
+        this.setState({loading: 0});
+    }
 
-    onOriginalLoad = () => Animated.timing(this.state.thumbnailOpcity, {toValue: 0, duration: 250}).start();
-
-    onThumbnailLoad = () => Animated.timing(this.state.thumbnailOpcity, {toValue: 1, duration: 250}).start();
+    onOriginalLoad = () => {
+        // Animated.timing(this.state.thumbnail, {toValue: 0, duration: 250}).start(() => this.setState({loading: 0}));
+        // this.setState({loading: 0});
+    }
+    // onThumbnailLoad = () => Animated.timing(this.state.thumbnail, {toValue: 1, duration: 250}).start();
 };

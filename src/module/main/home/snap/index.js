@@ -23,7 +23,7 @@ import Album from './album';
 
 import Gallery from 'component/Gallery';
 
-import {TouchableHighlight, StatusBar, StyleSheet} from 'react-native';
+import {TouchableHighlight, StatusBar, StyleSheet, ScrollView} from 'react-native';
 
 import EvilIcon from 'react-native-vector-icons/EvilIcons';
 import {UltimateListView} from 'react-native-ultimate-listview';
@@ -224,17 +224,21 @@ class Snap extends Component {
     render() {
         return (
             <Screen>
-                <UltimateListView
-                    onFetch={this.onFetch}
-                    item={this.renderItem}
-                    refreshableMode="advanced"
-                    keyExtractor={(item, index) => `${index}`}
-                    displayDate
-                    // customRefreshView={(a, b, c) => {
-                    //     console.log(a, b, c);
-                    // }}
-                />
-                <Album ref='album'/>
+                <ScrollView
+                    contentContainerStyle={{height: 1500, width: 400}}
+                >
+                    <UltimateListView
+                        onFetch={this.onFetch}
+                        item={this.renderItem}
+                        refreshableMode="advanced"
+                        keyExtractor={(item, index) => `${index}`}
+                        displayDate
+                        // customRefreshView={(a, b, c) => {
+                        //     console.log(a, b, c);
+                        // }}
+                    />
+                    <Album ref='album'/>
+                </ScrollView>
             </Screen>
         );
     }
