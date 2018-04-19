@@ -4,13 +4,12 @@ import {Screen, Button, View, Text} from '@shoutem/ui';
 import Carousel from 'react-native-looped-carousel';
 import {ScrollView, TouchableHighlight, Animated, StyleSheet} from 'react-native';
 import * as Progress from 'react-native-progress';
-
 import FastImage from 'react-native-fast-image';
 import {createImageProgress} from 'react-native-image-progress';
 
 import Css from './css';
 
-const OriginalImage = Animated.createAnimatedComponent(createImageProgress(FastImage));
+const AnimateImage = Animated.createAnimatedComponent(createImageProgress(FastImage));
 
 class Swiper extends Carousel {
     _renderPageInfo = (total) => {
@@ -107,7 +106,7 @@ export default class Album extends Component {
                                             justifyContent: 'center',
                                         }}
                                     >
-                                        <OriginalImage
+                                        <AnimateImage
                                             resizeMode={'stretch'}
                                             source={{uri: item.uri,}}
                                             style={{
@@ -120,7 +119,7 @@ export default class Album extends Component {
                                             }}
                                             indicator={Progress.Circle}
                                         />
-                                        <OriginalImage
+                                        <AnimateImage
                                             resizeMode={'stretch'}
                                             source={{uri: item.thumbnail}}
                                             indicatorProps={{color: 'rgba(255, 255, 255, 0)',}}

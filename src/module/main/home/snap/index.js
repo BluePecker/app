@@ -98,8 +98,6 @@ class Snap extends Component {
     renderItem = (restaurant, index, separator) => {
         const images = [
             {
-                // uri      : 'https://cdn.pixabay.com/photo/2018/02/16/20/38/human-3158541__480.jpg',
-                // uri      : 'https://github.com/DylanVann/react-native-fast-image/blob/master/react-native-fast-image-example-server/pictures/fields.jpg',
                 uri      : 'https://github.com/DylanVann/react-native-fast-image/blob/master/react-native-fast-image-example-server/pictures/jellyfish.gif',
                 height   : 400,
                 width    : 400,
