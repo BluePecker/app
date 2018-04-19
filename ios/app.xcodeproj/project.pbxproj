@@ -37,7 +37,6 @@
 		A3BCBB9C208448EE00F341E0 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BCBB99208448DF00F341E0 /* libRCTAnimation.a */; };
 		A3BCBBA62084494100F341E0 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BCBBA32084492900F341E0 /* libART.a */; };
 		A3D21E5B2085F0EA002CCB60 /* libreact-native-fast-image.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D21E5A2085F0EA002CCB60 /* libreact-native-fast-image.a */; };
-		A3D21E8320862B10002CCB60 /* libreact-native-fetch-blob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D21E8220862B10002CCB60 /* libreact-native-fetch-blob.a */; };
 		A3E846962039B7B600FB7459 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3E8468B2039B7B600FB7459 /* Octicons.ttf */; };
 		A3E846972039B7B600FB7459 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3E8468C2039B7B600FB7459 /* Feather.ttf */; };
 		A3E846982039B7B600FB7459 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3E8468D2039B7B600FB7459 /* Entypo.ttf */; };
@@ -376,7 +375,6 @@
 				A3BCBB63208447C800F341E0 /* libRCTWebSocket.a in Frameworks */,
 				A3D21E5B2085F0EA002CCB60 /* libreact-native-fast-image.a in Frameworks */,
 				E90B72EF1E1D0EA5B906ECCB /* libPods-app.a in Frameworks */,
-				A3D21E8320862B10002CCB60 /* libreact-native-fetch-blob.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

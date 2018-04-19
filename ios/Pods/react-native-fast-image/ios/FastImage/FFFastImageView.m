@@ -8,10 +8,7 @@
 
 - (void)setResizeMode:(RCTResizeMode)resizeMode
 {
-//    if (_resizeMode != resizeMode) {
-//        _resizeMode = resizeMode;
-        self.contentMode = (UIViewContentMode)resizeMode;
-//    }
+    self.contentMode = (UIViewContentMode)resizeMode;
 }
 
 - (void)setOnFastImageLoadEnd:(RCTBubblingEventBlock)onFastImageLoadEnd {

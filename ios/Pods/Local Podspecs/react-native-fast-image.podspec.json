@@ -1,11 +1,11 @@
 {
   "name": "react-native-fast-image",
-  "version": "4.0.0",
+  "version": "3.0.2",
   "summary": "🚩 FastImage, performant React Native image component.",
   "authors": {
     "Dylan Vann": "dylan@dylanvann.com"
   },
-  "homepage": "https://github.com/DylanVann/react-native-fast-image#readme",
+  "homepage": "https://github.com/BluePecker/react-native-fast-image#readme",
   "license": "MIT",
   "platforms": {
     "ios": "8.0"
@@ -13,7 +13,7 @@
   "frameworks": "UIKit",
   "requires_arc": true,
   "source": {
-    "git": "https://github.com/DylanVann/react-native-fast-image.git"
+    "git": "https://github.com/BluePecker/react-native-fast-image.git"
   },
   "source_files": "ios/**/*.{h,m}",
   "exclude_files": "ios/Vendor/**/*.{h,m}",
