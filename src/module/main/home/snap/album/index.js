@@ -10,7 +10,7 @@ import {createImageProgress} from 'react-native-image-progress';
 
 import Css from './css';
 
-const Image = Animated.createAnimatedComponent(createImageProgress(FastImage));
+const OriginalImage = Animated.createAnimatedComponent(createImageProgress(FastImage));
 
 class Swiper extends Carousel {
     _renderPageInfo = (total) => {
@@ -96,43 +96,6 @@ export default class Album extends Component {
                                     activeOpacity={1}
                                     underlayColor={'rgba(0, 0, 0, 0)'}
                                     style={{
-                                        height, width,
-                                        backgroundColor: 'transparent',
-                                        zIndex         : 3,
-                                        ...StyleSheet.absoluteFillObject,
-                                        opacity        : this.state.loading,
-                                    }}
-                                >
-                                    <View
-                                        style={{
-                                            height, width,
-                                            backgroundColor: 'transparent'
-                                        }}
-                                    >
-                                        <Progress.Circle
-                                            color={'rgba(250,250,250,1)'}
-                                            indeterminate={true}
-                                            animated={false}
-                                            size={40}
-                                            progress={0.4}
-                                            style={{
-                                                justifyContent: 'center',
-                                                alignItems    : 'center',
-
-                                                height,
-                                                width,
-                                                zIndex: 1,
-                                                ...StyleSheet.absoluteFillObject,
-                                            }}
-                                            unfilledColor={'rgba(200,200,200,0.2)'}
-                                        />
-                                    </View>
-                                </TouchableHighlight>
-                                <TouchableHighlight
-                                    onPress={this.onModalPress}
-                                    activeOpacity={1}
-                                    underlayColor={'rgba(0, 0, 0, 0)'}
-                                    style={{
                                         height: scaleY * w > height ? scaleY * w : height, width: width,
                                     }}
                                 >
@@ -144,33 +107,30 @@ export default class Album extends Component {
                                             justifyContent: 'center',
                                         }}
                                     >
-                                        {/*<Image*/}
-                                            {/*resizeMode={'stretch'}*/}
-                                            {/*source={{uri: item.uri,}}*/}
-                                            {/*style={{*/}
-                                                {/*position  : 'absolute',*/}
-                                                {/*zIndex    : 1,*/}
-                                                {/*width     : width,*/}
-                                                {/*height    : h * scaleY,*/}
-                                                {/*opacity   : this.state.thumbnail.interpolate({*/}
-                                                    {/*inputRange : [0, 1],*/}
-                                                    {/*outputRange: [1, 0],*/}
-                                                {/*}),*/}
-                                                {/*alignItems: 'stretch',*/}
-                                            {/*}}*/}
-                                            {/*onLoad={this.onOriginalLoad}*/}
-                                        {/*/>*/}
-                                        <Image
+                                        <OriginalImage
                                             resizeMode={'stretch'}
-                                            source={{uri: item.uri}}
+                                            source={{uri: item.uri,}}
+                                            style={{
+                                                position       : 'absolute',
+                                                zIndex         : 200,
+                                                width          : width,
+                                                height         : h * scaleY,
+                                                opacity        : this.state.original,
+                                                backgroundColor: 'transparent',
+                                            }}
+                                            indicator={Progress.Circle}
+                                        />
+                                        <OriginalImage
+                                            resizeMode={'stretch'}
+                                            source={{uri: item.thumbnail}}
+                                            indicatorProps={{color: 'rgba(255, 255, 255, 0)',}}
                                             style={{
                                                 position : 'absolute',
                                                 top      : position.y,
                                                 left     : position.x,
-                                                zIndex   : 2,
+                                                zIndex   : 100,
                                                 width    : w,
                                                 height   : h,
-                                                backgroundColor: 'red',
                                                 transform: [
                                                     {
                                                         translateX: this.state.animated.interpolate({
@@ -199,12 +159,7 @@ export default class Album extends Component {
                                                         }),
                                                     },
                                                 ],
-                                                // opacity  : this.state.thumbnail.interpolate({
-                                                //     inputRange : [0, 1],
-                                                //     outputRange: [0, 1],
-                                                // }),
                                             }}
-                                            // onLoad={this.onThumbnailLoad}
                                         />
                                     </View>
                                 </TouchableHighlight>
@@ -219,12 +174,11 @@ export default class Album extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            animated : new Animated.Value(0),
-            offset   : {},
-            visible  : false,
-            params   : {source: [], index: 0, x: 0, y: 0, w: 0, h: 0},
-            thumbnail: new Animated.Value(1),
-            loading  : 0,
+            animated: new Animated.Value(0),
+            offset  : {},
+            visible : false,
+            params  : {source: [], index: 0, x: 0, y: 0, w: 0, h: 0},
+            original: new Animated.Value(0),
         };
     }
 
@@ -236,23 +190,11 @@ export default class Album extends Component {
 
     onModalShow(params) {
         this.setState({visible: true, offset: {}, params});
-        Animated.sequence([
-            Animated.timing(this.state.animated, {toValue: 1, duration: 250}),
-            Animated.timing(this.state.thumbnail, {toValue: 0, duration: 250}),
-        ]).start();
+        Animated.timing(this.state.animated, {toValue: 1, duration: 500}).start(() => this.state.original.setValue(1));
     }
 
     onModalPress = () => {
-        Animated.sequence([
-            Animated.timing(this.state.thumbnail, {toValue: 1, duration: 250}),
-            Animated.timing(this.state.animated, {toValue: 0, duration: 250}),
-        ]).start(() => this.setState({visible: false}));
-        this.setState({loading: 0});
+        this.state.original.setValue(0);
+        Animated.timing(this.state.animated, {toValue: 0, duration: 250}).start(() => this.setState({visible: false}));
     }
-
-    onOriginalLoad = () => {
-        // Animated.timing(this.state.thumbnail, {toValue: 0, duration: 250}).start(() => this.setState({loading: 0}));
-        // this.setState({loading: 0});
-    }
-    // onThumbnailLoad = () => Animated.timing(this.state.thumbnail, {toValue: 1, duration: 250}).start();
 };

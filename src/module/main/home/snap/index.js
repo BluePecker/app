@@ -98,8 +98,10 @@ class Snap extends Component {
     renderItem = (restaurant, index, separator) => {
         const images = [
             {
-                uri      : 'https://avatars3.githubusercontent.com/u/28583275?s=400&u=f466486a2ba5a8012c97c6d44d74f38eafdd7fdd&v=4',
-                height   : 200,
+                // uri      : 'https://cdn.pixabay.com/photo/2018/02/16/20/38/human-3158541__480.jpg',
+                // uri      : 'https://github.com/DylanVann/react-native-fast-image/blob/master/react-native-fast-image-example-server/pictures/fields.jpg',
+                uri      : 'https://github.com/DylanVann/react-native-fast-image/blob/master/react-native-fast-image-example-server/pictures/jellyfish.gif',
+                height   : 400,
                 width    : 400,
                 thumbnail: 'https://cdn.pixabay.com/photo/2018/02/16/20/38/human-3158541__480.jpg',
             },
@@ -110,9 +112,9 @@ class Snap extends Component {
                 thumbnail: 'https://cdn.pixabay.com/photo/2018/02/16/20/38/human-3158541__480.jpg',
             },
             {
-                uri      : 'https://cdn.pixabay.com/photo/2018/03/10/20/26/flowers-3215188__480.jpg',
-                height   : 1600,
-                width    : 400,
+                uri      : 'https://cdn.pixabay.com/photo/2018/02/16/20/38/human-3158541__480.jpg',
+                height   : 1200,
+                width    : 800,
                 thumbnail: 'https://cdn.pixabay.com/photo/2018/02/16/20/38/human-3158541__480.jpg',
             },
         ];
@@ -224,9 +226,7 @@ class Snap extends Component {
     render() {
         return (
             <Screen>
-                <ScrollView
-                    contentContainerStyle={{height: 1500, width: 400}}
-                >
+                <ScrollView>
                     <UltimateListView
                         onFetch={this.onFetch}
                         item={this.renderItem}

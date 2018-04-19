@@ -36,7 +36,7 @@ export default class Gallery extends Component {
                             <Image
                                 style={source.length > 1 ? small : large}
                                 source={{
-                                    uri  : item.uri,
+                                    uri  : item.thumbnail,
                                     cache: 'force-cache',
                                 }}
                                 indicator={Progress.CircleSnail}
