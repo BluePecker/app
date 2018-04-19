@@ -12,7 +12,6 @@ import {
     Row,
     ListView,
     Card,
-    Image,
     Caption,
     Screen,
     NavigationBar,
@@ -20,13 +19,11 @@ import {
 // import Swiper from 'react-native-swiper';
 // import Video from 'react-native-video';
 import Album from './album';
-
 import Gallery from 'component/Gallery';
-
 import {TouchableHighlight, StatusBar, StyleSheet, ScrollView} from 'react-native';
-
 import EvilIcon from 'react-native-vector-icons/EvilIcons';
 import {UltimateListView} from 'react-native-ultimate-listview';
+import Image from 'react-native-fast-image';
 
 import Inject from 'module';
 import Css from './css';
@@ -58,36 +55,36 @@ class Snap extends Component {
                     "address": "网易这次下血本了！！由梦幻西游核心团队匠心打造〜凝聚了回合制十年研发突破，游戏性和画面感无与伦比的网易次世代在作终于问世。首日登陆即获金武将赵云！连续登陆便可获得超强法师诸葛亮和三国第一战神吕布！戳链下载 >>>",
                     "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
                 },
-                // {
-                //     "name"   : "Mastergrill",
-                //     "address": "网易这次下血本了！！由梦幻西游核心团队匠心打造〜凝聚了回合制十年研发突破，游戏性和画面感无与伦比的网易次世代在作终于问世。首日登陆即获金武将赵云！连续登陆便可获得超强法师诸葛亮和三国第一战神吕布！戳链下载 >>>",
-                //     "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
-                // },
-                // {
-                //     "name"   : "Mastergrill",
-                //     "address": "网易这次下血本了！！由梦幻西游核心团队匠心打造〜凝聚了回合制十年研发突破，游戏性和画面感无与伦比的网易次世代在作终于问世。首日登陆即获金武将赵云！连续登陆便可获得超强法师诸葛亮和三国第一战神吕布！戳链下载 >>>",
-                //     "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
-                // },
-                // {
-                //     "name"   : "Mastergrill",
-                //     "address": "550 Upton Rue, San Francisco, CA 94109",
-                //     "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
-                // },
-                // {
-                //     "name"   : "Mastergrill",
-                //     "address": "550 Upton Rue, San Francisco, CA 94109",
-                //     "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
-                // },
-                // {
-                //     "name"   : "Mastergrill",
-                //     "address": "550 Upton Rue, San Francisco, CA 94109",
-                //     "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
-                // },
-                // {
-                //     "name"   : "Mastergrill",
-                //     "address": "网易这次下血本了！！由梦幻西游核心团队匠心打造〜凝聚了回合制十年研发突破，游戏性和画面感无与伦比的网易次世代在作终于问世。首日登陆即获金武将赵云！连续登陆便可获得超强法师诸葛亮和三国第一战神吕布！戳链下载 >>>",
-                //     "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
-                // },
+                {
+                    "name"   : "Mastergrill",
+                    "address": "网易这次下血本了！！由梦幻西游核心团队匠心打造〜凝聚了回合制十年研发突破，游戏性和画面感无与伦比的网易次世代在作终于问世。首日登陆即获金武将赵云！连续登陆便可获得超强法师诸葛亮和三国第一战神吕布！戳链下载 >>>",
+                    "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
+                },
+                {
+                    "name"   : "Mastergrill",
+                    "address": "网易这次下血本了！！由梦幻西游核心团队匠心打造〜凝聚了回合制十年研发突破，游戏性和画面感无与伦比的网易次世代在作终于问世。首日登陆即获金武将赵云！连续登陆便可获得超强法师诸葛亮和三国第一战神吕布！戳链下载 >>>",
+                    "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
+                },
+                {
+                    "name"   : "Mastergrill",
+                    "address": "550 Upton Rue, San Francisco, CA 94109",
+                    "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
+                },
+                {
+                    "name"   : "Mastergrill",
+                    "address": "550 Upton Rue, San Francisco, CA 94109",
+                    "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
+                },
+                {
+                    "name"   : "Mastergrill",
+                    "address": "550 Upton Rue, San Francisco, CA 94109",
+                    "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
+                },
+                {
+                    "name"   : "Mastergrill",
+                    "address": "网易这次下血本了！！由梦幻西游核心团队匠心打造〜凝聚了回合制十年研发突破，游戏性和画面感无与伦比的网易次世代在作终于问世。首日登陆即获金武将赵云！连续登陆便可获得超强法师诸葛亮和三国第一战神吕布！戳链下载 >>>",
+                    "image"  : {"url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520942296907&di=794e91d57d9fa4880da5dca8146f129d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0dd7912397dda144a5db01a2beb7d0a20df486cb.jpg"},
+                },
             ], pageLimit);
         } catch (err) {
             abortFetch(); //manually stop the refresh or pagination if it encounters network error
@@ -224,19 +221,17 @@ class Snap extends Component {
     render() {
         return (
             <Screen>
-                <ScrollView>
-                    <UltimateListView
-                        onFetch={this.onFetch}
-                        item={this.renderItem}
-                        refreshableMode="advanced"
-                        keyExtractor={(item, index) => `${index}`}
-                        displayDate
-                        // customRefreshView={(a, b, c) => {
-                        //     console.log(a, b, c);
-                        // }}
-                    />
-                    <Album ref='album'/>
-                </ScrollView>
+                <UltimateListView
+                    onFetch={this.onFetch}
+                    item={this.renderItem}
+                    refreshableMode="advanced"
+                    keyExtractor={(item, index) => `${index}`}
+                    displayDate
+                    // customRefreshView={(a, b, c) => {
+                    //     console.log(a, b, c);
+                    // }}
+                />
+                <Album ref='album'/>
             </Screen>
         );
     }
