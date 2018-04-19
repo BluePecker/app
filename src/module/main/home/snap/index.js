@@ -95,22 +95,41 @@ class Snap extends Component {
     renderItem = (restaurant, index, separator) => {
         const images = [
             {
-                uri      : 'https://github.com/DylanVann/react-native-fast-image/blob/master/react-native-fast-image-example-server/pictures/jellyfish.gif',
-                height   : 400,
-                width    : 400,
-                thumbnail: 'https://cdn.pixabay.com/photo/2018/02/16/20/38/human-3158541__480.jpg',
+                uri      : 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524134669313&di=6527485749f2657f900f74373bb4a480&imgtype=0&src=http%3A%2F%2Fc.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fb21c8701a18b87d65d3311770b0828381f30fd61.jpg',
+                height   : 1732,
+                width    : 1280,
+                thumbnail: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524134669313&di=6527485749f2657f900f74373bb4a480&imgtype=0&src=http%3A%2F%2Fc.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fb21c8701a18b87d65d3311770b0828381f30fd61.jpg',
             },
             {
-                uri      : 'https://cdn.pixabay.com/photo/2018/02/16/20/38/human-3158541__480.jpg',
-                height   : 400,
-                width    : 400,
-                thumbnail: 'https://cdn.pixabay.com/photo/2018/02/16/20/38/human-3158541__480.jpg',
+                uri      : 'https://wx4.sinaimg.cn/mw690/0069kQGBgy1fqgw5ma8q3j32c03404qr.jpg',
+                height   : 780,
+                width    : 585,
+                thumbnail: 'https://wx4.sinaimg.cn/thumb150/0069kQGBgy1fqgw5ma8q3j32c03404qr.jpg',
             },
             {
-                uri      : 'https://cdn.pixabay.com/photo/2018/02/16/20/38/human-3158541__480.jpg',
-                height   : 1200,
-                width    : 800,
-                thumbnail: 'https://cdn.pixabay.com/photo/2018/02/16/20/38/human-3158541__480.jpg',
+                uri      : 'https://wx1.sinaimg.cn/mw690/0069kQGBgy1fqgw5vrgmij32c03407wj.jpg',
+                height   : 780,
+                width    : 585,
+                thumbnail: 'https://wx1.sinaimg.cn/thumb150/0069kQGBgy1fqgw5vrgmij32c03407wj.jpg',
+            },
+
+            {
+                uri      : 'https://wx3.sinaimg.cn/mw690/0069kQGBgy1fqgw63nnrfj33402c0x6q.jpg',
+                height   : 690,
+                width    : 518,
+                thumbnail: 'https://wx3.sinaimg.cn/thumb150/0069kQGBgy1fqgw63nnrfj33402c0x6q.jpg',
+            },
+            {
+                uri      : 'https://wx4.sinaimg.cn/mw690/7529eb5fgy1fqgz5l6332j22c02c0npe.jpg',
+                height   : 690,
+                width    : 690,
+                thumbnail: 'https://wx4.sinaimg.cn/thumb150/7529eb5fgy1fqgz5l6332j22c02c0npe.jpg',
+            },
+            {
+                uri      : 'https://wx1.sinaimg.cn/mw690/7529eb5fgy1fqgz4ri762j22c02c0npd.jpg',
+                height   : 690,
+                width    : 690,
+                thumbnail: 'https://wx1.sinaimg.cn/thumb150/7529eb5fgy1fqgz4ri762j22c02c0npd.jpg',
             },
         ];
         return (
