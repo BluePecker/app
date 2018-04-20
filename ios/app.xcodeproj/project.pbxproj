@@ -29,6 +29,7 @@
 		78BD9E0FF63A48B68C778155 /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35E2846307434BB5BA212753 /* Rubik-LightItalic.ttf */; };
 		8ACBE036DBA849ABAB77D0C2 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 267FCC555E7A464CA671CAE7 /* Foundation.ttf */; };
 		A0FF8BE5CCBE4056A1710844 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D12DABF17EC4379A9F1AF55 /* FontAwesome.ttf */; };
+		A3390B6C208973C500B47873 /* libreact-native-orientation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3390B6B208973C500B47873 /* libreact-native-orientation.a */; };
 		A3BCBB62208447C800F341E0 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BCBB53208445AE00F341E0 /* libRCTNetwork.a */; };
 		A3BCBB63208447C800F341E0 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BCBB462084457C00F341E0 /* libRCTWebSocket.a */; };
 		A3BCBB7B208447F700F341E0 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BCBB78208447EC00F341E0 /* libRCTImage.a */; };
@@ -319,6 +320,7 @@
 		861851455F88401B95FD095D /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		968D920D7170455AA8589DC7 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		9D12DABF17EC4379A9F1AF55 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		A3390B6B208973C500B47873 /* libreact-native-orientation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-orientation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BCBAE92084454800F341E0 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		A3BCBB3E2084457C00F341E0 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		A3BCBB4D208445AE00F341E0 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = "../node_modules/react-native/Libraries/Network/RCTNetwork.xcodeproj"; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 				A3BCBB63208447C800F341E0 /* libRCTWebSocket.a in Frameworks */,
 				A3D21E5B2085F0EA002CCB60 /* libreact-native-fast-image.a in Frameworks */,
 				E90B72EF1E1D0EA5B906ECCB /* libPods-app.a in Frameworks */,
+				A3390B6C208973C500B47873 /* libreact-native-orientation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +432,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3390B6B208973C500B47873 /* libreact-native-orientation.a */,
 				A3D21E8220862B10002CCB60 /* libreact-native-fetch-blob.a */,
 				A3D21E5A2085F0EA002CCB60 /* libreact-native-fast-image.a */,
 				A3BCBB862084484400F341E0 /* libReact.a */,
@@ -1325,6 +1329,7 @@
 					"\"${PODS_ROOT}/Headers/Public/yoga\"",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/AirMaps/**",
 					"\"${PODS_ROOT}/Headers/Public/React/React\"",
+					"\"${PODS_ROOT}/Headers/Public/react-native-orientation\"",
 				);
 				INFOPLIST_FILE = app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1373,6 +1378,7 @@
 					"\"${PODS_ROOT}/Headers/Public/yoga\"",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/AirMaps/**",
 					"\"${PODS_ROOT}/Headers/Public/React/React\"",
+					"\"${PODS_ROOT}/Headers/Public/react-native-orientation\"",
 				);
 				INFOPLIST_FILE = app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
