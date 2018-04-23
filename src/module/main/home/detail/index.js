@@ -25,20 +25,6 @@ class Detail extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            animated: new Animated.Value(0),
-        };
-
-        this.state.animated.addListener(v => {
-            if (v.value == 1) {
-                this.state.animated.setValue(0);
-                Animated.timing(this.state.animated, {toValue: 1, duration: 1000}).start();
-            }
-        });
-    }
-
-    componentDidMount() {
-        Animated.timing(this.state.animated, {toValue: 1, duration: 1000}).start();
     }
 
     render() {
@@ -80,22 +66,7 @@ class Detail extends Component {
                                 longitude: 104.06893,
                             }}
                         >
-                            {/*<Animated.View*/}
-                            {/*style={{*/}
-                            {/*height   : 4, width: 4, borderRadius: 2, backgroundColor: 'red',*/}
-                            {/*transform: [{*/}
-                            {/*scale: this.state.animated.interpolate({*/}
-                            {/*inputRange : [0, 1],*/}
-                            {/*outputRange: [1, 6],*/}
-                            {/*}),*/}
-                            {/*}],*/}
-                            {/*opacity  : this.state.animated.interpolate({*/}
-                            {/*inputRange : [0, 0.25, 0.5, 0.75, 1],*/}
-                            {/*outputRange: [1, 0.95, 0.75, 0.30, 0.1],*/}
-                            {/*}),*/}
-                            {/*}}*/}
-                            {/*/>*/}
-                            <Wave/>
+                            <Wave style={{backgroundColor: 'tomato'}}/>
                         </Marker>
 
                         <Marker
@@ -104,21 +75,7 @@ class Detail extends Component {
                                 longitude: 104.068578,
                             }}
                         >
-                            <Animated.View
-                                style={{
-                                    height   : 4, width: 4, borderRadius: 2, backgroundColor: 'green',
-                                    transform: [{
-                                        scale: this.state.animated.interpolate({
-                                            inputRange : [0, 1],
-                                            outputRange: [1, 4],
-                                        }),
-                                    }],
-                                    opacity  : this.state.animated.interpolate({
-                                        inputRange : [0, 0.25, 0.5, 0.75, 1],
-                                        outputRange: [1, 0.95, 0.75, 0.30, 0.1],
-                                    }),
-                                }}
-                            />
+                            <Wave style={{backgroundColor: 'yellow'}}/>
                         </Marker>
                     </MapView>
                     <View
