@@ -2,9 +2,11 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 export default EStyleSheet.create({
     header           : {
-        width   : '100rem',
-        height  : '28rem',
-        overflow: 'hidden',
+        width          : '100rem',
+        height         : '28rem',
+        overflow       : 'hidden',
+        position       : 'relative', zIndex: 10,
+        backgroundColor: 'green',
     },
     headerMask       : {
         width          : '100rem',
@@ -48,12 +50,9 @@ export default EStyleSheet.create({
         padding        : 0,
     },
     contentWrapper   : {
-        paddingLeft  : '1rem',
-        paddingRight : '1rem',
-        paddingTop   : '2rem',
-        paddingBottom: '2rem',
+        width: '100rem',
     },
-    content: {
-        fontSize   : '4rem',
+    content          : {
+        fontSize: '4rem',
     },
 });
