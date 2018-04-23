@@ -15,6 +15,8 @@ import MapView, {Marker} from 'react-native-maps';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import {UltimateRefreshView} from 'react-native-ultimate-listview';
 
+import Wave from 'component/Wave';
+
 import Inject from 'module';
 import Css from './css';
 import Model from 'model/main/home';
@@ -74,30 +76,31 @@ class Detail extends Component {
                     >
                         <Marker
                             coordinate={{
-                                latitude: 30.5376799,
+                                latitude : 30.5376799,
                                 longitude: 104.06893,
                             }}
                         >
-                            <Animated.View
-                                style={{
-                                    height   : 4, width: 4, borderRadius: 2, backgroundColor: 'red',
-                                    transform: [{
-                                        scale: this.state.animated.interpolate({
-                                            inputRange : [0, 1],
-                                            outputRange: [1, 6],
-                                        }),
-                                    }],
-                                    opacity  : this.state.animated.interpolate({
-                                        inputRange : [0, 0.25, 0.5, 0.75, 1],
-                                        outputRange: [1, 0.95, 0.75, 0.30, 0.1],
-                                    }),
-                                }}
-                            />
+                            {/*<Animated.View*/}
+                            {/*style={{*/}
+                            {/*height   : 4, width: 4, borderRadius: 2, backgroundColor: 'red',*/}
+                            {/*transform: [{*/}
+                            {/*scale: this.state.animated.interpolate({*/}
+                            {/*inputRange : [0, 1],*/}
+                            {/*outputRange: [1, 6],*/}
+                            {/*}),*/}
+                            {/*}],*/}
+                            {/*opacity  : this.state.animated.interpolate({*/}
+                            {/*inputRange : [0, 0.25, 0.5, 0.75, 1],*/}
+                            {/*outputRange: [1, 0.95, 0.75, 0.30, 0.1],*/}
+                            {/*}),*/}
+                            {/*}}*/}
+                            {/*/>*/}
+                            <Wave/>
                         </Marker>
 
                         <Marker
                             coordinate={{
-                                latitude: 30.5376799,
+                                latitude : 30.5376799,
                                 longitude: 104.068578,
                             }}
                         >
@@ -107,7 +110,7 @@ class Detail extends Component {
                                     transform: [{
                                         scale: this.state.animated.interpolate({
                                             inputRange : [0, 1],
-                                            outputRange: [1, 6],
+                                            outputRange: [1, 4],
                                         }),
                                     }],
                                     opacity  : this.state.animated.interpolate({
