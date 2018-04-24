@@ -3,14 +3,12 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 export default EStyleSheet.create({
     header           : {
         width          : '100rem',
-        height         : '28rem',
+        height         : '128rem',
         overflow       : 'hidden',
-        position       : 'relative', zIndex: 10,
-        backgroundColor: 'green',
     },
     headerMask       : {
         width          : '100rem',
-        height         : '28rem',
+        height         : '128rem',
         position       : 'absolute',
         zIndex         : 1,
         backgroundColor: '#000',
@@ -36,7 +34,7 @@ export default EStyleSheet.create({
     },
     headerMap        : {
         width   : '100rem',
-        height  : '34rem',
+        height  : '128rem',
         position: 'absolute',
         zIndex  : 0,
     },
