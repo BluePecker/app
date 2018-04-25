@@ -114,9 +114,9 @@ class Detail extends Component {
                 outputScaleValue={8.3}
                 renderBackground={this.parallaxBackground}
                 renderForeground={this.parallaxForeground}
-                scrollEvent={({nativeEvent}) => {
+                scrollEvent={({nativeEvent: {contentOffset}}) => {
                     // this.state.avatarPos.setValue(nativeEvent.contentOffset.y);
-                    console.log(nativeEvent.contentOffset.y)
+                    console.log(contentOffset.y)
                 }}
             >
 
