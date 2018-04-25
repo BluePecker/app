@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Parallax from 'react-native-parallax-scroll-view';
-import {Animated, Dimensions, Text} from 'react-native';
+import {Animated, Dimensions, View, Text} from 'react-native';
 import MapView from 'react-native-maps';
 import Image from 'react-native-fast-image';
 
@@ -14,7 +14,7 @@ const GOLDEN_RATIO = 0.618 * window.width;
 class Detail extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {avatarPos: new Animated.Value(0)};
     }
 
     parallaxBackground = () => (
@@ -46,9 +46,30 @@ class Detail extends Component {
                     <Wave style={{backgroundColor: 'red'}}/>
                 </MapView.Marker>
             </MapView>
+            <View style={{position: 'absolute', right: 0, bottom: 0, height: 25,}}>
+                <Text
+                    style={{
+                        textAlign      : 'center',
+                        lineHeight     : 25,
+                        backgroundColor: 'transparent',
+                        color          : 'red',
+                        fontSize       : 12,
+                    }}
+                >
+                    2018/05/20 12:01
+                </Text>
+            </View>
+        </Animated.View>
+    );
+
+    parallaxForeground = () => (
+        <Animated.View style={{width: window.width, height: GOLDEN_RATIO}}>
             <Animated.View
                 style={{
-                    position  : 'absolute', bottom: 0,
+                    position  : 'absolute', bottom: this.state.avatarPos.interpolate({
+                        inputRange : [0, GOLDEN_RATIO],
+                        outputRange: [0, GOLDEN_RATIO * 0.9],
+                    }),
                     height    : 91.8, width: 100,
                     alignItems: 'center', justifyContent: 'center',
                 }}
@@ -74,7 +95,7 @@ class Detail extends Component {
                     <Text
                         style={{
                             textAlign      : 'center',
-                            lineHeight     : 30,
+                            lineHeight     : 25,
                             backgroundColor: 'transparent',
                         }}
                     >卖萌的小怪</Text>
@@ -83,20 +104,20 @@ class Detail extends Component {
         </Animated.View>
     );
 
-    parallaxForeground = () => (
-        <Animated.View>
-
-
-        </Animated.View>
-    );
-
     render() {
         return (
             <Parallax
+                fadeOutBackground={true}
+                fadeOutForeground={false}
                 parallaxHeaderHeight={GOLDEN_RATIO}
-                backgroundSpeed={10}
+                backgroundScrollSpeed={10}
+                outputScaleValue={8.3}
                 renderBackground={this.parallaxBackground}
                 renderForeground={this.parallaxForeground}
+                scrollEvent={({nativeEvent}) => {
+                    // this.state.avatarPos.setValue(nativeEvent.contentOffset.y);
+                    console.log(nativeEvent.contentOffset.y)
+                }}
             >
 
             </Parallax>
