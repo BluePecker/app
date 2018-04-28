@@ -1,56 +1,30 @@
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 export default EStyleSheet.create({
-    header           : {
-        width          : '100rem',
-        height         : '61.8rem',
-        overflow       : 'hidden',
+    'sealWrapper'          : {
+        position  : 'absolute', bottom: 0, height: '24rem', width: '26rem',
+        alignItems: 'center', justifyContent: 'center',
     },
-    headerMask       : {
-        width          : '100rem',
-        height         : '61.8rem',
-        position       : 'absolute',
-        zIndex         : 1,
-        backgroundColor: '#000',
-        opacity        : 0.125,
+    'sealCircle'           : {
+        height    : '18rem', width: '26rem',
+        alignItems: 'center', justifyContent: 'center',
+        overflow  : 'hidden',
     },
-    headerGoBack     : {
-        position: 'absolute',
-        zIndex  : 2,
-        top     : '8rem',
-        left    : '1rem',
+    'sealCircleAvatar'     : {
+        position: 'absolute', top: 0,
     },
-    headerAvatar     : {
-        position: 'absolute',
-        zIndex  : 2,
-        top     : '16.5rem',
-        left    : '4rem',
+    'sealRectangle'        : {
+        height: '6.4rem', width: '26rem',
     },
-    headerAvatarImage: {
-        backgroundColor: '#eeeff1',
-        width          : '9rem',
-        height         : '9rem',
-        borderRadius   : '4.5rem',
+    'sealRectangleUsername': {
+        lineHeight: '6.4rem', textAlign: 'center', backgroundColor: 'transparent',
     },
-    headerMap        : {
-        width   : '100rem',
-        height  : '61.8rem',
-        position: 'absolute',
-        zIndex  : 0,
+    'calloutWrapper'       : {
+        position: 'absolute', right: 0, bottom: 0,
+        height  : '6.4rem', marginRight: '2rem',
     },
-    headerButton     : {
-        position       : 'absolute',
-        zIndex         : 2,
-        top            : '14.5rem',
-        right          : '2.5rem',
-        backgroundColor: '#FA729B',
-        borderRadius   : '1.5rem',
-        padding        : 0,
-    },
-    contentWrapper   : {
-        width: '100rem',
-    },
-    content          : {
-        fontSize: '4rem',
+    'calloutPublicTime'    : {
+        textAlign : 'center', backgroundColor: 'transparent',
+        lineHeight: '6.4rem', color: 'red', fontSize: '3.2rem',
     },
 });

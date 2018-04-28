@@ -3,8 +3,10 @@ import Parallax from 'react-native-parallax-scroll-view';
 import {Animated, Dimensions, View, Text} from 'react-native';
 import MapView from 'react-native-maps';
 import Image from 'react-native-fast-image';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Wave from 'component/Wave';
+import Css from './css';
 import Inject from 'module';
 import Model from 'model/main/home/detail';
 
@@ -14,7 +16,7 @@ const GOLDEN_RATIO = 0.618 * window.width;
 class Detail extends Component {
     constructor(props) {
         super(props);
-        this.state = {avatarPos: new Animated.Value(0)};
+        this.state = {sealPos: new Animated.Value(0), scale: new Animated.Value(1),};
     }
 
     parallaxBackground = () => (
@@ -36,7 +38,6 @@ class Detail extends Component {
                 >
                     <Wave style={{backgroundColor: 'tomato'}}/>
                 </MapView.Marker>
-
                 <MapView.Marker
                     coordinate={{
                         latitude : 30.5376799,
@@ -46,16 +47,8 @@ class Detail extends Component {
                     <Wave style={{backgroundColor: 'red'}}/>
                 </MapView.Marker>
             </MapView>
-            <View style={{position: 'absolute', right: 0, bottom: 0, height: 25,}}>
-                <Text
-                    style={{
-                        textAlign      : 'center',
-                        lineHeight     : 25,
-                        backgroundColor: 'transparent',
-                        color          : 'red',
-                        fontSize       : 12,
-                    }}
-                >
+            <View style={Css._calloutWrapper}>
+                <Text style={Css._calloutPublicTime}>
                     2018/05/20 12:01
                 </Text>
             </View>
@@ -63,43 +56,59 @@ class Detail extends Component {
     );
 
     parallaxForeground = () => (
-        <Animated.View style={{width: window.width, height: GOLDEN_RATIO}}>
+        <View style={{width: window.width, height: GOLDEN_RATIO}}>
             <Animated.View
-                style={{
-                    position  : 'absolute', bottom: this.state.avatarPos.interpolate({
-                        inputRange : [0, GOLDEN_RATIO],
-                        outputRange: [0, GOLDEN_RATIO * 0.9],
-                    }),
-                    height    : 91.8, width: 100,
-                    alignItems: 'center', justifyContent: 'center',
-                }}
+                style={[Css._sealWrapper, {
+                    bottom: this.state.sealPos,
+                }]}
             >
-                <Animated.View
-                    style={{
-                        height    : 66.8, width: 100,
-                        alignItems: 'center', justifyContent: 'center',
-                        overflow  : 'hidden',
-                    }}
-                >
-                    <Image
-                        style={{
-                            height      : 72, width: 72, backgroundColor: 'tomato',
-                            borderRadius: 36, position: 'absolute', top: 0,
-                        }}
+                <View style={Css._sealCircle}>
+                    <Animated.Image
+                        style={[Css._sealCircleAvatar, {
+                            height      : this.state.scale.interpolate({
+                                inputRange : [0.00, 1.00],
+                                outputRange: [0.10 * window.width, 0.20 * window.width],
+                            }),
+                            width       : this.state.scale.interpolate({
+                                inputRange : [0.00, 1.00],
+                                outputRange: [0.10 * window.width, 0.20 * window.width],
+                            }),
+                            borderRadius: this.state.scale.interpolate({
+                                inputRange : [0.00, 1.00],
+                                outputRange: [0.05 * window.width, 0.10 * window.width],
+                            }),
+                            transform   : [{
+                                translateY: this.state.scale.interpolate({
+                                    inputRange : [0.00, 1.00],
+                                    outputRange: [30.0, 0.00],
+                                })
+                            }],
+                        }]}
                         source={{uri: 'https://wx4.sinaimg.cn/mw690/7529eb5fgy1fqgz5l6332j22c02c0npe.jpg'}}
                     />
-                </Animated.View>
-                <Animated.View
-                    style={{height: 25, width: 100,}}
-                >
-                    <Text
-                        style={{
-                            textAlign      : 'center',
-                            lineHeight     : 25,
-                            backgroundColor: 'transparent',
-                        }}
-                    >卖萌的小怪</Text>
-                </Animated.View>
+                </View>
+                <View style={Css._sealRectangle}>
+                    <Text style={Css._sealRectangleUsername}>
+                        卖萌的小怪
+                    </Text>
+                </View>
+            </Animated.View>
+        </View>
+    );
+
+    parallaxFixed = () => (
+        <Animated.View
+            style={{width: window.width, height: 75, position: 'absolute', top: 0, left: 0,}}
+        >
+            <Animated.View
+                style={{
+                    width        : window.width, height: 45, position: 'absolute', bottom: 0,
+                    flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
+                    paddingLeft  : 16, paddingRight: 16,
+                }}
+            >
+                <Ionicons name="ios-arrow-back" color="#ffff" size={24}/>
+                <Ionicons name="md-more" color="#ffff" size={24}/>
             </Animated.View>
         </Animated.View>
     );
@@ -114,10 +123,24 @@ class Detail extends Component {
                 outputScaleValue={8.3}
                 renderBackground={this.parallaxBackground}
                 renderForeground={this.parallaxForeground}
-                scrollEvent={({nativeEvent: {contentOffset}}) => {
-                    // this.state.avatarPos.setValue(nativeEvent.contentOffset.y);
-                    console.log(contentOffset.y)
+                renderFixedHeader={this.parallaxFixed}
+                stickyHeaderHeight={75}
+                scrollEvent={({nativeEvent: {contentOffset: {y}}}) => {
+                    const distance = GOLDEN_RATIO - y;
+
+
+                    if (GOLDEN_RATIO - y <= 0.334 * window.width && GOLDEN_RATIO - y >= 0.272 * window.width) {
+                        this.state.sealPos.setValue(GOLDEN_RATIO - y - 0.334 * window.width);
+                    }
+
+                    if (GOLDEN_RATIO - y <= 0.272 * window.width && GOLDEN_RATIO - y >= 0.2 * window.width) {
+                        this.state.scale.setValue((GOLDEN_RATIO - y - 0.2 * window.width) / (0.072 * window.width));
+                    }
+
+                    GOLDEN_RATIO - y >= 0.272 * window.width && this.state.scale.setValue(1);
+                    GOLDEN_RATIO - y >= 0.334 * window.width && this.state.sealPos.setValue(0);
                 }}
+                showsVerticalScrollIndicator={false}
             >
 
             </Parallax>
