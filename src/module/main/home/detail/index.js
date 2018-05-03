@@ -16,11 +16,13 @@ const GOLDEN_RATIO = 0.618 * window.width;
 class Detail extends Component {
     constructor(props) {
         super(props);
-        this.state = {sealPos: new Animated.Value(0), scale: new Animated.Value(1),};
+        this.state = {
+            sealPos: new Animated.Value(0), scale: new Animated.Value(1),
+        };
     }
 
     parallaxBackground = () => (
-        <Animated.View style={{width: window.width, height: GOLDEN_RATIO}}>
+        <Animated.View style={{width: window.width, height: GOLDEN_RATIO,}}>
             <MapView
                 initialRegion={{
                     latitude      : 30.537686,
@@ -56,12 +58,12 @@ class Detail extends Component {
     );
 
     parallaxForeground = () => (
-        <View style={{width: window.width, height: GOLDEN_RATIO}}>
-            <Animated.View
-                style={[Css._sealWrapper, {
-                    bottom: this.state.sealPos,
-                }]}
-            >
+        <View style={{width: window.width, height: GOLDEN_RATIO,}}>
+            <Animated.View style={{
+                width  : window.width, height: GOLDEN_RATIO, backgroundColor: '#FA729B',
+                opacity: this.state.scale.interpolate({inputRange: [0, 1], outputRange: [1, 0],}),
+            }}/>
+            <Animated.View style={[Css._sealWrapper, {bottom: this.state.sealPos,}]}>
                 <View style={Css._sealCircle}>
                     <Animated.Image
                         style={[Css._sealCircleAvatar, {
@@ -77,12 +79,14 @@ class Detail extends Component {
                                 inputRange : [0.00, 1.00],
                                 outputRange: [0.05 * window.width, 0.10 * window.width],
                             }),
-                            transform   : [{
-                                translateY: this.state.scale.interpolate({
-                                    inputRange : [0.000, 1.000],
-                                    outputRange: [0.065 * window.width, 0.000],
-                                })
-                            }],
+                            transform   : [
+                                {
+                                    translateY: this.state.scale.interpolate({
+                                        inputRange : [0.000, 1.000],
+                                        outputRange: [0.065 * window.width, 0.000],
+                                    }),
+                                },
+                            ],
                         }]}
                         source={{uri: 'https://wx4.sinaimg.cn/mw690/7529eb5fgy1fqgz5l6332j22c02c0npe.jpg'}}
                     />
@@ -116,9 +120,9 @@ class Detail extends Component {
     render() {
         return (
             <Parallax
+                parallaxHeaderHeight={GOLDEN_RATIO}
                 fadeOutBackground={true}
                 fadeOutForeground={false}
-                parallaxHeaderHeight={GOLDEN_RATIO}
                 backgroundScrollSpeed={10}
                 outputScaleValue={8.3}
                 renderBackground={this.parallaxBackground}
@@ -127,14 +131,14 @@ class Detail extends Component {
                 stickyHeaderHeight={75}
                 scrollEvent={({nativeEvent: {contentOffset: {y}}}) => {
                     const distance = GOLDEN_RATIO - y;
-                    if (distance >= 0.320 * window.width) {
+                    if (distance >= 0.440 * window.width) {
                         this.state.scale.setValue(1);
                         this.state.sealPos.setValue(0);
-                    } else if (distance >= 0.256 * window.width) {
+                    } else if (distance >= 0.376 * window.width) {
                         this.state.scale.setValue(1);
-                        this.state.sealPos.setValue(distance - 0.320 * window.width);
+                        this.state.sealPos.setValue(distance - 0.440 * window.width);
                     } else if (distance >= 0.200 * window.width) {
-                        this.state.scale.setValue((distance - 0.2 * window.width) / (0.056 * window.width));
+                        this.state.scale.setValue((distance - 0.200 * window.width) / (0.180 * window.width));
                     } else {
                         this.state.scale.setValue(0);
                         this.state.sealPos.setValue(-0.064 * window.width);
