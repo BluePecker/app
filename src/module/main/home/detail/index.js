@@ -79,8 +79,9 @@ class Detail extends Component {
                             }),
                             transform   : [{
                                 translateY: this.state.scale.interpolate({
-                                    inputRange : [0.00, 1.00],
-                                    outputRange: [30.0, 0.00],
+                                    inputRange : [0.000, 1.000],
+                                    outputRange: [0.065 * window.width, 0.000],
+                                    // outputRange: [0.070 * window.width, 0.000],
                                 })
                             }],
                         }]}
@@ -127,18 +128,18 @@ class Detail extends Component {
                 stickyHeaderHeight={75}
                 scrollEvent={({nativeEvent: {contentOffset: {y}}}) => {
                     const distance = GOLDEN_RATIO - y;
-
-
-                    if (GOLDEN_RATIO - y <= 0.334 * window.width && GOLDEN_RATIO - y >= 0.272 * window.width) {
-                        this.state.sealPos.setValue(GOLDEN_RATIO - y - 0.334 * window.width);
+                    if (distance >= 0.320 * window.width) {
+                        this.state.scale.setValue(1);
+                        this.state.sealPos.setValue(0);
+                    } else if (distance >= 0.256 * window.width) {
+                        this.state.scale.setValue(1);
+                        this.state.sealPos.setValue(distance - 0.320 * window.width);
+                    } else if (distance >= 0.200 * window.width) {
+                        this.state.scale.setValue((distance - 0.2 * window.width) / (0.056 * window.width));
+                    } else {
+                        this.state.scale.setValue(0);
+                        this.state.sealPos.setValue(-0.064 * window.width);
                     }
-
-                    if (GOLDEN_RATIO - y <= 0.272 * window.width && GOLDEN_RATIO - y >= 0.2 * window.width) {
-                        this.state.scale.setValue((GOLDEN_RATIO - y - 0.2 * window.width) / (0.072 * window.width));
-                    }
-
-                    GOLDEN_RATIO - y >= 0.272 * window.width && this.state.scale.setValue(1);
-                    GOLDEN_RATIO - y >= 0.334 * window.width && this.state.sealPos.setValue(0);
                 }}
                 showsVerticalScrollIndicator={false}
             >
