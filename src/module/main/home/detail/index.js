@@ -81,7 +81,6 @@ class Detail extends Component {
                                 translateY: this.state.scale.interpolate({
                                     inputRange : [0.000, 1.000],
                                     outputRange: [0.065 * window.width, 0.000],
-                                    // outputRange: [0.070 * window.width, 0.000],
                                 })
                             }],
                         }]}
