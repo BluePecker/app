@@ -18,7 +18,7 @@ class Detail extends Component {
         super(props);
         this.state = {
             sealPos  : new Animated.Value(0), scale: new Animated.Value(1),
-            iconColor: '#bcb9b1',
+            iconColor: '#bcb9b1', fixedPos: new Animated.Value(0),
         };
     }
 
@@ -103,7 +103,7 @@ class Detail extends Component {
 
     parallaxFixed = () => (
         <Animated.View
-            style={{width: window.width, height: 75, position: 'absolute', top: 0, left: 0,}}
+            style={{width: window.width, height: 75, position: 'absolute', top: this.state.fixedPos, left: 0,}}
         >
             <Animated.View
                 style={{
@@ -148,6 +148,7 @@ class Detail extends Component {
                     } else {
                         this.state.scale.setValue(0);
                         this.state.sealPos.setValue(-0.064 * window.width);
+                        this.state.fixedPos.setValue(distance - 0.200 * window.width);
                     }
 
                     // 状态栏及Icon颜色切换
