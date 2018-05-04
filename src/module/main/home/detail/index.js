@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Parallax from 'react-native-parallax-scroll-view';
-import {Animated, Dimensions, View, Text} from 'react-native';
+import {Animated, Dimensions, View, Text, StatusBar} from 'react-native';
 import MapView from 'react-native-maps';
 import Image from 'react-native-fast-image';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -17,7 +17,8 @@ class Detail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            sealPos: new Animated.Value(0), scale: new Animated.Value(1),
+            sealPos  : new Animated.Value(0), scale: new Animated.Value(1),
+            iconColor: '#bcb9b1',
         };
     }
 
@@ -111,11 +112,15 @@ class Detail extends Component {
                     paddingLeft  : 16, paddingRight: 16,
                 }}
             >
-                <Ionicons name="ios-arrow-back" color="#ffff" size={24}/>
-                <Ionicons name="md-more" color="#ffff" size={24}/>
+                <Ionicons name="ios-arrow-back" color={this.state.iconColor} size={24}/>
+                <Ionicons name="md-more" color={this.state.iconColor} size={24}/>
             </Animated.View>
         </Animated.View>
     );
+
+    componentDidMount() {
+        StatusBar.setBarStyle('default');
+    }
 
     render() {
         return (
@@ -131,6 +136,7 @@ class Detail extends Component {
                 stickyHeaderHeight={75}
                 scrollEvent={({nativeEvent: {contentOffset: {y}}}) => {
                     const distance = GOLDEN_RATIO - y;
+                    // 头像变换
                     if (distance >= 0.440 * window.width) {
                         this.state.scale.setValue(1);
                         this.state.sealPos.setValue(0);
@@ -142,6 +148,15 @@ class Detail extends Component {
                     } else {
                         this.state.scale.setValue(0);
                         this.state.sealPos.setValue(-0.064 * window.width);
+                    }
+
+                    // 状态栏及Icon颜色切换
+                    if (distance > 0.376 * window.width) {
+                        this.setState({iconColor: '#bcb9b1'});
+                        StatusBar.setBarStyle('default');
+                    } else {
+                        this.setState({iconColor: '#ffffff'});
+                        StatusBar.setBarStyle('light-content');
                     }
                 }}
                 showsVerticalScrollIndicator={false}

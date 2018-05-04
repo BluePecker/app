@@ -17,7 +17,8 @@ export default EStyleSheet.create({
         height: '6.4rem', width: '26rem',
     },
     'sealRectangleUsername': {
-        lineHeight: '6.4rem', textAlign: 'center', backgroundColor: 'transparent',
+        lineHeight     : '6.4rem', textAlign: 'center',
+        backgroundColor: 'transparent', color: '#bcb9b1',
     },
     'calloutWrapper'       : {
         position: 'absolute', right: 0, bottom: 0,
