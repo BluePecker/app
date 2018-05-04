@@ -16,7 +16,7 @@ export default StackNavigator({
                     <Text style={{
                         fontSize  : 24,
                         height    : 35,
-                        lineHeight: 45,
+                        lineHeight: 35,
                         color     : '#ffffff'
                     }}>Vaiee</Text>
                 </Button>
@@ -34,7 +34,8 @@ export default StackNavigator({
             headerStyle: {
                 backgroundColor  : '#FA729B',
                 borderBottomColor: 'transparent',
-                height           : 35,
+                //height           : 35,
+                height           : 31,
             },
         }),
     },
