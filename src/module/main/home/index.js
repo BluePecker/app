@@ -29,7 +29,6 @@ export default StackNavigator({
             headerRight: (
                 <Button styleName="clear">
                     <IonIcon size={26} name="md-add" color="#ffffff"/>
-
                 </Button>
             ),
             headerStyle: {
