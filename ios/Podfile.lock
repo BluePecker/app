@@ -44,7 +44,7 @@ PODS:
     - GoogleMaps/Base
   - React (0.51.1):
     - React/Core (= 0.51.1)
-  - react-native-fast-image (3.0.2):
+  - react-native-fast-image (4.0.14):
     - FLAnimatedImage
     - React
     - SDWebImage/Core
@@ -169,8 +169,8 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   react-native-fast-image:
-    :commit: d200e29f0280105652a56c2deb5b729a26941d4b
-    :git: https://github.com/BluePecker/react-native-fast-image.git
+    :commit: f31a44fc07caa7d4635ae83936b8925891a1ab15
+    :git: https://github.com/DylanVann/react-native-fast-image.git
 
 SPEC CHECKSUMS:
   boost: 30a15ffb6d9aa4646dd3caffc960753f4cb4ca4e
@@ -181,7 +181,7 @@ SPEC CHECKSUMS:
   Google-Maps-iOS-Utils: c32891ff472eaaa1fca032beedafa1a013af7875
   GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
   React: 541ba768b9855e10cdc76f55427a5cd0653ca806
-  react-native-fast-image: 591955f3b0f8ef3b82922771ef9c1ab563e74136
+  react-native-fast-image: 6d50167ad4d68b59640ceead8c2bc4e58d91d8bd
   react-native-google-maps: 2cfe3b01f8422c7dae51d8764139fd70f888cfce
   react-native-maps: 066c2afcc89e18726377bcc685315f989ca22449
   react-native-orientation: d4a97266b06ec8d45d74e626656a730ebbebbb6f

@@ -18,7 +18,7 @@
         "react-native-animatable": "^1.2.4",
         "react-native-browser-polyfill": "^0.1.2",
         "react-native-extended-stylesheet": "^0.8.1",
-        "react-native-fast-image": "BluePecker/react-native-fast-image",
+        "react-native-fast-image": "^4.0.14",
         "react-native-image-progress": "^1.1.0",
         "react-native-looped-carousel": "^0.1.9",
         "react-native-maps": "^0.21.0",
